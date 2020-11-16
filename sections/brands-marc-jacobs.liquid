@@ -1,0 +1,137 @@
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+    {%- capture width_classes -%}lg:w-1/5 md:w-1/4 sm:w-1/3 w-1/2{%- endcapture -%}
+
+    {% if section.blocks %}
+        <div class="featured-images mt-6 px-6 mxmd:px-2">
+            <div class="container mx-auto">
+                <div class="flickity-cont" data-flickity='{"contain": true, "prevNextButtons": false, "adaptiveHeight": true, "imagesLoaded": true, "cellAlign": "left","pageDots": true, "arrowShape": "M 15,50 L 65,100 L 70,95 L 25,50  L 70,5 L 65,0 Z"}'>
+                    {% for block in section.blocks %}
+                  
+                      <picture class="border-2 border-solid border-black-600 w-full">
+                        <source media="(max-width: 768px)" srcset="{{ block.settings.featured_image_mobile | img_url: 'master' }}">
+                        <img src="{{ block.settings.featured_image_desktop | img_url: 'master' }}" alt="">
+                      </picture>
+<!--                         <div class="flickity-shell w-full">
+                            <div class="border-2 border-solid border-black-600">
+                            </div>
+                        </div> -->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="best-selling-brands mt-6 mb-8 px-6 mxmd:px-2">
+        <div class="container mx-auto">
+            <h3 class="sm:text-xlg text-lg font-extrabold uppercase tracking-wide mb-5">Best Sellers</h3>
+
+            <div class="flickity-cont" data-flickity='{"contain": true, "imagesLoaded": true, "cellAlign": "left","pageDots": false, "arrowShape": "M 15,50 L 65,100 L 70,95 L 25,50  L 70,5 L 65,0 Z"}'>
+                {% for product in collection.products limit: 10 %}
+                    {% render 'product-card-r', product: product, widths: width_classes, show_discount: false %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  
+  
+    <div class="mx-auto page-width mxlg:px-6 mxlg:mt-10 mxmd:px-2" id="Collection" data-soldImg="{{'oos.png' | asset_img_url: 'master'}}" data-noImg='{{'Rectangle-aspect_ratio-1.jpg' | asset_img_url: 'master'}}'>
+      <div class="flex flex-wrap justify-between">
+        <div class="w-1/3 mxmd:w-full">
+          {% render 'breadcrumbs'%}
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap mt-10 mb-10 mxmd:px-0 mxmd:mt-0">
+        <div class="md:w-1/4 lg:w-1/4 mxmd:w-full">
+          <h2 class="font-extrabold col-title mxmd:hidden">{{collection.title}}</h2>
+          <div id="bc-sf-filter-tree-mobile"></div>
+          <div id="bc-sf-filter-tree"></div>
+          <h2 class="font-extrabold col-title md:hidden mxmd:block mxmd:text-center mxmd:mb-0">{{collection.title}}</h2>
+        </div>
+        <div class="md:pl-6 lg:pl-10 md:w-3/4 lg:w-3/4 mxmd:w-full">
+          <div class="flex justify-end w-full top-align mxmd:px-0 mxmd:flex-wrap">
+            <div id="bc-sf-filter-top-sorting" class="pr-4 mxmd:pr-0 mxmd:mb-4 mxmd:w-1/2"></div>
+            <div id="bc-sf-filter-top-show-limit" class="bc-sf-filter-show-limit"></div>
+            <div id="bc-sf-filter-top-pagination" class="mxmd:w-full mxmd:items-end mxmd:justify-end"></div>
+          </div>
+          {% include 'swym-product-view', product: product %}
+          <div id="bc-sf-filter-products" class="boost-pfs-filter-products flex flex-wrap"></div>
+        </div>
+      </div>
+      <div class="flex justify-end w-full mb-10 mxmd:flex-wrap">
+        <div id="bc-sf-filter-bottom-sorting"  class="pr-4 mxmd:w-1/2 mxmd:mb-4 mxmd:pr-0"></div>
+        <div id="bc-sf-filter-bottom-show-limit" class="bc-sf-filter-show-limit"></div>
+        <div id="bc-sf-filter-bottom-pagination" class="mxmd:w-full mxmd:items-end mxmd:justify-end"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <style>
+    .collection-sort__input{
+      background: url('{{'option.png' | asset_url }}') no-repeat right;
+    }
+  </style>
+  
+  
+  
+  <script>   
+    // Declare bcSfFilterConfig variable   
+    var bcSfFilterConfig = {     
+      label: {       
+        sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Sorting" {% endunless %},       
+        sorting_best_selling: {% assign temp = collection.sort_options[1].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Best Selling" {% endunless %},       
+        sorting_featured: {% assign temp = collection.sort_options[0].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Featured" {% endunless %},       
+        sorting_title_ascending: {% assign temp = collection.sort_options[2].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, A-Z" {% endunless %},       
+        sorting_title_descending: {% assign temp = collection.sort_options[3].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, Z-A" {% endunless %},       
+        sorting_price_ascending: {% assign temp = collection.sort_options[4].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Lowest Price" {% endunless %},       
+        sorting_price_descending: {% assign temp = collection.sort_options[5].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Highest Price" {% endunless %},       
+        sorting_date_ascending: {% assign temp = collection.sort_options[6].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, Old to New" {% endunless %},       
+        sorting_date_descending: {% assign temp = collection.sort_options[7].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, New to Old" {% endunless %},       
+        sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Relevance" {% endunless %},        
+  
+  
+        sale: {{ 'products.product.on_sale' | t | json }},       
+        sale_price: {{ 'products.product.sale_price' | t | json }},       
+        sold_out: {{ 'products.product.sold_out' | t | json }},       
+        vendor: {{ 'products.product.vendor' | t |json }},       
+        regular_price: {{ 'products.product.regular_price' | t | json }},       items_with_count_one: {{ 'collections.general.items_with_count.one' | t | json}},       
+        items_with_count_other: {{ 'collections.general.items_with_count.other' | t | json }},       
+        current_page: {{ 'general.pagination.current_page' | t | json }}, 
+      },     
+      custom: {       
+        // Add custom value here     
+      }   
+    }; 
+  
+  </script>
+
+  {% schema %}
+      {
+          "name": "Brand Marc Jacobs",
+          "class": "brands-marc-jacobs",
+          "settings": [
+
+          ],
+          "blocks":[
+              {
+                "type": "features_images",
+                "name": "Brand Featured Images",
+                "settings":[
+                  {
+                    "type": "image_picker",
+                    "id": "featured_image_desktop",
+                    "label": "Featured Image for Slider Desk"
+                  },
+                  {
+                    "type": "image_picker",
+                    "id": "featured_image_mobile",
+                    "label": "Featured Image for Slider Mob"
+                  }
+                ]
+              }
+           ]
+      }
+  {% endschema %}

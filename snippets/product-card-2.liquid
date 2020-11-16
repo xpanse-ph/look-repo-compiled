@@ -1,0 +1,108 @@
+
+{%- assign preview_image = product.featured_media.preview_image -%}
+{% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+{%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+
+{% comment %} Get date from published date to current date {% endcomment %}
+{% assign days = 30 %}
+{% assign period_time = days | times: 24 | times: 60 | times: 60 %}
+{% assign date_now = 'now' | date:'%s' %}
+{% assign date_finished = product.published_at | date:'%s' | plus: period_time | date:'%s' %}
+
+
+{%- capture eyebrow_badge -%}
+    {%- if product.type == 'Eyebrows' -%}
+        {%- if date_finished > date_now -%}
+            New
+        {%- elsif product.tags contains 'Exclusive' -%}
+            {% include 'icon-exclusive-badge' %}
+        {%- elsif product.tags contains 'Brand Spotlight' -%}
+            Brand Spotlight
+        {%- elsif product.tags contains 'Bestseller' -%}
+            Bestseller
+        {%- endif -%}
+    {%- endif -%}
+{%- endcapture -%}
+
+{%- capture product_badge -%}
+    {%- if product.tags contains 'Member Promo' -%}
+        Member Promo
+    {%- elsif product.tags contains 'Cruelty Free' -%}
+        Cruelty Free
+    {%- elsif product.tags contains 'Natural' or product.tags contains 'Organic' -%}
+        Natural
+    {%- elsif product.tags contains 'Vegan' -%}
+        Vegan
+    {%- endif -%}
+{%- endcapture -%}
+
+{%- capture badge_html -%}
+    {%- if product.tags contains 'Member Promo' or product.tags contains 'Cruelty Free' or product.tags contains 'Natural' or product.tags contains 'Organic' or product.tags contains 'Vegan' -%}
+        <span class="rounded-full bg-primary text-white w-12 h-12 uppercase absolute top-0 left-0 text-8px flex justify-center items-center font-bold text-center">
+            {{product_badge}}
+        </span>
+    {%- endif -%}
+{%- endcapture -%}
+
+
+<div class="grid-item slideshow-item mb-20px {{ widths }} mxlg:mr-20px">
+    <div class="grid-item-inner bg-light-gray p-4 lg:mr-20px">
+        <a href="{{product.url}}" id="{{wrapper_id}}" class="block relative h-0">
+            {% comment %} <img src="{{ 'product-placeholder-img.jpg' | asset_url }}" alt="Placeholder"> {% endcomment %}
+            <img id="{{ img_id }}"
+                class="lazyload w-full h-auto absolute top-0 left-0"
+                alt="{{ preview_image.alt }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ preview_image.aspect_ratio }}"
+                data-sizes="auto"
+                data-image>
+            {%- if product.available -%}
+                {%- if product.compare_at_price > product.price -%}
+                    {%- if show_sale_label -%}
+                        <span class="absolute bg-danger text-white uppercase text-smbase font-medium px-2 py-1 top-0 right-0">Sale</span>
+                    {%- endif -%}
+                {%- if show_discount -%}
+                <span class="bg-danger text-white text-sm absolute bottom-0 right-0 rounded-full w-10 h-10 leading-10 text-center">
+                    -{{ product.price | times: -100 | divided_by: product.compare_at_price | plus: 100 | ceil | append: '%' }}
+                </span>
+                {%- endif -%}
+                {%- endif -%}
+            {%- else -%}
+                <div class="uppercase tracking-wider overlay center top-0 right-0 text-center oos-label p-10px text-black text-10px oos-overlay">
+                    <span>Out of stock</span>
+                </div>
+            {%- endif -%}
+            {{badge_html}}
+        </a>
+        <style>
+            #{{wrapper_id}} {
+                padding-bottom: {{ 1 | divided_by: preview_image.aspect_ratio | times: 100 }}%;
+            }
+        </style>
+        <div class="mt-8">
+        {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+            {%- assign current_variant = product.selected_or_first_available_variant -%}
+            {%- if product.type == 'Eyebrows' -%}
+                <span class="block badge text-secondary mb-10px uppercase text-10px font-bold tracking-wide">
+                    {{eyebrow_badge}}
+                </span>
+            {%- endif -%}
+            <h2 class="text-base leading-6 font-bold uppercase text-black mb-10px">{{ product.vendor | escape }}</h2>
+            <h1 class="text-sm font-light leading-4 mb-10px text-black">{{ product.title }}</h1>
+            {%- if product.compare_at_price > product.price -%}
+            <div class="text-sm mb-10px">
+                <span class="line-through font-normal">{{ product.compare_at_price | money }}</span> <span class="text-danger ml-1 font-bold">{{ product.price | money }}</span>
+            </div>
+            {%- else -%}
+            <div class="text-sm text-black font-bold mb-10px">{{ product.price | money }}</div>
+            {%- endif -%}
+            <div class="h-20px">
+                <div class="hulkapps-reviews"><div class="item-reviews" data-product-id="{{product.id}}"></div></div>
+            </div>
+        {% endform %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{% unless customer %}
+<div id="cart-checkout-popup" class="hidden">
+    <div class="cart-popup-overlay fixed max-w-500px md:w-full w-full-mob-width center top-50% left-50% z-1">
+        <div class="md:px-50 px-35px pt-50 md:pb-20px pb-50 bg-primary relative">
+            <h3 class="uppercase text-secondary text-32px font-bold mb-25px text-center">Ready to checkout</h3>
+            <a href="{{ routes.account_register_url }}" title="Register for an account" class="bg-secondary h-50 font-bold mb-10px flex justify-center items-center w-full">
+                <span class="text-primary uppercase text-16px font-light">Register for an account</span>
+            </a>
+            <a href="{{ routes.account_login_url }}" title="Login as member" class="bg-secondary h-50 font-bold mb-10px flex justify-center items-center w-full">
+                <span class="text-primary uppercase text-16px font-light">Login as member</span>
+            </a>
+            <a href="/checkout" name="checkout" title="Checkout as guest" class="bg-primary border border-secondary h-50 font-bold mb-10px flex justify-center items-center w-full">
+                <span class="text-secondary uppercase text-16px font-light">Checkout as guest</span>
+            </a>
+            <div class="absolute top-10px right-10px">
+                <div class="w-30px h-30px text-secondary cursor-pointer cart-popup-cta">
+                    {% render 'icon-close' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray fixed top-0 left-0 w-full h-full cursor-pointer cart-popup-cta"></div>
+</div>
+{% endunless %}

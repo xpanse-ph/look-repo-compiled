@@ -1,0 +1,89 @@
+
+
+{% comment %} {% for item in cart.items %}
+    {{ item.product.compare_at_price | json }}
+{% endfor %} {% endcomment %}
+{% layout none %}
+
+{
+   "original_total_price": {{ cart.original_total_price | json }},
+   "total_price": {{ cart.total_price | json }},
+   "item_count": {{ cart.item_count | json }},
+   "items":[
+       {% for item in cart.items %}
+        {
+            "id": {{ item.id | json }},
+			"key": {{ item.key | json }},
+            "quantity":  {{ item.quantity | json }},
+            "variant_id":  {{ item.variant_id | json }},
+            "title":  {{ item.title | json }},
+            "price":  {{ item.variant.price | json }},
+            "compare_at_price": {{ item.product.compare_at_price | json }},
+            "original_price":  {{ item.original_price | json }},
+            "line_price":  {{ item.id | json }},
+            "original_line_price":  {{ item.original_line_price | json }},
+            "vendor":  {{ item.vendor | json }},
+            "product_id":  {{ item.product_id | json }},
+            "final_price":  {{ item.final_price | json }},
+            "final_line_price":  {{ item.final_line_price | json }},
+            "url":  {{ item.url | json }},
+            "image":  {{ item.image | json }},
+            "handle":  {{ item.product.handle | json }},
+            "product_type":  {{ item.product.type | json }},
+            "product_title":  {{ item.product.title | json }},
+            "variant_title": {{ item.variant.title | json }},
+            "variant_options":  {{ item.variant.options | json }},
+            "options_with_values":  {{ item.options_with_values | json }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+   ],
+   "items_subtotal_price": {{ cart.items_subtotal_price | json }}
+}
+
+{% capture results %}
+
+{
+   "original_total_price": {{ cart.original_total_price | json }},
+   "total_price": {{ cart.total_price | json }},
+   "item_count": {{ cart.item_count | json }},
+   "items":[
+       {% for item in cart.items %}
+        {
+            "id": {{ item.id | json }},
+            "quantity":  {{ item.quantity | json }},
+            "variant_id":  {{ item.variant_id | json }},
+            "title":  {{ item.title | json }},
+            "price":  {{ item.product.price | json }},
+            "compare_at_price": {{ item.product.compare_at_price | json }},
+            "original_price":  {{ item.original_price | json }},
+            "line_price":  {{ item.id | json }},
+            "original_line_price":  {{ item.original_line_price | json }},
+            "vendor":  {{ item.vendor | json }},
+            "product_id":  {{ item.product_id | json }},
+            "final_price":  {{ item.final_price | json }},
+            "final_line_price":  {{ item.final_line_price | json }},
+            "url":  {{ item.url | json }},
+            "image":  {{ item.image | json }},
+            "handle":  {{ item.product.handle | json }},
+            "product_type":  {{ item.product.type | json }},
+            "product_title":  {{ item.product.title | json }},
+            "variant_title": {{ item.variant.title | json }},
+            "variant_options":  {{ item.variant.options | json }},
+            "options_with_values":  {{ item.options_with_values | json }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+   ],
+   "items_subtotal_price": {{ cart.items_subtotal_price | json }}
+}
+
+    {% comment %} {% paginate search.results by 999 %}
+        {% for item in search.results %}
+            {% assign product = item %}
+                {{ product | json }}
+                {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    {% endpaginate %} {% endcomment %}
+{% endcapture %}
+{% comment %} {
+    "cart_result": {{ results }}
+} {% endcomment %}

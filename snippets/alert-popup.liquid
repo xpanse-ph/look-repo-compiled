@@ -1,0 +1,14 @@
+<div id="alert-popup-{{block.id}}" data-block-id="{{block.id}}" class="collection-alert-popup mxmd:hidden">
+    <div class="fixed center-right z-40 max-w-350px w-full">
+        <div class="absolute top-10px right-10px">
+            <button class="w-35px h-35px text-white js-toggle-alert popup-close z-50">
+                {% comment %} {% render 'icon-close' %} {% endcomment %}
+            </button>
+        </div>
+        <a href="{{block.settings.alert_popup_url}}" class="block">
+            <div class="h-0 relative" style="padding-bottom: {{ 1 | divided_by: block.settings.alert_popup_img.aspect_ratio | times: 100 }}%">
+                <img class="lazyload absolute top-0 left-0 w-full h-auto" data-src="{{ block.settings.alert_popup_img | img_url: 'master' }}" alt="{{ block.settings.alert_popup_title }}">
+            </div>
+        </a>
+    </div>
+</div>

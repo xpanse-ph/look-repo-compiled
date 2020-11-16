@@ -1,0 +1,146 @@
+<div id="desktop-nav" class="mt-35px lg:block hidden w-full">
+    <nav class="main-nav border-b border-gray pb-2">
+        <ul class="nav-link-list flex justify-between relative">
+            {%- for link in linklists[link_lists].links -%}
+            <li class="nav-link-item {% if link.links != blank %}lvl1{% endif %}">
+                <a href="{{ link.url }}" class="block nav-link-a p-2 hover:text-danger" title="{{ link.title }}">
+                    <span class="uppercase text-primary text-sm font-extrabold leading-4 hover:text-danger">{{ link.title }}</span>
+                </a>
+                {%- if link.links != blank -%}
+                <ul class="nav-link-lvl2 min-w-200px absolute left-auto h-auto w-full top-auto">
+                  <div class="bg-white flex flex-col flex-wrap py-8 px-2 max-h-360px">
+                    {%- for child_link in link.links -%}
+                    <li class="nav-link-lvl2-item ml-5 mb-20px block">
+                      <a href="{{ child_link.url }}" title="{{child_link.title}}" class="flex gap-2 items-center nav-link-lvl2-a hover:text-danger leading-normal mb-2">
+                        <span class="uppercase text-primary text-sm font-extrabold leading-4 hover:text-danger">{{child_link.title}}</span>
+                        <div class="h-2">
+                          {%- render 'icon-arrow-polygon' -%}
+                        </div>
+                      </a>
+                      {%- if child_link.links != blank -%}
+                        <ul class="nav-link-lvl2-list table">
+                          {%- for grandchild_link in child_link.links -%}
+                            <li class="leading-normal table">
+                              <a href="{{grandchild_link.url}}" title="{{grandchild_link.title}}" class="uppercase text-primary text-sm font-regular hover:text-danger table leading-relaxed mb-1">
+                                {{grandchild_link.title}}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                    {%- endfor -%}
+                  </div>
+                </ul>
+                {%- endif -%}
+            </li>
+            {%- endfor -%}
+        </ul>
+    </nav>
+    <div id="pxu_cst" class="timer-{{section.id}}"></div>
+</div>
+<style>
+.timer-{{section.id}} .mp-bar-outer {
+  background-color: #302E2B !important;
+  background-image: none;
+}
+.timer-{{section.id}} .mp-bar-inner {
+  font-family: "Mulish", sans-serif !important;
+  padding: 0;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-timer {
+  margin: 10px 0;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-bar-content .mp-bar-text {
+  margin: 0;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-timer-time {
+  background-color: #ffffff !important;
+  font-weight: 800;
+  border-radius: 0.25rem;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-timer-time .mp-timer-label {
+  color: inherit !important;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  bottom: -0.76em !important;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-timer-time:before {
+  content: none;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-bar-content .mp-bar-text {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-bar-content .mp-button-outer {
+  background-color: #ffffff !important;
+}
+.timer-{{section.id}} .mp-bar-inner .mp-bar-content .mp-button-outer span {
+  text-transform: uppercase;
+}
+</style>
+<script>
+window.addEventListener('DOMContentLoaded', (e) => {
+
+  $('.lvl1').mouseenter(addWidth)
+  $('.lvl1').hover(addClass)
+
+  function addWidth() {
+    var $this = $(this),
+        $list = $this.find('.nav-link-lvl2'),
+        $items = $list.find('.nav-link-lvl2-item'),
+        $curWidth = $list.inlineStyle('width'),
+        $curHeight = $list.height();
+        $width = 0,
+        $height = 0,
+        $parent = $(this).closest('.main-nav'),
+        $navCount = $this.siblings().length + 1,
+        $halfCount = $navCount / 2,
+        $maxWidth = $(this).parent().width() * 0.85,
+        $minWidth = 180;
+
+        console.log($(this).parent().width())
+
+    if($curWidth <= 0) {
+      $.each($items, function(i, item) {
+        var $item = $(item);
+          $width += $(item).width();
+          $height += $(item).height();
+      })
+      var $totalWidth = $width + parseInt($items.css('margin-left').replace(/'px'/g, '')),
+          $totalHeight = $height + parseInt($items.css('margin-bottom').replace(/'px'/g, '')),
+          $area = $totalWidth * $totalHeight,
+          $totalWidth = ($area / $width) + (parseInt($list.children().css('padding-left').replace(/'px'/g, '')) * 2);
+
+      $list.css({
+        "width": `${$totalWidth}px`,
+        "max-width": `${$maxWidth}px`,
+        "min-width": `${$minWidth}px`
+        })
+    }
+  }
+
+
+
+function getLargest(array, largest) {
+  for (i=0; i<=largest;i++){
+    if (array[i]>largest) {
+        var largest=array[i];
+    }
+  }
+  return largest;
+}
+
+
+  function addClass() {
+    $(this).toggleClass('highlighted');
+  }
+
+  $.fn.inlineStyle = function (prop) {
+    return this.prop("style")[$.camelCase(prop)];
+  };
+
+})
+</script>

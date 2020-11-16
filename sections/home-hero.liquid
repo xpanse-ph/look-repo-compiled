@@ -1,0 +1,154 @@
+<div data-section-id="{{ section.id }}" data-section-type="hero-section">
+    <div class="block container mx-auto">
+        <div class="w-full hero-img-section {% if section.blocks.size > 1 %}hero-slider{% endif %}">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'slideshow' -%}
+                <div class="hero-img hero-item relative w-full">
+                    {%- assign img_url = block.settings.desk_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    {%- assign mob_img_url = block.settings.mob_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    {%- if block.settings.desk_img != blank -%}
+                        <a href="{{ block.settings.cta_url }}" class="hero-img-container img-container-{{block.id}} block" data-desktop-height="{{ block.settings.desk_img.height }}" data-aspect-ratio="{{ block.settings.desk_img.aspect_ratio }}" data-height-ratio="{{ block.settings.desk_img.height | divided_by: block.settings.desk_img.aspect_ratio }}">
+                            <picture class="block">
+                                <source media="(max-width: 1023px)" 
+                                        srcset="{{ block.settings.mob_img | img_url: '100x' }}"
+                                        data-srcset="{{ mob_img_url }}"
+                                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ block.settings.title | escape }}">
+                                <source media="(min-width: 1024px)" 
+                                        srcset="{{ block.settings.desk_img | img_url: '300x' }}"
+                                        data-srcset="{{ img_url }}"
+                                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ block.settings.title | escape }}">
+                                <img class="lazyload {% if forloop.first %}lazypreload{% endif %} w-full h-auto"
+                                    src="{{ block.settings.desk_img | img_url: '300x' }}"
+                                    data-src="{{ img_url }}"
+                                    data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                    data-aspectratio="{{ block.settings.desk_img.aspect_ratio }}"
+                                    data-sizes="auto"
+                                    alt="{{ block.settings.title | escape }}">
+                            </picture>
+                        </a>
+                    {%- endif -%}
+                    <style>
+                        .img-container-{{block.id}} {
+                            position: relative;
+                            height: 0;
+                        }
+                        .img-container-{{block.id}} img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        @media (min-width: 1024px) {
+                            .img-container-{{block.id}} {
+                                padding-bottom: {{ 1 | divided_by: block.settings.desk_img.aspect_ratio | times: 100 }}%;
+                            }
+                        }
+                        
+                        @media (max-width: 1023px) {
+                            .img-container-{{block.id}} {
+                                padding-bottom: {%- if block.settings.mob_img != blank -%}{{ 1 | divided_by: block.settings.mob_img.aspect_ratio | times: 100 }}%{%- else -%}100%{%- endif -%};
+                            }
+                        }
+                    </style>
+                    <div class="hero-main-content overlay center">
+                        <div class="h-full w-full flex justify-center items-center">
+                            <div class="hero-content text-center">
+                                {% if block.settings.title != blank %}
+                                <h1 class="uppercase text-mdxlg md:text-xxlg font-black">{{ block.settings.title }}</h1>
+                                {% endif %}
+                                {% if block.settings.caption != blank %}
+                                <p class="font-normal md:text-base text-sm leading-5">{{ block.settings.caption }}</p>
+                                {% endif %}
+                                {% if block.settings.cta_txt != blank %}
+                                <div class="hero-cta mt-12 block">
+                                    <a href="{{ block.settings.cta_url }}" title="{{ block.settings.cta_txt }}" class="mx-auto max-w-200px h-50 w-full table uppercase text-white border border-primary bg-primary font-bold text-base py-3 tracking-wider">{{ block.settings.cta_txt }}</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Home Hero",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Text content"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Look at me"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "slideshow",
+                "name": "Slideshow item",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Text content"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Heading",
+                        "default": "Look at me"
+                    },
+                    {
+                        "type": "text",
+                        "id": "caption",
+                        "label": "Caption",
+                        "default": "Lorem ipsum dolor ismet karud ersa doles."
+                    },
+                    {
+                        "type": "header",
+                        "content": "Image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "desk_img",
+                        "label": "Desktop Image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "mob_img",
+                        "label": "Mobile Image"
+                    },
+                    {
+                        "type": "header",
+                        "content": "CTA"
+                    },
+                    {
+                        "type": "text",
+                        "id": "cta_txt",
+                        "label": "URL Text",
+                        "default": "Shop now"
+                    },
+                    {
+                        "type": "url",
+                        "id": "cta_url",
+                        "label": "URL"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Home Hero",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

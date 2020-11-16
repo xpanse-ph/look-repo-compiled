@@ -1,0 +1,144 @@
+<div data-section-id="{{ section.id }}" data-section-type="video-hero-section" class="md:my-50 mxmd:my-20px">
+    <div class="relative container mx-auto mxlg:mx-25px">
+        <div class="video block">
+            {% if section.settings.ext_vid.type == 'youtube' %}
+            <div class="video-container-{{section.id}}">
+                <iframe class="lazyload w-full h-full" data-src="https://www.youtube.com/embed/{{ section.settings.ext_vid.id }}?showinfo=0&controls=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            {% endif %}
+        </div>
+        <a href="javascript:void(0)" title="{{ section.settings.cta_txt }}" class="js-vid-play video-overlay block absolute top-0 left-0 w-full {% if section.settings.desk_img != blank or section.settings.mob_img != blank %}h-full{%else%}h-auto{%endif%}">
+            <div class="relative block w-full {% if section.settings.desk_img != blank or section.settings.mob_img != blank %}h-full{%else%}h-auto{%endif%}">
+                {%- if section.settings.desk_img != blank or section.settings.mob_img != blank -%}
+                <div class="img-container-{{section.id}}">
+                    {%- assign img_url = section.settings.desk_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    {%- assign mob_img_url = section.settings.mob_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <picture class="block w-full h-full">
+                        <source media="(max-width: 1023px)" 
+                                srcset="{{ section.settings.mob_img | img_url: '100x' }}"
+                                data-srcset="{{ mob_img_url }}"
+                                data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                data-sizes="auto"
+                                alt="{{ section.settings.cta_txt | escape }}">
+                        <source media="(min-width: 1024px)" 
+                                srcset="{{ section.settings.desk_img | img_url: '300x' }}"
+                                data-srcset="{{ img_url }}"
+                                data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                data-sizes="auto"
+                                alt="{{ section.settings.cta_txt | escape }}">
+                        <img class="lazyload lazypreload w-full h-auto"
+                            src="{{ section.settings.desk_img | img_url: '300x' }}"
+                            data-src="{{ img_url }}"
+                            data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                            data-aspectratio="{{ section.settings.desk_img.aspect_ratio }}"
+                            data-sizes="auto"
+                            alt="{{ section.settings.cta_txt | escape }}">
+                    </picture>
+                    <style>
+                        .img-container-{{section.id}}, .video-container-{{section.id}} {
+                            position: relative;
+                            height: 0;
+                        }
+                        .img-container-{{section.id}} img, .video-container-{{section.id}} iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        @media (min-width: 1024px) {
+                            .img-container-{{section.id}}, .video-container-{{section.id}} {
+                                padding-bottom: {{ 1 | divided_by: section.settings.desk_img.aspect_ratio | times: 100 }}%;
+                            }
+                        }
+                        @media (max-width: 1023px) {
+                            .img-container-{{section.id}}, .video-container-{{section.id}} {
+                                padding-bottom: {{ 1 | divided_by: section.settings.mob_img.aspect_ratio | times: 100 }}%;
+                            }
+                        }
+                    </style>
+                </div>
+                {%- else -%}
+                    <div class="img-container-{{section.id}}">
+                        <div class="lazyload lazypreload w-full h-full block img" 
+                        style="background-repeat: no-repeat;background-position: center; background-image: url(https://img.youtube.com/vi/{{ section.settings.ext_vid.id }}/maxresdefault.jpg);"></div>
+                    </div>
+                    <style>
+                        .img-container-{{section.id}}, .video-container-{{section.id}} {
+                            position: relative;
+                            height: 0;
+                        }
+                        .img-container-{{section.id}} .img, .video-container-{{section.id}} iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        @media (min-width: 1024px) {
+                            .img-container-{{section.id}}, .video-container-{{section.id}} {
+                                padding-bottom: 50%;
+                            }
+                        }
+                        @media (max-width: 1023px) {
+                            .img-container-{{section.id}}, .video-container-{{section.id}} {
+                                padding-bottom: 123.0769231%;
+                            }
+                        }
+                    </style>
+                {%- endif -%}
+                <div class="overlay center w-full h-full flex justify-center items-center img-overlay-bg">
+                    <div class="table content uppercase border border-white text-white md:text-40px md:h-80px sm:text-mdxlg font-bold px-10 py-3 transition-all duration-500 ease-in-out hover:bg-primary hover:border-primary hover-scale">
+                        {{ section.settings.cta_txt }}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Hero",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "View here"
+            },
+            {
+                "type": "header",
+                "content": "Images"
+            },
+            {
+                "type": "image_picker",
+                "id": "desk_img",
+                "label": "Desktop Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_img",
+                "label": "Mobile Image"
+            },
+            {
+                "type": "header",
+                "content": "Video"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "Button Text",
+                "default": "View here"
+            },
+            {
+                "type": "video_url",
+                "id": "ext_vid",
+                "label": "External Video",
+                "accept": ["youtube", "vimeo"],
+                "default": "https://youtu.be/kGNUxd23PnA"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Hero",
+                "category": "Homepage layout"
+            }
+        ]
+    }
+{% endschema %}

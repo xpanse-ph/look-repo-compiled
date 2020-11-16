@@ -1,0 +1,96 @@
+<div data-section-id="{{ section.id }}" data-section-type="marketing-section">
+    <div class="container mx-auto mxlg:px-25px my-8">
+        <div class="flex flex-wrap justify-between">
+            {%- for block in section.blocks -%}
+                {%- if block.type == 'links' -%}
+                    <a href="{{block.settings.url}}" title="{{block.settings.title}}" class="table mxlg:mb-10px text-center md:w-40 mxmd:w-48/100 py-3 border border-primary hover:text-white hover:bg-primary transition-all duration-500 ease-in-out">
+                        <span class="uppercase text-sm tracking-wider">{{block.settings.title}}</span>
+                    </a>
+                {%- endif -%}
+            {%- endfor -%}
+        </div>
+        <div class="mt-50 flex flex-wrap lg:justify-between">
+            {%- if section.settings.img1 != blank -%}
+            <div class="block lg:w-48/100 w-full mxlg:mb-20px">
+                <a href="{{ section.settings.img1_url }}" class="block h-0 relative" style="padding-bottom: {{ 1 | divided_by: section.settings.img1.aspect_ratio | times: 100 }}%">
+                    {%- assign img_url = section.settings.img1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <img class="lazyload lazypreload absolute top-0 left-0 w-full h-auto"
+                        src="{{ section.settings.img1 | img_url: '100x' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                        data-aspectratio="{{ section.settings.img1.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.img1.alt | escape }}">
+                </a>
+            </div>
+            {%- endif -%}
+            {%- if section.settings.img2 != blank -%}
+            <div class="block lg:w-48/100 w-full mxlg:mb-20px">
+                <a href="{{section.settings.img2_url}}" class="block h-0 relative" style="padding-bottom: {{ 1 | divided_by: section.settings.img2.aspect_ratio | times: 100 }}%">
+                    {%- assign img_url2 = section.settings.img2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <img class="lazyload lazypreload absolute top-0 left-0 w-full h-auto"
+                        src="{{ section.settings.img2 | img_url: '100x' }}"
+                        data-src="{{ img_url2 }}"
+                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                        data-aspectratio="{{ section.settings.img2.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.img2.alt | escape }}">
+                </a>
+            </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Marketing",
+    "class": "mt-16",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "img1",
+          "label": "First image"
+      },
+      {
+        "type": "url",
+        "id": "img1_url",
+        "label": "Image URL"
+      },
+      {
+          "type": "image_picker",
+          "id": "img2",
+          "label": "Second image"
+      },
+      {
+        "type": "url",
+        "id": "img2_url",
+        "label": "Image URL"
+      }
+    ],
+    "blocks": [
+            {
+                "type": "links",
+                "name": "Header blocks",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Block Title",
+                        "default": "Lorem"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "Block URL"
+                    }
+                ]
+            }
+        ],
+    "presets": [
+        {
+            "name": "Marketing",
+            "category": "Homepage Layout"
+        }
+    ]
+  }
+{% endschema %}

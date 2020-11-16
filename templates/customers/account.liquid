@@ -1,0 +1,188 @@
+<div class="mx-auto account-page">
+
+  <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+    <!-- LEFT  -->
+    {% include 'account-left-nav'%}
+    <!-- END LEFT  -->
+    <!-- RIGHT -->
+    <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-main">
+      <!-- TOP -->
+      <div class="flex flex-wrap mb-8 text-center border border-gray">
+        <div class="w-1/2 py-4 text-center md:border-r mxmd:border-b mxmd:w-full border-gray">
+          <h3>LOOK LOYALTY</h3>
+          <h3 class="font-bold">PINK</h3>
+          <div class="flex justify-center w-1/2 mx-auto">
+           <img src="{{'PinkMemberCard.png' | file_img_url: 'master'}}" alt="">
+          </div>
+          <p class="my-2 font-bold">Customer ID <span class="font-normal" id="ltv" data-crmid="{{ customer.metafields.member_id.member_id }}">{{ customer.metafields.member_id.member_id }}</span></p>
+          <div class="w-2/3 py-2 mx-auto border">
+            <a href="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data={% unless customer.metafields.member_id.member_id %}8880607800000048{% endunless %}{{ customer.metafields.member_id.member_id }}" target="_blank" id="openQr" class="js-toggle-qr-modal">OPEN QR CODE</a>
+          </div>
+        </div>
+        <div class="flex items-center w-1/2 mxmd:w-full mxmd:py-4">
+          <div class="w-5/6 mx-auto text-left">
+            <h2 class="mb-12 font-extrabold uppercase mxmd:mb-2 text-24px mxmd:text-xlg">HI, {{ customer.first_name}}!</h2>
+            <p>YOUR STATUS</p>
+            <p class="my-4 font-bold" id="customer-spent" data-onlinespent="{{ customer.total_spent | divided_by: 100}}">₱ <span>{{ customer.total_spent | money_without_currency }}</span> / 25,000.00 <span class="font-normal mxmd:block">TO UNLOCK BLACK</span></p>
+            <div class="flex items-center w-full">
+              <div class="relative w-5/6">
+                <img src="{{'Rectangle120.png' | file_img_url: 'master'}}" alt="">
+                <div id="spentwidth" class="absolute top-0 h-full rounded-sm z-1 bg-secondary"></div>
+                <img class="absolute top-0 h-full" src="{{'Rectangle121.png' | file_img_url: 'master'}}" alt="">
+              </div>
+              <div class="h-50px">
+                <img class="h-full" src="{{'BlackMemberCard.png.png' | file_img_url: 'master'}}" alt="">
+                {%comment%}
+                {%assign memberCardImg = customer.total_spent | divided_by: 100 %}
+                {%if memberCardImg > 25000 %}
+                <img class="h-full" src="{{'BlackMemberCard.png.png' | file_img_url: 'master'}}" alt="">
+                {%else%}
+                <img class="h-full" src="{{'PinkMemberCard.png' | file_img_url: 'master'}}" alt="">
+                {%endif%}
+                {%endcomment%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END TOP -->
+      <!-- MID -->
+      <div class="flex flex-wrap mb-8">
+        <div class="w-1/2 pr-2 mxmd:w-full mxmd:pr-0">
+          <div class="h-full border border-gray">
+            <div class="px-6 py-6">
+              <h2 class="font-bold">LOOK MEMBER DETAILS</h2>
+              <ul class="py-4">
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">First Name</div>
+                  <div class="w-2/3 mxmd:text-sm">{{ customer.first_name}}</div>
+                </li>
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">Last Name</div>
+                  <div class="w-2/3 mxmd:text-sm">{{ customer.last_name}}</div>
+                </li>
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">Gender</div>
+                  <div class="w-2/3 mxmd:text-sm customer-gender"></div>
+                </li>
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">Birthday</div>
+                  <div class="w-2/3 mxmd:text-sm customer-bday"></div>
+                </li>
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">Email Address</div>
+                  <div class="w-2/3 mxmd:text-sm">{{ customer.email}}</div>
+                </li>
+                <li class="flex py-2 text-left">
+                  <div class="w-1/3 mxmd:text-sm text-silver">Phone Number</div>
+                  <div class="w-2/3 mxmd:text-sm">{{ customer.phone}}</div>
+                </li>
+              </ul>
+              <div class="p-4 text-center text-white bg-black text-smbase">
+                <a href="/account?view=edit">EDIT ACCOUNT DETAILS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 pl-2 mxmd:w-full mxmd:pl-0">
+          <div class="h-full border border-gray">
+            <div class="px-6 py-6">
+              <h2 class="font-bold text-center">LOOK LOYALTY BENEFITS</h2>
+              <div class="p-8 my-10px bg-gray"></div>
+              <div class="p-8 my-10px bg-gray"></div>
+              <div class="p-8 my-10px bg-gray"></div>
+              <a class="block mt-8 font-bold text-center text-danger hover:underline" href="#">LEARN MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END MID -->
+      <!-- BOTTOM -->
+      <div class="flex flex-wrap">
+        <div class="w-1/2 pr-2 mxmd:w-full mxmd:pr-0">
+          <div class="h-full border border-gray">
+            <div class="px-6 py-6 text-center border-b border-gray">
+              <img class="mx-auto" src="{{'Vector.png' | file_img_url: 'master'}}" alt="">
+              <h2 class="my-4 font-bold">YOUR RECENT ORDERS</h2>
+              {%unless customer.orders.size != 0 %}
+              <p class="text-sm">You have no active orders.</p>
+              <p class="text-sm">Shop from our bestsellers below</p>
+              {%endunless%}
+            </div>
+            <div class="py-8 text-left bg-white">
+              {% if customer.orders.size != 0 %}
+                  <table class="w-full">
+                    <thead>
+                      <tr class="h-10 text-center">
+                        <th class="mxmd:min-w-10" scope="col">{{ 'customer.orders.order_number' | t }} Name</th>
+                        <th class="mxmd:min-w-10" scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      {% for order in customer.orders%}
+                      {% assign count = 0 %}
+                      {%for line_items in order.line_items%}
+                      {% assign count = count | plus: 1%}
+                      {%endfor%}
+                        <tr class="h-10 border-gray">
+                          <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
+                            <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+                          </th>
+                          <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+              {% else %}
+              <div class="bg-white carousel-cont" data-flickity='{ "prevNextButtons": false, "contain": true, "imagesLoaded": true, "cellAlign": "left","pageDots": true, "groupCells": true, "arrowShape": "M 15,50 L 65,100 L 70,95 L 25,50  L 70,5 L 65,0 Z", "lazyLoad": 5 }'>
+                {% for product in collections.featured-collection.products limit: 12%}
+                  {% include 'lam-account-flickity' %}
+                {%endfor%}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 pl-2 mxmd:w-full mxmd:pl-0">
+          <div class="h-full border border-gray">
+            <div class="px-6 py-6 text-center border-b border-gray">
+              <img class="mx-auto" src="{{'LikeIcon.png' | file_img_url: 'master'}}" style="height: 32px;" alt="">
+              <h2 class="my-4 font-bold">YOUR WISHLIST</h2>
+              <p class="text-sm with-wl-list">There are no items in your wishlist. Start wishing and shop our LOOK Collection now.</p>
+            </div>
+            <div class="py-8 text-left bg-white">
+              
+              <div id="accountdetails-wishlist-collection" class="bg-white carousel-cont" data-flickity='{ "prevNextButtons": false, "contain": true, "imagesLoaded": true, "cellAlign": "left","pageDots": true, "groupCells": true, "arrowShape": "M 15,50 L 65,100 L 70,95 L 25,50  L 70,5 L 65,0 Z", "lazyLoad": 5 }'>
+                {% for product in collections.featured-collection.products limit: 12%}
+                  {% include 'lam-account-flickity' %}
+                {%endfor%}
+              </div>
+              
+              <div id="accountdetails-wishlist-items-container" class="flex flex-wrap bg-white carousel-cont wrap"></div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END BOTTOM -->
+    </div>
+    <!-- END RIGHT -->
+  </div>
+</div>
+
+
+
+<script src="{{ 'swym-accountdetails-wishlist-page.js' | asset_url }}" ></script>
+
+<div class="qr-modal hidden">
+  <div class="fixed  center top-50% left-50% max-w-335px w-full bg-primary z-40">
+    <div class="flex justify-end p-4">
+      <button class="close text-white w-35px h-35px js-toggle-qr-modal">{% render 'icon-close' %}</button>
+    </div>
+    <h3 class="font-bold uppercase text-white text-center text-xlg px-8">Your personal QR Code</h3>
+    <div class="px-20 my-8">
+      <img class="w-full h-auto border-10 border-white" src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data={% unless customer.metafields.member_id.member_id %}8880607800000048{% endunless %}{{ customer.metafields.member_id.member_id }}" alt="{% unless customer.metafields.member_id.member_id %}8880607800000048{% endunless %}{{ customer.metafields.member_id.member_id }}">
+    </div>
+    <div class="py-1 font-bold uppercase bg-secondary text-primary text-center block border border-secondary text-lg">Take a screenshot</div>
+  </div>
+</div>

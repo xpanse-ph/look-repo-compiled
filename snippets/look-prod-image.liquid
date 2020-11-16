@@ -1,0 +1,93 @@
+
+<div class="prod-image product-image-section lg:max-w-prod-image mr-auto mxlg:mx-auto w-full lg:mr-5">
+    <!-- ! Vue Point -->
+    <template v-if="product">
+        <div class="image-wrapper relative">
+            <div class="main-image mb-4 lg:block hidden relative">
+                <!-- <img data-src="{{ product.featured_image | img_url: 'master' }}" alt="" class="lazyload"> -->
+                <img :src="mainImage" alt="" class="lazyload mainImageForProducts min-h-150px">
+
+                <div class="zoom-btn cursor-pointer lg:block hidden absolute bottom-20px right-20px" @click="zoomToggle()">
+                    <svg class="w-auto h-auto" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.6979 22.2356L24.0674 21.6051L23.9619 21.4996L23.8891 21.4268L23.344 20.8867L17.8857 15.5113C19.2994 13.5057 19.9128 11.0442 19.6057 8.60975C19.2985 6.17525 18.093 3.94328 16.2256 2.35155C14.3581 0.759809 11.9633 -0.0768718 9.51091 0.00555958C7.0585 0.087991 4.72534 1.08359 2.96896 2.79713C1.21257 4.51068 0.159677 6.81855 0.0167263 9.26818C-0.126224 11.7178 0.651083 14.1325 2.19623 16.0387C3.74138 17.9449 5.9429 19.2051 8.36908 19.5722C10.7953 19.9394 13.2711 19.3869 15.311 18.0232L20.8045 23.4313L21.4249 24.0442L21.4877 24.107L22.1609 24.7776C22.5929 25.2097 23.5098 24.9936 24.2131 24.2903C24.9164 23.587 25.1299 22.6651 24.6979 22.2356ZM15.3361 14.1976C15.301 14.2403 15.2658 14.283 15.2281 14.3232C15.1553 14.4086 15.0824 14.4915 15.0046 14.5744L14.7685 14.8105C13.4753 16.0465 11.7546 16.7349 9.96576 16.7321C8.97536 16.7328 7.99623 16.5221 7.09378 16.1141C6.19132 15.7061 5.38632 15.1102 4.73257 14.3662C4.07881 13.6223 3.59134 12.7474 3.30274 11.8C3.01414 10.8526 2.93105 9.85446 3.05901 8.87237C3.18698 7.89028 3.52306 6.9468 4.0448 6.10497C4.56653 5.26315 5.26191 4.54236 6.08448 3.99076C6.90705 3.43917 7.83786 3.06947 8.81473 2.90635C9.7916 2.74324 10.792 2.79047 11.7492 3.0449L12.0004 3.11776L12.1888 3.17804L12.4701 3.28102L12.5781 3.32372C12.7062 3.37647 12.8293 3.43174 12.9524 3.48951H12.975C13.2672 3.63046 13.5492 3.79161 13.819 3.97178L13.8893 4.01951C14.1976 4.23095 14.4882 4.467 14.7584 4.72535C14.8388 4.8007 14.9167 4.88108 14.9945 4.96146C15.0724 5.04184 15.1452 5.12473 15.2181 5.21265L15.3261 5.34076C16.3541 6.58711 16.9163 8.15235 16.9163 9.76793C16.9163 11.3835 16.3541 12.9488 15.3261 14.1951L15.3361 14.1976Z" fill="#302E2B"/>
+                    </svg>                                    
+                </div>
+            </div>
+
+            <!-- <div class="zoom-btn cursor-pointer lg:hidden absolute bottom-20px right-20px">
+                <svg class="w-auto h-auto" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.6979 22.2356L24.0674 21.6051L23.9619 21.4996L23.8891 21.4268L23.344 20.8867L17.8857 15.5113C19.2994 13.5057 19.9128 11.0442 19.6057 8.60975C19.2985 6.17525 18.093 3.94328 16.2256 2.35155C14.3581 0.759809 11.9633 -0.0768718 9.51091 0.00555958C7.0585 0.087991 4.72534 1.08359 2.96896 2.79713C1.21257 4.51068 0.159677 6.81855 0.0167263 9.26818C-0.126224 11.7178 0.651083 14.1325 2.19623 16.0387C3.74138 17.9449 5.9429 19.2051 8.36908 19.5722C10.7953 19.9394 13.2711 19.3869 15.311 18.0232L20.8045 23.4313L21.4249 24.0442L21.4877 24.107L22.1609 24.7776C22.5929 25.2097 23.5098 24.9936 24.2131 24.2903C24.9164 23.587 25.1299 22.6651 24.6979 22.2356ZM15.3361 14.1976C15.301 14.2403 15.2658 14.283 15.2281 14.3232C15.1553 14.4086 15.0824 14.4915 15.0046 14.5744L14.7685 14.8105C13.4753 16.0465 11.7546 16.7349 9.96576 16.7321C8.97536 16.7328 7.99623 16.5221 7.09378 16.1141C6.19132 15.7061 5.38632 15.1102 4.73257 14.3662C4.07881 13.6223 3.59134 12.7474 3.30274 11.8C3.01414 10.8526 2.93105 9.85446 3.05901 8.87237C3.18698 7.89028 3.52306 6.9468 4.0448 6.10497C4.56653 5.26315 5.26191 4.54236 6.08448 3.99076C6.90705 3.43917 7.83786 3.06947 8.81473 2.90635C9.7916 2.74324 10.792 2.79047 11.7492 3.0449L12.0004 3.11776L12.1888 3.17804L12.4701 3.28102L12.5781 3.32372C12.7062 3.37647 12.8293 3.43174 12.9524 3.48951H12.975C13.2672 3.63046 13.5492 3.79161 13.819 3.97178L13.8893 4.01951C14.1976 4.23095 14.4882 4.467 14.7584 4.72535C14.8388 4.8007 14.9167 4.88108 14.9945 4.96146C15.0724 5.04184 15.1452 5.12473 15.2181 5.21265L15.3261 5.34076C16.3541 6.58711 16.9163 8.15235 16.9163 9.76793C16.9163 11.3835 16.3541 12.9488 15.3261 14.1951L15.3361 14.1976Z" fill="#302E2B"/>
+                </svg>                                    
+            </div> -->
+            <div class="image-flickity prod_slider-nav mxlg:mb-4 mxlg:min-h-100px">
+                <ul class="prod-slider-flickity flikity-prod-slider" data-flickity='{"contain": true, "imagesLoaded": true, "cellAlign": "left", "pageDots": false, "arrowShape": "M 15,50 L 65,100 L 70,95 L 25,50  L 70,5 L 65,0 Z", "lazyLoad": 5 }'>
+                        <li v-for="(item, index) in product.images" :data-slcount="index" @click="mainImageSwap(item.src, index)" :key="item.id" :class="[item.position == 1 ? 'pl-0' : index == product.images.length - 1 ? 'pr-0' : '', index  == 0 ? 'selected' : '']" class="flex-grow {{ first_last_class }} lg:w-1/5 w-full cursor-pointer px-2">
+                            <img :data-flickity-lazyload="item.src" alt="" class="lazyload">
+                        </li>
+                    {% comment %} {%- for image in product.images -%}
+                        {%- capture first_last_class -%} 
+                        {%- if forloop.first -%}ml-0{% else %}mr-0{%- endif -%} 
+                        {%- endcapture -%}
+                        <li class="flex-grow {{ first_last_class }} w-1/5 cursor-pointer"><img data-flickity-lazyload="{{ image | img_url: 'master'}}" alt="" class="lazyload"></li>
+                    {%- endfor -%} {% endcomment %}
+                    {% comment %} <li class="flex-grow mx-2"><img data-src="" alt="" class="lazyload"></li>
+                    <li class="flex-grow mx-2"><img data-src="" alt="" class="lazyload"></li>
+                    <li class="flex-grow mx-2"><img data-src="" alt="" class="lazyload"></li>
+                    <li class="flex-grow last:mr-0"><img data-src="" alt="" class="lazyload"></li> {% endcomment %}
+                </ul>
+            </div>
+            
+            <div class="OOS-Label absolute top-0 lg:right-0 mxlg:left-10px {% if product.available %}hidden{% endif %}">
+                <img src="{{'oos.png' | file_img_url: 'master'}}" alt="">
+            </div>
+
+
+            <div class="sale-Label absolute top-0 lg:right-0 mxlg:left-10px {%- unless product.compare_at_price > product.price and product.available %} hidden {% endunless %}">
+                <!-- <img src="{{'oos.png' | file_img_url: 'master'}}" alt=""> -->
+                <svg class="w-auto h-auto" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32.5" cy="32.5" r="32.5" fill="#D33741"/>
+                    <path d="M17.0263 39.144C16.1623 39.144 15.3303 39.032 14.5303 38.808C13.7409 38.5733 13.0849 38.248 12.5623 37.832L13.3623 36.04C14.4609 36.808 15.6876 37.192 17.0423 37.192C17.7676 37.192 18.3223 37.08 18.7063 36.856C19.1009 36.6213 19.2983 36.296 19.2983 35.88C19.2983 35.5173 19.1169 35.2347 18.7543 35.032C18.4023 34.8187 17.7783 34.616 16.8823 34.424C15.8796 34.2213 15.0796 33.976 14.4823 33.688C13.8956 33.3893 13.4636 33.032 13.1863 32.616C12.9196 32.1893 12.7863 31.6613 12.7863 31.032C12.7863 30.3493 12.9729 29.736 13.3463 29.192C13.7303 28.648 14.2636 28.2267 14.9463 27.928C15.6289 27.6187 16.4183 27.464 17.3143 27.464C18.1249 27.464 18.9036 27.5813 19.6503 27.816C20.3969 28.0507 20.9943 28.3707 21.4423 28.776L20.6423 30.568C19.6396 29.8 18.5356 29.416 17.3303 29.416C16.6903 29.416 16.1783 29.544 15.7943 29.8C15.4103 30.056 15.2183 30.4027 15.2183 30.84C15.2183 31.096 15.2876 31.3093 15.4263 31.48C15.5756 31.6507 15.8209 31.8053 16.1623 31.944C16.5036 32.072 16.9889 32.2 17.6183 32.328C19.0796 32.648 20.1303 33.064 20.7703 33.576C21.4209 34.088 21.7463 34.7867 21.7463 35.672C21.7463 36.7387 21.3303 37.5867 20.4983 38.216C19.6663 38.8347 18.5089 39.144 17.0263 39.144ZM31.0176 36.472H25.6896L24.6016 39H22.0896L27.3216 27.608H29.3376L34.5696 39H32.1056L31.0176 36.472ZM30.2016 34.568L28.3616 30.296L26.5216 34.568H30.2016ZM35.5423 27.608H38.0383V36.968H43.1263V39H35.5423V27.608ZM44.6516 27.608H52.5076V29.544H47.0836V32.232H52.1716V34.184H47.0836V37.064H52.5076V39H44.6516V27.608Z" fill="white"/>
+                </svg>
+            </div>
+
+            {{ badge }}
+            
+            <div class="add-to-wl-btn absolute top-20px right-20px lg:hidden">
+                <button class="unq-btn" data-swaction="addToWishlist" data-product-id="{{product.id | json}}">
+                </button>
+            </div>
+        
+        </div>
+
+        <div class="zoom-wrapper-prod-image fixed w-full h-screen top-0 left-0 z-30 hidden overflow-y-auto">
+            <div class="bg-white relative h-full">
+                <div class="image-zoom-close z-1 absolute top-20px right-20px cursor-pointer" @click="zoomToggle()">
+                    <svg class="w-auto h-auto" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="11.3137" y="13.435" width="3" height="35" rx="1.5" transform="rotate(-45 11.3137 13.435)" fill="#302E2B"/>
+                        <rect x="13.0416" y="37.7904" width="3" height="35" rx="1.5" transform="rotate(-135 13.0416 37.7904)" fill="#302E2B"/>
+                    </svg>    
+                </div>
+
+                <div class="zoom-image-selection prod_slider-nav absolute top-0 left-0 ml-8 mt-8">
+                    <ul class="flex flex-col">
+                        <li v-for="(item, index) in product.images" :data-slcount="index" @click="mainImageSwap(item.src, index)" :key="item.id" :class="[index  == 0 ? 'selected' : '']" class="cursor-pointer z-1 my-5 mx-3">
+                            <img :src="item.src" alt="" class="lazyload" style="height: 65px; width: 65px; display: block;">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="main-image relative mx-auto flex-grow">
+                    <img :src="mainImage" alt="" class="lazyload mx-auto">
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="share mt-5 mxlg:hidden">
+        <div class="flex justify-end items-center">
+            <span class="uppercase text-smbase font-bold mr-3">Share On: </span>
+            <span><a target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: product.url }}"><svg class="mx-2 w-auto h-auto" width="35" height="35" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.9997 18.4995C35.9997 28.1646 28.1646 36 18.5 36C8.83538 36 1 28.1646 1 18.4995C1 8.83435 8.83512 1 18.5 1C28.1649 1 35.9997 8.83513 35.9997 18.4995Z" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M15.2033 30.0325H19.4382V19.4271H22.3927L22.7093 15.8759H19.4382V13.8543C19.4382 13.0169 19.6065 12.6852 20.4159 12.6852H22.7081V9H19.7756C16.624 9 15.2033 10.3883 15.2033 13.0449V15.8759H13V19.4717H15.2033V30.0325Z" fill="#302E2B"/></svg></a></span>
+            <span><a target="_blank" href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ shop.url | append: product.url }}"><svg class="mx-2 w-auto h-auto" width="36" height="35" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.7951 18.4997C36.7951 28.1649 28.9603 36 19.2957 36C9.63105 36 1.79541 28.1649 1.79541 18.4997C1.79541 8.83461 9.63028 1 19.2957 1C28.9611 1 36.7951 8.83513 36.7951 18.4997Z" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M10.7705 25.5374C12.6149 26.7229 14.7616 27.3522 16.9541 27.3501C24.4457 27.3501 28.6756 21.0236 28.4209 15.3497C29.2109 14.779 29.8926 14.0717 30.4338 13.2611C29.6976 13.5876 28.9166 13.8018 28.1168 13.8963C28.9595 13.3928 29.5899 12.5994 29.89 11.6646C29.0983 12.1347 28.232 12.466 27.3286 12.6442C26.9513 12.2413 26.4952 11.9203 25.9885 11.7011C25.4819 11.4819 24.9357 11.3691 24.3837 11.3699C21.7797 11.3699 19.8658 13.8 20.4542 16.3239C17.1009 16.1557 14.1288 14.5491 12.1394 12.1082C11.0826 13.9216 11.5912 16.2944 13.3882 17.4946C12.7472 17.4746 12.1203 17.3014 11.56 16.9896C11.5168 18.8591 12.8555 20.6062 14.7961 20.9965C14.2022 21.158 13.5792 21.1815 12.9748 21.0652C13.232 21.867 13.7335 22.5682 14.4092 23.0706C15.0848 23.573 15.9007 23.8514 16.7426 23.8668C15.052 25.1932 12.9039 25.7941 10.7705 25.5374Z" fill="#302E2B"/></svg></a></span>
+            <span><a target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: product.url }}&amp;media={{ product.featured_media | img_url: '1024x1024' }}&amp;description={{ product.title | url_param_escape }}"><svg class="mx-2 w-auto h-auto" width="36" height="35" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.7951 18.4997C36.7951 28.1649 28.9603 36 19.2957 36C9.63105 36 1.79541 28.1649 1.79541 18.4997C1.79541 8.83461 9.63028 1 19.2957 1C28.9611 1 36.7951 8.83513 36.7951 18.4997Z" fill="#302E2B" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M19.2954 35C17.5938 35 15.9542 34.7422 14.4093 34.2637C15.0817 33.1685 16.0862 31.3721 16.4595 29.9366L17.4887 26.0158C18.027 27.0429 19.5986 27.9091 21.2692 27.9091C26.2481 27.9091 29.8327 23.3324 29.8327 17.6461C29.8327 12.1949 25.3839 8.11738 19.6584 8.11738C12.5387 8.11738 8.75603 12.8962 8.75603 18.1019C8.75603 20.5233 10.0451 23.5346 12.1055 24.4957C12.417 24.6401 12.584 24.5761 12.6583 24.275L13.1162 22.4043C13.1553 22.2372 13.1368 22.0949 13.0007 21.9299C12.318 21.1049 11.7735 19.5828 11.7735 18.1659C11.7735 14.5256 14.529 11.0049 19.2232 11.0049C23.276 11.0049 26.114 13.7666 26.114 17.7183C26.114 22.1816 23.8597 25.2733 20.9268 25.2733C19.3057 25.2733 18.093 23.9347 18.4828 22.2909C18.9489 20.3294 19.8502 18.2133 19.8502 16.7964C19.8502 15.53 19.1696 14.4719 17.763 14.4719C16.1068 14.4719 14.7765 16.1859 14.7765 18.4794C14.7765 19.9417 15.2694 20.9296 15.2694 20.9296C15.2694 20.9296 13.6338 27.8452 13.3348 29.1322C13.0027 30.5574 13.1327 32.5601 13.277 33.8636C7.14316 31.4607 2.79541 25.4898 2.79541 18.5C2.79541 9.38787 10.1833 2 19.2954 2C28.4075 2 35.7954 9.38787 35.7954 18.5C35.7954 27.6121 28.4075 35 19.2954 35Z" fill="white"/></svg></a></span>
+        </div>
+    </div>
+</div>

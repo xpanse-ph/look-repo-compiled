@@ -1,0 +1,14 @@
+{% layout none %}
+
+{% capture results %}
+    {% paginate search.results by 999 %}
+        {% for item in search.results %}
+            {% assign product = item %}
+                {{ product | json }}
+                {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    {% endpaginate %}
+{% endcapture %}
+{
+    "products_result": [{{ results }}]
+}

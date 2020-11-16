@@ -1,0 +1,106 @@
+
+<div id="mini_cart_popup" class="absolute border border-gray90 max-w-450px w-full z-20 bg-white top-0 right-0 hidden" data-custlogged="{% if customer %}true{% else %}false{% endif %}" >
+    <template v-if="cartData[0]">
+        <div class="relative border-gray90 border-1">
+            <div class="minicart-close-btn absolute cursor-pointer top-10px right-10px" @click="closeMiniCart()">
+                <svg class="w-auto h-auto" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12.021" y="12.7279" width="1" height="35" transform="rotate(-45 12.021 12.7279)" fill="#302E2B" fill-opacity="0.25"/>
+                    <rect x="12.728" y="37.4767" width="1" height="35" transform="rotate(-135 12.728 37.4767)" fill="#302E2B" fill-opacity="0.25"/>
+                </svg>
+            </div>
+
+            <h2 class="text-lg mb-8 px-20px pt-20px uppercase">Your Bag</h2>
+
+            <template v-if="cartData[0].items.length">
+                <div class="cart-item-data">
+                    <div class="cart-item-lists px-20px max-h-350px overflow-auto">
+                            <div v-for="item in cart.items" :key="item.id">
+                                <div class="cart-item border mb-4 border-gray90 p-10px flex relative">
+
+                                    <div class="item-img max-w-100px mr-2"> 
+                                        <a :href="item.url">
+                                            <img :src="item.image" alt="">
+                                        </a>
+                                    </div>
+
+                                    <div class="item-data relative flex-grow">
+                                        <a class="block mb-10 mxxsm:mb-16" :href="item.url">
+                                            <div class="text-base font-extrabold uppercase pr-16" v-text="getTitle(item.product_title, 0)"></div>
+                                            <div class="text-smbase py-1 uppercase max-w-250px" v-text="getTitle(item.product_title, 1)"></div>
+                                            <template v-if="item.compare_at_price > item.price">
+                                                <div class="text-smbase line-through mr-2 inline-block">${item.compare_at_price | money}</div>
+                                                <div class="text-smbase font-bold text-danger inline-block">${item.price | money}</div>
+                                            </template>
+                                            <template v-else>
+												<!-- edited by Rengie 11/13/2020 -->
+                                                <div class="text-smbase font-bold inline-block"> ${ item.final_price | money }</div>
+                                            </template>
+                                        </a>
+
+                                        <div class="quantity-variant absolute bottom-0 left-0">
+                                            <div class="inline-block uppercase text-sm">Quantity: ${ item.quantity }</div>
+                                            <span class="inline-block mx-2">|</span>
+                                            <div class="inline-block uppercase text-sm">${getTitle(item.product_title, 2)}</div>
+                                        </div>
+                                    </div>
+                                    <div class="remove-item-trigger absolute top-5px right-10px">
+                                        <span class="text-sm uppercase font-extrabold cursor-pointer tracking-wider" @click="remove(item)">remove</span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="cart-summary-data">
+                        <div class="cart-subtotal mb-4 mt-2 flex text-base px-20px">
+                            <div class="inline-block md-lg uppercase mr-auto">subtotal:</div>
+                            <div class="inline-block md-lg uppercase ml-auto">${cartData[0].items_subtotal_price | money }</div>
+                        </div>
+
+                        <div class="cart-subtotal mb-4 mt-2 flex text-base px-20px">
+                            <div class="inline-block md-lg uppercase mr-auto">tax:</div>
+                            <div class="inline-block md-lg uppercase ml-auto">${cartData[0].total_price | tax }</div>
+                        </div>
+
+
+                        <div class="cart-total my-4 flex text-base px-20px">
+                            <div class="inline-block font-extrabold md-lg uppercase mr-auto">total:</div>
+                            <div class="inline-block font-extrabold md-lg uppercase ml-auto">${cartData[0].total_price | money }</div>
+                        </div>
+
+                        <div class="free-shipping-indicator bg-secondary">
+                            <div class="mx-auto font-extrabold py-4 flex justify-center items-center">
+                                <template v-if="freeShippingMark > 0">
+                                    <div class="box-logo mr-4">
+                                        <svg class="w-auto h-auto" width="28" height="30" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M32.0848 8.84625V26.441L16.0417 35L0 26.441V8.75L16.0417 0L32.0848 8.84625ZM1.45833 25.566L15.3125 32.9583V17.5438L1.45833 10.3308V25.566ZM30.6265 10.4169L16.7708 17.5467V32.9583L30.6265 25.566V10.4169ZM22.5765 12.9194L8.67271 5.68021L2.33042 9.14083L16.0446 16.2808L22.5765 12.9194ZM10.2156 4.83875L24.1646 12.1013L29.7529 9.22542L16.0373 1.66396L10.2156 4.83875Z" fill="#302E2B"/>
+                                        </svg>
+                                    </div>
+                                    <div class="inline-block max-w-250px text-base">
+                                        You're only ₱${freeShippingMark} away from <span class="uppercase">free shipping</span>
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div class="box-logo mr-4">
+                                        <svg class="w-auto h-auto" width="34" height="30" viewBox="0 0 39 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M29.4318 17.5C24.6018 17.5 20.6818 21.4184 20.6818 26.25C20.6818 31.0816 24.6018 35 29.4318 35C34.2602 35 38.1818 31.0816 38.1818 26.25C38.1818 21.4184 34.2602 17.5 29.4318 17.5ZM18.8777 31.8182H0V0H35V15.6959C34.0136 15.1741 32.9445 14.7859 31.8182 14.5568V3.18182H20.6818V12.7273H14.3182V3.18182H3.18182V28.6364H17.7386C17.9677 29.7627 18.3559 30.8318 18.8777 31.8182ZM28.4534 27.1409L26.4505 25.2605L24.92 26.8339L28.4836 30.2273L34.4734 24.1277L32.9159 22.5845L28.4534 27.1409ZM14.3182 25.4545H6.36364V22.2727H14.3182V25.4545Z" fill="#302E2B"/>
+                                        </svg>
+                                    </div>
+                                    <div class="inline-block text-base">
+                                        Yay! You've hit free shipping!
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="view-bag bg-primary">
+                            <a href="/cart" class="block text-center w-full py-4 uppercase text-white font-bold text-lg">View Bag</a>
+                        </div>
+                    </div>
+                </div>
+            </template>            
+            <template v-else>
+                <h2 class="text-mdlg mb-8 py-8 uppercase text-center">Your bag is empty</h2>
+            </template>
+
+        </div>
+    </template>
+</div>

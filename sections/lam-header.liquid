@@ -1,0 +1,334 @@
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="header-section"
+  data-header-section
+  class="mxmd:fixed top-0 left-0 w-full h-auto bg-white z-20"
+  id="{{section.id}}"
+>
+  <div class="bg-primary lg:block hidden fixed w-full top-0 left-0 z-1">
+    <div class="flex container mx-auto h-35px items-center">
+      <div class="w-1/2 flex justify-start">
+        <div class="max-w-150px flex items-center text-secondary text-sm mr-4"> 
+          <a href="{{routes.account_url}}" title="My Account" class="item-center justify-start flex gap-2">
+            <div class="icon max-w-20px">
+              {% render 'icon-profile' %}
+            </div>
+            <span class="uppercase font-bold tracking-wider">My Account</span>
+          </a>
+        </div>
+        <div class="flex items-center gap-2  mr-4">
+          {% if customer %}
+          <span class="text-secondary text-sm font-bold tracking-wider leading-4 uppercase">Hi {{ customer.first_name}}!</span>
+          <span class="text-secondary text-sm mx-2">|</span>
+          <a href="{{ routes.account_logout_url }}" class="text-secondary text-sm" title="Logout">
+            <span class="uppercase font-bold tracking-wider leading-4">Logout</span>
+          </a>
+          {% else %}
+          <a href="{{ routes.account_register_url }}" class="text-secondary text-sm" title="Register">
+            <span class="uppercase font-bold tracking-wider leading-4">Register</span>
+          </a>
+          <span class="text-secondary text-sm">|</span>
+          <a href="{{ routes.account_login_url }}" class="text-secondary text-sm" title="Login">
+            <span class="uppercase font-bold tracking-wider leading-4">Login</span>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="w-1/2 flex justify-end">
+        {% comment %} <div class="max-w-150px flex items-center text-secondary text-sm"> 
+          <a href="#" title="Get the app" class="item-center justify-start flex gap-2">
+            <div class="icon max-w-20px">
+              {% render 'icon-smartphone' %}
+            </div>
+            <span class="uppercase font-bold tracking-wider">Get the app</span>
+          </a>
+        </div> {% endcomment %}
+        <div class="max-w-150px flex items-center text-secondary text-sm ml-4 mr-4"> 
+          <a href="{%if customer %}/account?view=wishlist{%else%}#swym-wishlist{%endif%}" id="header-wishlist" title="Wishlist" class="item-center justify-start flex gap-2">
+            <div class="icon max-w-20px">
+              {% render 'icon-heart' %}
+            </div>
+            <span class="uppercase font-bold tracking-wider">Wishlist</span>
+          </a>
+        </div>
+        <div class="max-w-150px flex items-center text-secondary text-sm ml-4 mr-1"> 
+          <a href="{{ routes.cart_url }}" id="minicart-toggle" title="Bag" class="item-center justify-start flex gap-2 relative">
+            <div class="h-20px max-w-20px">
+              {% render 'icon-cart-bag' %}
+            </div>
+            <span class="uppercase font-bold tracking-wider">Bag</span>
+            <div class="cart_count_indicator absolute rounded-full bg-danger text-white text-8px border-2 border-primary font-extrabold {% if cart.item_count < 1%}hidden{% endif %} flex justify-center items-center text-center">{{ cart.item_count }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container w-full mini-cart-temp-container mx-auto lg:fixed relative left-50% lg:top-35px z-1">
+    {% render 'mini-cart-temp'%}
+  </div>
+  <style>
+    @media screen and (min-width: 1024px){
+      .mini-cart-temp-container{
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+  {%- if section.settings.show_announcement -%}
+  <div class="container mx-auto bg-secondary lg:pt-35px">
+    <div class="vertical-slideshow" 
+        data-btn="{{section.settings.marquee_show_btn}}" 
+        data-speed="{{section.settings.marquee_speed}}" 
+        data-autoplay="{{section.settings.marquee_show_autoplay}}">
+      {% for block in section.blocks %}
+        {%- if block.type == 'marquee' -%}
+          {% if block.settings.title != blank %}
+            <a href="{{ block.settings.url }}" class="block py-1 w-full text-center" title="{{ block.settings.title }}">
+              <span class="uppercase font-bold md:text-lg text-sm leading-normal text-black">{{ block.settings.title }}</span>
+            </a>
+          {% endif %}
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  </div>
+  {%- endif -%}
+  <div class="flex flex-wrap container mx-auto lg:mt-35px mt-6">
+    <div class="lg:hidden w-2/6 flex items-center pl-1 justify-start">
+      <a href="javascript:void(0)" title="CTA" class="text-primary ml-6 js-toggle-mob-nav max-w-20px">
+        <div class="icon">
+          {%- render 'icon-mob-hamburger' -%}
+        </div>
+      </a>
+      <a href="javascript:void(0)" title="CTA" class="text-primary ml-6 js-toggle-searchform max-w-20px">
+        <div class="icon">
+          {%- render 'icon-search-lookatme' -%}
+        </div>
+      </a>
+    </div>
+    <div class="flex lg:justify-start justify-center lg:w-1/2 w-2/6">
+      <h1 class="site-logo">
+        <a
+          href="{{ shop.url }}"
+          class="site-logo-link block"
+          title="{{ shop.name }}"
+        >
+          {% render 'lam-logo' %}
+        </a>
+      </h1>
+    </div>
+    <div class="lg:hidden w-2/6 flex items-center justify-end pr-1">
+      <a href="{%if customer %}{{ routes.account_url }}{%else%}{{routes.account_login_url}}{%endif%}" title="CTA" class="text-primary mr-6 max-w-20px">
+        <div class="icon">
+          {%- render 'icon-profile' -%}
+        </div>
+      </a>
+      <a href="javascript:void(0)" title="CTA" class="text-primary mr-6 max-w-20px">
+        <div id="minicart-toggle-mob" class="icon relative">
+          {%- render 'icon-cart-bag' -%}
+          <div class="cart_count_indicator absolute rounded-full bg-danger text-white text-8px border-2 border-white font-extrabold {% if cart.item_count < 1%}hidden{% endif %} flex justify-center items-center text-center">{{ cart.item_count }}</div>
+        </div>
+      </a>
+    </div>
+    <div class="lg:w-1/2 lg:flex w-full">
+      <div class="lg:flex-1">
+        <form
+          class="search-form search-bar__form relative lg:block hidden mxlg:mt-6 js-form"
+          action="{{ routes.search_url }}"
+          method="get"
+          role="search"
+        >
+          <div class="search-form__input-wrapper">
+            <input
+              type="text"
+              name="q"
+              placeholder="{{ 'general.search.placeholder' | t }}"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-owns="predictive-search-results"
+              aria-expanded="false"
+              aria-label="{{ 'general.search.placeholder' | t }}"
+              aria-haspopup="listbox"
+              class="search-form__input search-bar__input w-full text-black"
+              data-predictive-search-drawer-input
+            />
+            <input
+              type="hidden"
+              name="options[prefix]"
+              value="last"
+              aria-hidden="true"
+            />
+            <div
+              class="predictive-search-wrapper predictive-search-wrapper--drawer"
+              data-predictive-search-mount="drawer"
+            ></div>
+          </div>
+
+          <button
+            class="max-w-40px search-bar__submit search-form__submit absolute lg:bg-primary lg:text-white h-full px-10px mxlg:mr-6"
+            type="submit"
+            data-search-form-submit
+          >
+            {% include 'icon-search-lookatme' %}
+            <span class="icon__fallback-text hidden">{{
+              "general.search.submit" | t
+            }}</span>
+          </button>
+        </form>
+        <div class="lg:border-0 border-t border-b border-gray lg:mt-0 mt-6">
+          <div class="flex lg:gap-2 lg:mt-4 lg:justify-start justify-center lg:py-0 py-3 lg:max-w-full md:max-w-4/5 md:mx-auto mxsm:mx-25px">
+            <div class="max-w-20px w-full text-primary">
+              {% render 'icon-speaker' %}
+            </div>
+            <div class="announcement-slideshow ml-6 w-full" data-speed="{{section.settings.announcement_speed}}" data-btn="{{section.settings.announcement_show_btn}}">
+            {% for block in section.blocks %}
+              {%- if block.type == 'announcement' -%}
+                {% if block.settings.title != blank %}
+                <span class="uppercase text-sm font-bold w-full table">{{block.settings.title}}</span>
+                {% endif %}
+              {%- endif -%}
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% unless customer %}
+      <div class="ml-5 lg:block hidden">
+        <a href="{{routes.account_register_url}}" class="h-8 flex items-center justify-center text-center w-full mb-4 bg-primary text-white border border-primary min-w-10" title="Register">
+          <span class="uppercase text-sm font-bold tracking-wider">Register</span>
+        </a>
+        <a href="{{routes.account_login_url}}" class="h-8 flex items-center justify-center text-center w-full bg-transparent text-primary border border-primary min-w-10" title="Login">
+          <span class="uppercase text-sm font-bold tracking-wider">Login</span>
+        </a>
+      </div>
+      {% endunless %}
+    </div>
+    
+    {% if section.settings.links != blank %}
+     {% include 'desktop-nav', link_lists: section.settings.links %}
+     {% include 'mobile-nav', link_lists: section.settings.links %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', (e) => {
+
+  var marqueeSlider = $('.vertical-slideshow')
+  marqueeSlider.slick({
+    dots: false,
+    vertical: true,
+    autoplay: marqueeSlider.data('autoplay'),
+    autoplaySpeed: marqueeSlider.data('speed'),
+    arrows: marqueeSlider.data('btn')
+  });
+
+  var search_btn = $('.js-toggle-searchform')
+  search_btn.click(function() {
+    $('.js-form').slideToggle();
+  })
+
+
+})
+</script>
+<style>
+.minicart-container {
+  position: fixed;
+  top: 35px;
+  left: 7.8%;
+  width: 100%;
+  z-index: 1;
+}
+</style>
+{% schema %}
+    {
+        "name": "Site header",
+        "settings": [
+            {
+              "type": "header",
+              "content": "Announcement banner"
+            },
+            {
+              "type": "checkbox",
+              "id": "show_announcement",
+              "label": "Show announcement banner",
+              "default": true
+            },
+            {
+                "type": "header",
+                "content": "Navigation"
+            },
+            {
+                "type": "link_list",
+                "id": "links",
+                "label": "Navigation links"
+            },
+            {
+              "type": "header",
+              "content": "Marquee slider"
+            },
+            {
+              "type": "checkbox",
+              "id": "marquee_show_btn",
+              "label": "Show arrow btn",
+              "default": false
+            },
+            {
+              "type": "checkbox",
+              "id": "marquee_show_autoplay",
+              "label": "Autoplay",
+              "default": true
+            },
+            {
+              "type": "text",
+              "id": "marquee_speed",
+              "label": "Marquee slider autoplay speed",
+              "default": "3000"
+            },
+            {
+              "type": "header",
+              "content": "Announcement slider"
+            },
+            {
+              "type": "checkbox",
+              "id": "announcement_show_btn",
+              "label": "Show arrow btn",
+              "default": true
+            },
+            {
+              "type": "text",
+              "id": "announcement_speed",
+              "label": "Announcement slider autoplay speed",
+              "default": "3000"
+            }
+        ],
+        "blocks":[
+          {
+            "type": "announcement",
+            "name": "Announcement",
+            "settings":[
+              {
+                "type": "text",
+                "id": "title",
+                "label": "Content"
+              }
+            ]
+           },
+           {
+             "type": "marquee",
+              "name": "Marquee",
+              "settings": [
+                {
+                  "type": "text",
+                  "id": "title",
+                  "label": "Content"
+                },
+                {
+                  "type": "url",
+                  "id": "url",
+                  "label": "URL"
+                }
+              ]
+           }
+         ]
+        
+    }
+{% endschema %}

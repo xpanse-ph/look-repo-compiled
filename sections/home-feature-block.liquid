@@ -1,0 +1,100 @@
+<div data-section-id="{{ section.id }}" data-section-type="feature-block-section" class="mt-100">
+    <div class="block relative">
+        <div class="w-full">
+            {%- assign img_url = section.settings.bg | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            {%- if section.settings.bg != blank -%}
+                <div class="img-container-{{section.id}}">
+                    <img class="lazyload lazypreload w-full h-auto"
+                        src="{{ section.settings.bg | img_url: '300x300' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                        data-aspectratio="{{ section.settings.bg.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.bg.alt | escape }}">
+                    </div>
+            {%- endif -%}
+                <style>
+                    .img-container-{{section.id}} {
+                        position: relative;
+                        height: 0;
+                        padding-bottom: {{ 1 | divided_by: section.settings.bg.aspect_ratio | times: 100 }}%;
+                    }
+                    .img-container-{{section.id}} img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                </style>
+        </div>
+        <div class="overlay center text-center">
+            {% if section.settings.heading != blank %}
+            <h2 class="uppercase font-black text-superlarge">{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.caption != blank %}
+            <p class="text-lg font-light">{{ section.settings.caption }}</p>
+            {% endif %}
+            {% if section.settings.cta_txt != blank or section.settings.cta_url != blank %}
+            <div class="cta flex justify-center items-center mt-10">
+                <a 
+                href="{{ section.settings.cta_url }}" 
+                title="{{ section.settings.cta_txt }}"
+                class="bg-primary text-white uppercase text-lg py-3 px-8 block font-black tracking-widest"
+                >{{ section.settings.cta_txt }}</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Feature Block",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Background"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg",
+                "label": "Background Image"
+            },
+            {
+                "type": "header",
+                "content": "Text content"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Look at me"
+            },
+            {
+                "type": "textarea",
+                "id": "caption",
+                "label": "Caption",
+                "default": "Lorem ipsum dolor ismet karud ersa doles. dolor ismet karud ersa doles. Lorem ipsum dolor ismet karud ersa doles."
+            },
+            {
+                "type": "header",
+                "content": "CTA"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "URL Text",
+                "default": "See more"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "CTA URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Feature Block",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

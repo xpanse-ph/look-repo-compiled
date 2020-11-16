@@ -1,0 +1,299 @@
+<script>
+  // backup the default fields in case they revert to a non PH country
+  const default_province_field  = document.querySelectorAll("[data-address-field='address2']")[0];
+  const default_city_field      = document.querySelectorAll("[data-address-field='city']")[0];
+  const dpf_ih                  = (default_province_field !== undefined) ? default_province_field.innerHTML : '';
+  const dcf_ih                  = (default_city_field) ? default_city_field.innerHTML : '';
+
+  // save the province and city values provided by the backup
+  // note: this is when a customer goes back from step 2 to 1 and the province/city settings don't persist
+  const address2 = document.getElementById('checkout_shipping_address_address2');
+  const address_city = document.getElementById('checkout_shipping_address_city');
+  const province_data_backup    = (address2) ? address2.value : '';
+  const city_data_backup        = (address_city) ? address_city.value : '';
+
+  // local provinces json file (see philippines-psgc repo)
+  var provinces_unsorted = [{"METRO MANILA":["TONDO","BINONDO","QUIAPO","SAN NICOLAS","SANTA CRUZ","SANTA MESA","SAMPALOC","SAN MIGUEL","ERMITA","INTRAMUROS","MALATE","PACO","PANDACAN","PORT AREA","SANTA ANA","MANDALUYONG","MARIKINA","PASIG","QUEZON CITY","SAN JUAN","CALOOCAN","MALABON","NAVOTAS","VALENZUELA","LAS PI&Ntilde;AS","MAKATI","MUNTINLUPA","PARA&Ntilde;AQUE","PASAY","PATEROS","TAGUIG"]}];
+
+// sort provinces
+var provinces = provinces_unsorted.sort(function(a, b){
+  if (Object.keys(a)[0] < Object.keys(b)[0]) return -1
+  return 1
+})
+
+                            // set Metro Manila at the top
+                            provinces.forEach(function(item, i) {
+                            if (Object.keys(item)[0] === "METRO MANILA") {
+                              provinces.splice(i, 1)
+                              provinces.unshift(item);
+                            }
+  })
+
+  // properly capitalises the entries
+  // TODO: fix capitalisation on entries right after a parentheses
+  function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+  }
+
+  // populate city list
+  function loadCities() {
+    // get selected province id
+    address2_select = document.getElementById('checkout_shipping_address_address2');
+    selected_province_id = address2_select.selectedIndex - 1;
+
+    if (address2_select.selectedIndex != 0) {
+      // get cities from file
+      province_key = Object.keys(provinces[selected_province_id]);
+      city_list = provinces[selected_province_id][province_key].sort();
+
+      // populate list of cities (defaulting to Metro Manila cities)
+      city_select = document.getElementById('checkout_shipping_address_city');
+      city_select.innerHTML = '';
+      city_select.innerHTML += '<option label=" "></option>';
+
+      // loop through all cities of Metro Manila
+      for(i = 0; i < city_list.length; i++) {
+        city_select.innerHTML += '<option value="' + titleCase(city_list[i]) + '">' + titleCase(city_list[i]) + '</option>';
+      }
+    }
+
+  }
+
+  // add philippine province and city dropdowns
+  function loadPhilippineFields() {
+    // defaults to Metro Manila as the intial province
+    // address2 == province
+
+    // change provinces to a dropdown
+    address2_field = document.getElementById('checkout_shipping_address_address2');
+    address2_parent = address2_field.closest('div');
+    address2_grandparent = address2_parent.closest('div');
+
+    // replace province input to a select
+    address2_grandparent.classList.add('field--show-floating-label');
+    address2_grandparent.classList.add('philippine-province');
+    address2_parent.classList.add('field__input-wrapper--select');
+    address2_parent.innerHTML = '<label class="field__label field__label--visible" for="checkout_shipping_address_address2">Province</label>';
+    address2_parent.innerHTML += '<select autocomplete="shipping address-line2" autocorrect="off" data-trekkie-id="shipping_address2_field" data-backup="address2" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][address2]" id="checkout_shipping_address_address2" onchange="loadCities()">';
+    address2_parent.innerHTML += '</select>';
+    address2_parent.innerHTML += '<div class="field__caret" id="checkout_shipping_address_address2_caret">';
+    address2_parent.innerHTML += '</div>';
+
+    // fix the checkout_shipping_address_address2_caret
+    address2_caret = document.getElementById('checkout_shipping_address_address2_caret');
+    address2_caret.innerHTML += '<svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false"> <use xlink:href="#caret-down"></use> </svg>';
+
+    // populate list of provinces (defaulting to Metro Manila)
+    address2_select = document.getElementById('checkout_shipping_address_address2');
+    address2_select.innerHTML = '';
+
+    // create blank default value
+    address2_select.innerHTML += '<option label=" "></option>';
+
+    // loop through all provinces
+    var metro_manila_province_id = null;
+    for(i = 0; i < provinces.length; i++) {
+      current_province = Object.keys(provinces[i])[0];
+      current_province = titleCase(current_province);
+
+      if (current_province == "Metro Manila") {
+        // address2_select.innerHTML += '<option selected="selected" value="' + current_province + '">' + current_province + '</option>';
+        address2_select.innerHTML += '<option value="' + current_province + '">' + current_province + '</option>';
+        metro_manila_province_id = i;
+      } else {
+        address2_select.innerHTML += '<option value="' + current_province + '">' + current_province + '</option>';
+      }
+    }
+
+    // load up city field with metro manila
+    city_field = document.getElementById('checkout_shipping_address_city');
+    city_parent = city_field.closest('div');
+    city_grandparent = city_parent.closest('div');
+
+    // replace city input to a select
+    city_grandparent.classList.add('field--show-floating-label');
+    city_grandparent.classList.add('philippine-city');
+    city_parent.classList.add('field__input-wrapper--select');
+    city_parent.innerHTML = '<label class="field__label field__label--visible" for="checkout_shipping_address_city">City</label>';
+    city_parent.innerHTML += '<select autocomplete="shipping address-level2" autocorrect="off" data-trekkie-id="shipping_city_field" data-backup="city" class="field__input field__input--select" aria-required="true" name="checkout[shipping_address][city]" id="checkout_shipping_address_city">';
+    city_parent.innerHTML += '</select>';
+    city_parent.innerHTML += '<div class="field__caret" id="checkout_shipping_address_city_caret">';
+    city_parent.innerHTML += '</div>';
+
+    // fix the checkout_shipping_address_city_caret
+    city_caret = document.getElementById('checkout_shipping_address_city_caret');
+    city_caret.innerHTML += '<svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-10 field__caret-svg" aria-hidden="true" focusable="false"> <use xlink:href="#caret-down"></use> </svg>';
+
+    // load cities
+    if (metro_manila_province_id != null) { loadCities(); }
+
+    // bonus: set postal code (but can be user edited)
+  }
+
+  function setProvinceField(province_name) {
+    // populate list of provinces (defaulting to Metro Manila)
+    address2_select = document.getElementById('checkout_shipping_address_address2');
+    address2_select.innerHTML = '';
+
+    // create blank default value
+    address2_select.innerHTML += '<option label=" "></option>';
+
+    // loop through all provinces
+    for(i = 0; i < provinces.length; i++) {
+      current_province = Object.keys(provinces[i])[0];
+      current_province = titleCase(current_province);
+
+      if (current_province === province_name) {
+        address2_select.innerHTML += '<option selected="selected" value="' + current_province + '">' + current_province + '</option>';
+      } else {
+        address2_select.innerHTML += '<option value="' + current_province + '">' + current_province + '</option>';
+      }
+    }
+
+    console.log('setProvinceField');
+  }
+
+  // refresh city list
+  function setCityField(city_name) {
+    // get selected province id
+    address2_select = document.getElementById('checkout_shipping_address_address2');
+    selected_province_id = address2_select.selectedIndex - 1;
+
+    if (address2_select.value != " " && address2_select.selectedIndex != 0) {
+      // get cities from file
+      province_key = Object.keys(provinces[selected_province_id]);
+      city_list = provinces[selected_province_id][province_key].sort();
+
+      // populate list of cities (defaulting to Metro Manila cities)
+      city_select = document.getElementById('checkout_shipping_address_city');
+      city_select.innerHTML = '';
+      city_select.innerHTML += '<option label=" "></option>';
+
+      // loop through all cities of Metro Manila
+      for(i = 0; i < city_list.length; i++) {
+        current_city = titleCase(city_list[i]);
+
+        if (current_city == city_name) {
+          city_select.innerHTML += '<option selected="selected" value="' + current_city + '">' + current_city + '</option>';
+        } else {
+          city_select.innerHTML += '<option value="' + current_city + '">' + current_city + '</option>';
+        }
+      }
+    }
+    console.log('setCityField');
+  }
+
+  function checkStep(){
+    var step = document.querySelector('[data-step="shipping_method"]'),
+        mmIndex = step.getElementsByClassName('address--tight')[0].innerText.indexOf('Metro Manila'),
+        isMM = (mmIndex > -1) ? true : false;
+    provShippingOption = document.querySelector('[data-shipping-method*="shopify-Standard%20Shipping%20-%20Provincial"]');
+    if (step !== null && provShippingOption) {
+      setShippingFee(isMM);
+    }
+  }
+
+  function setShippingFee(args){
+    var shippingFeeSection = document.getElementsByClassName('section--shipping-method')[0],
+        mmShipping = shippingFeeSection.querySelector('[data-shipping-method*="shopify-Standard%20Shipping%20-%20Metro%20Manila"]').parentNode,
+        provShipping = shippingFeeSection.querySelector('[data-shipping-method*="shopify-Standard%20Shipping%20-%20Provincial"]').parentNode,
+        shippingTarget = document.getElementsByClassName('total-line--shipping')[0].getElementsByClassName('order-summary__emphasis')[0];
+    if (args){
+      provShipping.parentNode.removeChild(provShipping);
+      el = mmShipping.getElementsByClassName('input-radio')[0];
+    } else {
+      mmShipping.parentNode.removeChild(mmShipping);
+      el = provShipping.getElementsByClassName('input-radio')[0];
+    }
+    if (el.onclick) {
+      el.onclick();
+    } else if (el.click) {
+      el.click();
+    }
+  }
+
+  // switch fields around when the country gets switched
+  function switchCountry() {
+    selected_country = country_field.options[country_field.selectedIndex].text;
+
+    if (selected_country === "Philippines") {
+      if (province_data_backup == " " && city_data_backup == " ") {
+        loadPhilippineFields();
+
+        // default to Metro Manila
+        setProvinceField('Metro Manila');
+        loadCities();
+      } else {
+        loadPhilippineFields();
+
+        // find index of province_data_backup
+        // switch province to backed up value
+        setProvinceField(province_data_backup);
+
+        // switch city to backed up value
+        setCityField(city_data_backup);
+      }
+    } else {
+      current_province_field = document.querySelectorAll("[data-address-field='address2']")[0]
+      current_province_field.innerHTML = dpf_ih;
+
+      current_city_field = document.querySelectorAll("[data-address-field='city']")[0]
+      current_city_field.innerHTML = dcf_ih;
+    }
+  }
+
+  function ready(fn) {
+    if (document.readyState != 'loading'){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  ready(function(e){
+
+    //   var prov_selector = document.getElementById('checkout_shipping_address_address2');
+    //   if(prov_selector && !prov_selector.value.length){
+    //     if ("createEvent" in document) {
+    //       var evt = document.createEvent("HTMLEvents");
+    //       evt.initEvent("change", false, true);
+    //       prov_selector.value = "Metro Manila";
+    //       prov_selector.dispatchEvent(evt);
+    //     } else{
+    //       prov_selector.value = "Metro Manila";
+    //       prov_selector.fireEvent("onchange");
+    //     }
+    //   }
+
+    if (document.getElementById('checkout_shipping_address_country') != null) {
+      // get selected country
+      country_field = document.getElementById('checkout_shipping_address_country');
+      country_field.onchange = switchCountry;
+      switchCountry();
+    }
+    if (document.querySelector('[data-step="shipping_method"]')){
+      checkStep();
+    }
+
+  });
+
+  window.onload = function() {
+    if (document.getElementById('checkout_shipping_address_country') != null) {
+      // get selected country
+      country_field = document.getElementById('checkout_shipping_address_country');
+      country_field.onchange = switchCountry;
+      switchCountry();
+    }
+    if (document.querySelector('[data-step="shipping_method"]')){
+      checkStep();
+    }
+    
+    var provSelect = document.querySelectorAll('[data-address-field="province"]');
+    if (provSelect) {
+      document.querySelectorAll('[data-address-field="province"] select option[value="PH-00"]')[0].selected = true
+      provSelect[0].style.display = 'none';
+    }
+  }
+</script>

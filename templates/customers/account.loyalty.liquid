@@ -1,0 +1,797 @@
+{% assign withcheck =  '<p><input class="loyalty" type="checkbox" checked="checked" disabled="disabled" /><label for="withcheck"></label></p>' %}
+{% assign nocheck = '<p><input class="loyalty" type="checkbox" disabled="disabled" /><label for="nocheck"></label></p>'%}
+
+
+<div class="mx-auto account-page">
+
+    <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+         <!-- LEFT  -->
+         {% include 'account-left-nav'%}
+         <!-- END LEFT  -->
+
+         <!-- RIGHT -->
+         <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-main">
+
+            <h2 class="p-4 border-t border-l border-r border-gray mxmd:hidden">
+              <span class="font-bold">LOOK LOYALTY</span>
+            </h2>
+
+            <div class="mxmd:border-r mxmd:border-gray">
+                <div class="border border-gray">
+                    <div class="flex items-center text-center loyalty-carousel-main mxmd:block">
+                        <div class="w-1/3 p-4 pb-0 text-left mxmd:w-full">
+                            <p class="mxmd:text-base mxmd:w-1/2 mxmd:mx-auto mxmd:text-center">Enjoy more exciting perks as you upgrade to the next tier!</p>
+                        </div>
+                        <div class="flex justify-center w-1/3 p-4 pb-0 mxmd:w-full">
+                            <img src="{{'PinkMemberCard.png' | file_img_url: 'master'}}" alt="">
+                        </div>
+                        <div class="flex justify-center w-1/3 p-4 pb-0 mxmd:w-full">
+                            <img src="{{'BlackMemberCard.png' | file_img_url: 'master' }}" alt="">
+                        </div>
+                    </div>
+                    <div class="hidden w-full mxmd:block loyalty-carousel-nav">
+                        <div class="flex flex-wrap w-full text-center">
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="invisible w-full">space</p>
+                                <p class="mxmd:text-base">Spending Requirement L12M</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="w-full">Beauty Updates:</p>
+                                <p class="mxmd:text-base">new products / trends / sale events</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Free samples</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Free Delivery</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Free makeovers*</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Member exclusive promos*</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Welcome / Birthday Voucher</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Member Sale</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Flash and Win</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">First Dibs on new products</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Birthday Gift</p> 
+                            </div>
+                            <div class="flex flex-wrap items-end w-full p-2 pl-8 text-left">
+                                <p class="mxmd:text-base">Advance Sale</p> 
+                            </div>
+                        </div>
+                    
+                        <div class="flex flex-wrap items-center w-full text-center">
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-col w-2/3 text-left">
+                                    <p class="invisible">space</p>
+                                    <p class="mxmd:text-base">Spending Requirement L12M</p> 
+                                </div>
+                                <div class="flex flex-col w-1/3">
+                                    <p class="font-bold">Pink</p>
+                                    <p class="mxmd:text-base">FREE</p>
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="w-full">Beauty Updates:</p>
+                                    <p class="mxmd:text-base">new products / trends / sale events</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    <p class="invisible w-full">space</p>
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free samples</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free Delivery</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free makeovers*</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Member exclusive promos</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Welcome / Birthday Voucher</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Member Sale</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Flash and Win</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">First Dibs on new products</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Birthday Gift</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{nocheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Advance Sale</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{nocheck}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center w-full text-center">
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-col w-2/3 text-left">
+                                    <p class="invisible">space</p>
+                                    <p class="mxmd:text-base">Spending Requirement L12M</p> 
+                                </div>
+                                <div class="flex flex-col w-1/3">
+                                    <p class="font-bold">Black</p>
+                                    <p class="mxmd:text-base">PHP 25,000 ~</p>
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="w-full">Beauty Updates:</p>
+                                    <p class="mxmd:text-base">new products / trends / sale events</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    <p class="invisible w-full">space</p>
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free samples</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free Delivery</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Free makeovers*</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Member exclusive promos</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Welcome / Birthday Voucher</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Member Sale</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Flash and Win</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">First Dibs on new products</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Birthday Gift</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                            <div class="flex w-full p-2 text-center">
+                                <div class="flex flex-wrap w-2/3 text-left">
+                                    <p class="mxmd:text-base">Advance Sale</p> 
+                                </div>
+                                <div class="w-1/3 text-center">
+                                    {{withcheck}}
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="w-full mxmd:hidden">
+                        <div class="flex text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left">
+                                <p class="mxmd:text-sm">Spending Requirement L12M</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center">
+                                <p class="font-bold">Pink</p>
+                                <p class="mxmd:text-sm">FREE</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center">
+                                <p class="font-bold">Black</p>
+                                <p class="mxmd:text-sm">PHP 25,000 ~</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex flex-wrap items-end w-1/3 p-4 text-left">
+                                <p class="w-full font-bold mxmd:text-sm">Beauty Updates:</p>
+                                <span class="w-full">new products / trends / sale events</span>
+                            </div>
+                            <div class="w-1/3 p-4 text-center">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Free samples</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Free Delivery</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Free makeovers*</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Member exclusive promos</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Welcome / Birthday Voucher</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Member Sale</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Flash and Win</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">First Dibs on new products</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Birthday Gift</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center text-center">
+                            <div class="flex items-end w-1/3 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Advance Sale</p>
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/3 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="my-8 font-bold text-center text-20px">LOOK EXCLUSIVE PROMOS</h2>
+            <hr class="text-gray90">
+
+            <div class="flex flex-wrap my-8">
+                <div class="relative flex items-center justify-center w-1/2 pr-3 mb-6 mxmd:w-full mxmd:pr-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pl-3 mb-6 mxmd:w-full mxmd:pl-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pr-3 mb-6 mxmd:w-full mxmd:pr-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pl-3 mb-6 mxmd:w-full mxmd:pl-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+            </div>
+        </div>
+         <!-- END RIGHT -->
+    </div>
+</div>
+
+
+{%comment%}
+LOYALTY FIRST
+<div class="mx-auto account-page">
+
+    <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+         <!-- LEFT  -->
+        <div class="h-full p-4 border lg:w-1/6 md:w-full md:mb-12 lg:mb-0 mxmd:w-full mxmd:mb-12 border-gray account-nav">
+            <div class="relative">
+            <h3 class="font-bold mobile-member-btn lg:hidden md:block">MEMBER PROFILE</h3>
+            <div class="absolute top-0 right-0 pt-2 lg:hidden md:block"><img src="{{'Polygon-1.png' | file_img_url: 'master'}}" alt=""></div>  
+            </div>
+            <ul class="mb-20 md:hidden lg:block mobile-member-details mxmd:hidden">
+                <li class="leading-8 details-list" id="account-profile" class="py-1"><a href="/account">MEMBER PROFILE</a></li>
+                <li class="leading-8 details-list" id="account-order" class="py-1"><a href="/account?view=recent-orders" class="view-order">RECENT ORDERS</a></li>
+                <li class="leading-8 details-list" id="account-wishlist" class="py-1"><a href="/account?view=wishlist">WISHLIST</a></li>
+                <li class="leading-8 details-list" id="account-address" class="py-1"><a href="/account/addresses">ADDRESS BOOK</a></li>
+                <li class="leading-8 details-list" id="account-subscription" class="py-1"><a href="/account?view=subscription">SUBSCRIPTIONS</a></li>
+                <li class="my-6 leading-8 details-list" class="py-1"><div><hr></div></li>
+                <li class="leading-8 details-list" id="account-loyalty" class="py-1"><a href="/account?view=loyalty">LOOK LOYALTY</a></li>
+                <li class="leading-8 details-list" id="account-voucher"class="py-1"><a href="/account?view=vouchers">VOUCHERS</a></li>
+            </ul>
+        </div>
+         <!-- END LEFT  -->
+
+         <!-- RIGHT -->
+         <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-main">
+
+            <h2 class="p-4 border-t border-l border-r border-gray mxmd:hidden">
+              <span class="font-bold">LOOK LOYALTY</span>
+            </h2>
+
+            <div class="mxmd:border-r mxmd:border-gray">
+                <div class="border mxmd:overflow-x-scroll border-gray">
+                    <div class="flex items-center text-center">
+                        <div class="w-2/5 p-4 pb-0 text-left mxmd:min-w-200px">
+                            <p class="mxmd:text-sm">Enjoy more exciting perks as you upgrade to the next tier!</p>
+                        </div>
+                        <div class="w-1/5 p-4 pb-0 mxmd:min-w-1/2">
+                            <img src="{{'PinkMemberCard.png' | file_img_url: 'master'}}" alt="">
+                        </div>
+                        <div class="w-1/5 p-4 pb-0 mxmd:min-w-1/2">
+                            <img src="{{'WhiteMemberCard.png' | file_img_url: 'master'}}" alt="">
+                        </div>
+                        <div class="w-1/5 p-4 pb-0 mxmd:min-w-1/2">
+                            <img src="{{'BlackMemberCard.png' | file_img_url: 'master' }}" alt="">
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="mxmd:text-sm">Required spend amount</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                <p class="text-bold">Trendstter</p>
+                                <p class="mxmd:text-sm">PHP 15,000 - 19,999</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                <p class="text-bold">Headliner</p>
+                                <p class="mxmd:text-sm">PHP 20,000 - 29,999</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                <p class="text-bold">Legend</p>
+                                <p class="mxmd:text-sm">PHP 30,000 ~</p>
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Trendssetter welcome gift</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Headliner welcome gift</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Legend welcome gift</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Surprise gift</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Access to private sales</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Special deluxe samples</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Free deluxe makeovers</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Early access to sale</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Birthday gift</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Event invites</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                        <div class="flex text-center">
+                            <div class="flex items-end w-2/5 p-4 text-left mxmd:min-w-200px">
+                                <p class="font-bold mxmd:text-sm">Free shipping on all online purchases</p>
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{nocheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                            <div class="w-1/5 p-4 text-center mxmd:min-w-1/2">
+                                {{withcheck}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="my-8 font-bold text-center text-20px">LOOK EXCLUSIVE PROMOS</h2>
+            <hr class="text-gray90">
+
+            <div class="flex flex-wrap my-8">
+                <div class="relative flex items-center justify-center w-1/2 pr-3 mb-6 mxmd:w-full mxmd:pr-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pl-3 mb-6 mxmd:w-full mxmd:pl-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pr-3 mb-6 mxmd:w-full mxmd:pr-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+                <div class="relative flex items-center justify-center w-1/2 pl-3 mb-6 mxmd:w-full mxmd:pl-0">
+                    <img src="{{'MarketingBlocks.png' | file_img_url: 'master'}}" alt="">
+                    <!-- <p class="absolute">Marketing Block</p> -->
+                </div>
+            </div>
+
+        </div>
+         <!-- END RIGHT -->
+    </div>
+</div>
+END OF LOYALTY FIRST
+{%endcomment%}
+
+
+
+
+
+<style>
+    
+/* Base for label styling */
+input.loyalty[type="checkbox"]:not(:checked),
+input.loyalty[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+input.loyalty[type="checkbox"]:not(:checked) + label,
+input.loyalty[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+input.loyalty[type="checkbox"]:not(:checked) + label:before,
+input.loyalty[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+input.loyalty[type="checkbox"]:not(:checked) + label:after,
+input.loyalty[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: 0.35em; 
+  left: .22em;
+  font-size: 1em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+}
+/* checked mark aspect changes */
+input.loyalty[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+input.loyalty[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+input.loyalty[type="checkbox"]:disabled:not(:checked) + label:before,
+input.loyalty[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #fff;
+}
+input.loyalty[type="checkbox"]:disabled:checked + label:after {
+  color: #000;
+}
+input.loyalty[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+input.loyalty[type="checkbox"]:checked:focus + label:before,
+input.loyalty[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
+}
+
+
+</style>

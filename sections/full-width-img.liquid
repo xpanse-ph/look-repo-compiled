@@ -1,0 +1,138 @@
+<div data-section-id="{{ section.id }}" data-section-type="hero-section">
+    <div class="block container mx-auto mxlg:mx-25px">
+        <div class="w-full hero-img-section {% if section.blocks.size > 1 %}hero-slider{% endif %}">
+            <div class="hero-img hero-item relative w-full">
+                {%- assign img_url = section.settings.desk_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {%- assign mob_img_url = section.settings.mob_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {%- if section.settings.desk_img != blank -%}
+                    <a href="{{ section.settings.cta_url }}" class="hero-img-container img-container-{{section.id}} block">
+                        <picture class="block">
+                            <source media="(max-width: 1023px)" 
+                                    srcset="{{ section.settings.mob_img | img_url: '100x' }}"
+                                    data-srcset="{{ mob_img_url }}"
+                                    data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                    data-sizes="auto"
+                                    alt="{{ section.settings.heading| escape }}">
+                            <source media="(min-width: 1024px)" 
+                                    srcset="{{ section.settings.desk_img | img_url: '300x' }}"
+                                    data-srcset="{{ img_url }}"
+                                    data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                    data-sizes="auto"
+                                    alt="{{ section.settings.heading| escape }}">
+                            <img class="lazyload {% if forloop.first %}lazypreload{% endif %} w-full h-auto"
+                                src="{{ section.settings.desk_img | img_url: '300x' }}"
+                                data-src="{{ img_url }}"
+                                data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                data-aspectratio="{{ section.settings.desk_img.aspect_ratio }}"
+                                data-sizes="auto"
+                                alt="{{ section.settings.heading| escape }}">
+                        </picture>
+                    </a>
+                {%- endif -%}
+                <style>
+                    .img-container-{{section.id}} {
+                        position: relative;
+                        height: 0;
+                    }
+                    .img-container-{{section.id}} img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    @media (min-width: 1024px) {
+                        .img-container-{{section.id}} {
+                            padding-bottom: {{ 1 | divided_by: section.settings.desk_img.aspect_ratio | times: 100 }}%;
+                        }
+                    }
+                    
+                    @media (max-width: 1023px) {
+                        .img-container-{{section.id}} {
+                            padding-bottom: {%- if section.settings.mob_img != blank -%}{{ 1 | divided_by: section.settings.mob_img.aspect_ratio | times: 100 }}%{%- else -%}100%{%- endif -%};
+                        }
+                    }
+                </style>
+                <div class="hero-main-content overlay center">
+                    <div class="h-full w-full flex justify-center items-center">
+                        <div class="hero-content text-center">
+                            {% if section.settings.heading!= blank %}
+                            <h1 class="uppercase text-mdxlg md:text-xxlg font-black">{{ section.settings.heading}}</h1>
+                            {% endif %}
+                            {% if section.settings.caption != blank %}
+                            <p class="font-normal md:text-base text-sm leading-5">{{ section.settings.caption }}</p>
+                            {% endif %}
+                            {% if section.settings.cta_txt != blank %}
+                            <div class="hero-cta mt-12 block">
+                                <a href="{{ section.settings.cta_url }}" title="{{ section.settings.cta_txt }}" class="mx-auto max-w-200px h-50 w-full table uppercase text-white border border-primary bg-primary font-bold text-base py-3 tracking-wider">{{ section.settings.cta_txt }}</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Full width image",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Text content"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Look at me"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Look at me"
+            },
+            {
+                "type": "text",
+                "id": "caption",
+                "label": "Caption",
+                "default": "Lorem ipsum dolor ismet karud ersa doles."
+            },
+            {
+                "type": "header",
+                "content": "Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "desk_img",
+                "label": "Desktop Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_img",
+                "label": "Mobile Image"
+            },
+            {
+                "type": "header",
+                "content": "CTA"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "URL Text",
+                "default": "Shop now"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Full width image",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

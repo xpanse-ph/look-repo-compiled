@@ -1,0 +1,187 @@
+<div data-section-id="{{ section.id }}" data-section-type="feature-collection-section" class="md:mt-50 mxmd:mt-75px">
+    <div class="container mx-auto mxlg:px-25px">
+        {%- capture width_classes -%}lg:w-1/3 sm:w-1/2 w-full{%- endcapture -%}
+        {%- capture mob_width_classes -%}w-49/100{%- endcapture -%}
+        {%- assign collection = collections[section.settings.collection] -%}
+        {%- assign product_limit = section.settings.limit -%}
+        {%- assign mob_product_limit = section.settings.mob_limit | divided_by: 2 -%}
+        <div class="flex mxlg:flex-wrap mt-12">
+            <div class="lg:w-2/3 w-full lg:mr-4 mxlg:mb-20px">
+                {% if section.settings.title != blank %}
+                    <div class="section-header">
+                        <h3 class="block uppercase lg:text-left text-center lg:text-xlg text-base mb-3 font-bold leading-snug tracking-widest">{{ section.settings.title }}</h3>
+                        {% if section.settings.subtitle != blank %}
+                        <div class="mxlg:hidden block text-left text-lg font-light">{{ section.settings.subtitle }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <div class="flex flex-wrap mt-10 mxlg:hidden">
+                    {% for product in collection.products limit: product_limit %}
+                        {% include 'product-card-2', product: product, widths: width_classes, show_discount: section.settings.show_p_sale, show_sale_label: section.settings.show_label_sale %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lg:hidden w-full block">
+                <div class="pr-slideshow block show_btn">
+                    {% for product in collection.products limit: mob_product_limit %}
+                        {% include 'product-card-2', product: product, widths: mob_width_classes, show_discount: section.settings.show_p_sale, show_sale_label: section.settings.show_label_sale %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="lg:w-1/3 w-full mxlg:mb-20px">
+            {%- assign img_url = section.settings.desk_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            {%- assign mob_img_url = section.settings.mob_img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                {%- if section.settings.desk_img != blank or section.settings.mob_img != blank -%}
+                    <div class="img-container-{{section.id}}">
+                        <a href="{{collection.url}}" title="{{collection.title}}" class="block">
+                            <picture class="block">
+                                <source media="(max-width: 1023px)" 
+                                        srcset="{{ section.settings.mob_img | img_url: '100x' }}"
+                                        data-srcset="{{ mob_img_url }}"
+                                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ section.settings.cta_txt | escape }}">
+                                <source media="(min-width: 1024px)" 
+                                        srcset="{{ section.settings.desk_img | img_url: '300x' }}"
+                                        data-srcset="{{ img_url }}"
+                                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ section.settings.cta_txt | escape }}">
+                                <img class="lazyload lazypreload w-full h-full"
+                                    src="{{ section.settings.image | img_url: '300x300' }}"
+                                    data-src="{{ img_url }}"
+                                    data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                    data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                                    data-sizes="auto"
+                                    alt="{{ section.settings.image.alt | escape }}">
+                            </picture>
+                        </a>
+                        {%- if section.settings.cta_txt != blank -%}
+                        <a href="{{collection.url}}" class="overlay center flex justify-center lg:items-end items-center w-full h-full mxlg:hidden">
+                            <span class="flex justify-center items-center h-35px mx-auto border-2 text-center uppercase text-base font-bold border-white text-white w-40 lg:mb-50">{{ section.settings.cta_txt}}</span>
+                        </a>
+                        {%- endif -%}
+                    </div>
+                        <style>
+                            .img-container-{{section.id}} {
+                                position: relative;
+                                height: 0;
+                            }
+                            .img-container-{{section.id}} img {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                object-fit: cover;
+                            }
+                            @media (min-width: 1024px) {
+                                .img-container-{{section.id}} {
+                                    {% comment %} padding-bottom: 236.333333%; {% endcomment %}
+                                    height: 100%;
+                                }
+                            }
+                            @media (max-width: 1023px) {
+                                .img-container-{{section.id}} {
+                                    padding-bottom: {{ 1 | divided_by: section.settings.mob_img.aspect_ratio | times: 100 }}%;
+                                }
+                            }
+                        </style>
+                {%- endif -%}
+            </div>
+            <div class="lg:hidden w-full block">
+                <div class="pr-slideshow block show_btn">
+                    {% for product in collection.products reversed limit: mob_product_limit %}
+                        {% include 'product-card-2', product: product, widths: mob_width_classes, show_discount: section.settings.show_p_sale, show_sale_label: section.settings.show_label_sale %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Feature collection",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Section title",
+                "default": "Featured collection title header"
+            },
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Section sub-title",
+                "default": "Lorem ipsum dolor ismet karud ersa doles."
+            },
+            {
+                "type": "header",
+                "content": "Collection"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Collection"
+            },
+            {
+                "type": "range",
+                "id": "limit",
+                "label": "Product to show",
+                "min": 1,
+                "max": 6,
+                "step": 1,
+                "default": 6
+            },
+            {
+                "type": "range",
+                "id": "mob_limit",
+                "label": "Product to show in mobile",
+                "min": 1,
+                "max": 12,
+                "step": 1,
+                "default": 12
+            },
+            {
+                "type": "checkbox",
+                "id": "show_p_sale",
+                "label": "Show percent discount",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "show_label_sale",
+                "label": "Show sale label",
+                "default": false
+            },
+            {
+                "type": "header",
+                "content": "Banner Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "desk_img",
+                "label": "Desktop Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_img",
+                "label": "Mobile Image"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "Button text",
+                "default": "View more"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Feature Collection",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

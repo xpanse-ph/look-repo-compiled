@@ -1,0 +1,3489 @@
+{
+  "current": {
+    "color_text": "#3a3a3a",
+    "color_body_text": "#333232",
+    "color_sale_text": "#ea0606",
+    "color_button": "#3a3a3a",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3a3a3a",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "#ffffff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#685858",
+    "image_overlay_opacity": 40,
+    "color_borders": "#ebebeb",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "helvetica_n7",
+    "type_header_base_size": 26,
+    "type_base_font": "helvetica_n4",
+    "type_base_size": 15,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/look-favicon.png",
+    "enable_ajax": true,
+    "show_countdownh_timer": true,
+    "title": "Flash sale!",
+    "c_deadline": "09\/30\/2020",
+    "countdown_cta_txt": "Shop now",
+    "countdown_cta_url": "",
+    "countdown_cta_background": "",
+    "countdown_cta_color": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Look_at_Me_-_Logo_afbd3e2c-9442-4eda-9e5d-a26a76279fe2.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "alert_popup_img": "shopify:\/\/shop_images\/mem.jpg",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "",
+          "logo_max_width": 100,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "Announce something here",
+          "message_link": "",
+          "color_bg": "#3a3a3a",
+          "color_text": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Newsletter"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#f6f6f6",
+          "color_footer_text": "#333232",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "lam-header": {
+        "type": "lam-header",
+        "blocks": {
+          "1601963724155": {
+            "type": "marquee",
+            "settings": {
+              "title": "Look members get more exclusive!",
+              "url": "\/pages\/look-loyalty"
+            }
+          },
+          "0fa2c059-ab8c-47bb-8a37-e995d96f1079": {
+            "type": "marquee",
+            "settings": {
+              "title": "Exclusive perks and discounts when you sign up!",
+              "url": "#"
+            }
+          },
+          "1602205195020": {
+            "type": "marquee",
+            "settings": {
+              "title": "P300 off on your first purchase",
+              "url": "#"
+            }
+          },
+          "1601963738478": {
+            "type": "announcement",
+            "settings": {
+              "title": "Free Shipping for orders Php 3000 and up"
+            }
+          },
+          "1601963748696": {
+            "type": "announcement",
+            "settings": {
+              "title": "Click & Collect – Pick Up In Store"
+            }
+          },
+          "1601963773870": {
+            "type": "announcement",
+            "settings": {
+              "title": "Products are 100% guaranteed authentic"
+            }
+          }
+        },
+        "block_order": [
+          "1601963724155",
+          "0fa2c059-ab8c-47bb-8a37-e995d96f1079",
+          "1602205195020",
+          "1601963738478",
+          "1601963748696",
+          "1601963773870"
+        ],
+        "settings": {
+          "show_announcement": true,
+          "links": "main-menu",
+          "marquee_show_btn": false,
+          "marquee_show_autoplay": true,
+          "marquee_speed": "3000",
+          "announcement_show_btn": true,
+          "announcement_speed": "3000"
+        }
+      },
+      "lam-footer": {
+        "type": "lam-footer",
+        "settings": {
+          "links": "footer",
+          "fb_url": "https:\/\/facebook.com\/look.philippines",
+          "ig_url": "https:\/\/instagram.com\/look.philippines",
+          "show_newsletter": false
+        }
+      },
+      "1599552574962": {
+        "type": "home-hero",
+        "blocks": {
+          "1600748418897": {
+            "type": "slideshow",
+            "settings": {
+              "title": "",
+              "caption": "",
+              "desk_img": "shopify:\/\/shop_images\/FA-Only-at-Look.png",
+              "mob_img": "shopify:\/\/shop_images\/FA_Only_at_Look.jpg",
+              "cta_txt": "",
+              "cta_url": "shopify:\/\/collections\/klavuu"
+            }
+          },
+          "1600749418631": {
+            "type": "slideshow",
+            "settings": {
+              "title": "",
+              "caption": "",
+              "desk_img": "shopify:\/\/shop_images\/FA-Clean-Hair_opt2.png",
+              "mob_img": "shopify:\/\/shop_images\/FA_clean_hair.jpg",
+              "cta_txt": "",
+              "cta_url": "shopify:\/\/collections\/aveda"
+            }
+          },
+          "1602222361017": {
+            "type": "slideshow",
+            "settings": {
+              "title": "",
+              "caption": "",
+              "desk_img": "shopify:\/\/shop_images\/FA-Beauty-Favorites.png",
+              "mob_img": "shopify:\/\/shop_images\/FA_beauty_favorites.jpg",
+              "cta_txt": "",
+              "cta_url": "shopify:\/\/collections\/laura-mercier"
+            }
+          },
+          "a502e548-17d8-4182-9bfa-c22d29ac5c50": {
+            "type": "slideshow",
+            "settings": {
+              "title": "",
+              "caption": "",
+              "desk_img": "shopify:\/\/shop_images\/Creamy-Skin_opt2.png",
+              "mob_img": "shopify:\/\/shop_images\/creamy_skin.jpg",
+              "cta_txt": "",
+              "cta_url": "shopify:\/\/collections\/laneige"
+            }
+          },
+          "133e1129-d22c-44c7-9508-f039d89d10bc": {
+            "type": "slideshow",
+            "settings": {
+              "title": "",
+              "caption": "",
+              "mob_img": "shopify:\/\/shop_images\/LOOK-Banner-1500x1500-Final.jpg",
+              "cta_txt": "",
+              "cta_url": "shopify:\/\/pages\/look-loyalty"
+            }
+          }
+        },
+        "block_order": [
+          "1600748418897",
+          "1600749418631",
+          "1602222361017",
+          "a502e548-17d8-4182-9bfa-c22d29ac5c50",
+          "133e1129-d22c-44c7-9508-f039d89d10bc"
+        ],
+        "settings": {
+          "title": "Look at me"
+        }
+      },
+      "1599552586919": {
+        "type": "home-product-carousel",
+        "settings": {
+          "title": "Brand spotlight",
+          "collection": "new-arrival",
+          "limit": 10,
+          "product_column_count": "lg:w-1\/5",
+          "show_p_sale": false,
+          "show_label_sale": true,
+          "cta_btn_txt": "View more"
+        }
+      },
+      "1599552620486": {
+        "type": "home-feature-collection",
+        "settings": {
+          "title": "Benefit Cosmetics",
+          "subtitle": "",
+          "collection": "benefit",
+          "limit": 6,
+          "mob_limit": 12,
+          "show_p_sale": false,
+          "show_label_sale": true,
+          "desk_img": "shopify:\/\/shop_images\/Benefit-Featured-Collection-Block-Desktop_tall.png",
+          "mob_img": "shopify:\/\/shop_images\/Benefit-Featured-Collection-Block-Mobile.png",
+          "cta_txt": "View more"
+        }
+      },
+      "1599735832447": {
+        "type": "home-blogs",
+        "disabled": true,
+        "blocks": {
+          "1600844908080": {
+            "type": "article",
+            "settings": {
+              "featured_article": "ellana-blogs\/skin-basics-gloss-up-with-ellana-satin-stain-shine",
+              "image": "shopify:\/\/shop_images\/Blog-Thumbnail_a61be042-df0f-4403-86e3-28fcca616c99.jpg"
+            }
+          },
+          "1600844344314": {
+            "type": "article",
+            "settings": {
+              "featured_article": "news\/heres-everything-you-need-to-know-about-the-teviant-artist-collection",
+              "image": "shopify:\/\/shop_images\/Teviant_Blog_2_208c3369-663b-428a-babb-74c24806b069.jpg"
+            }
+          },
+          "1600844913253": {
+            "type": "article",
+            "settings": {
+              "featured_article": "news\/your-beauty-tools-and-products-need-disinfecting-too"
+            }
+          },
+          "1600844324483": {
+            "type": "article",
+            "settings": {
+              "featured_article": "news\/nuxe-best-sellers-now-available-at-watsons-look",
+              "image": "shopify:\/\/shop_images\/NUXE_BLOGTHUMBNAIL.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1600844908080",
+          "1600844344314",
+          "1600844913253",
+          "1600844324483"
+        ],
+        "settings": {
+          "title": "EDITORIAL"
+        }
+      },
+      "1600825722412": {
+        "type": "marketing-block",
+        "blocks": {
+          "1600826892400": {
+            "type": "links",
+            "settings": {
+              "title": "Editorial",
+              "url": "#"
+            }
+          },
+          "1600826896263": {
+            "type": "links",
+            "settings": {
+              "title": "Bestsellers",
+              "url": "shopify:\/\/collections\/best-seller"
+            }
+          },
+          "1600826898814": {
+            "type": "links",
+            "settings": {
+              "title": "New arrivals",
+              "url": "shopify:\/\/collections\/new-arrival"
+            }
+          },
+          "1600826901143": {
+            "type": "links",
+            "settings": {
+              "title": "Skincare",
+              "url": "shopify:\/\/collections\/skincare"
+            }
+          },
+          "1600826902751": {
+            "type": "links",
+            "settings": {
+              "title": "Makeup",
+              "url": "shopify:\/\/collections\/make-up"
+            }
+          },
+          "1600826904415": {
+            "type": "links",
+            "settings": {
+              "title": "Sale",
+              "url": "shopify:\/\/collections\/automated-collection-sample"
+            }
+          }
+        },
+        "block_order": [
+          "1600826892400",
+          "1600826896263",
+          "1600826898814",
+          "1600826901143",
+          "1600826902751",
+          "1600826904415"
+        ],
+        "settings": {
+          "img1": "shopify:\/\/shop_images\/Cerave_900x600_6bfe3910-19e1-4d9e-89ac-06a7e556c78a.png",
+          "img1_url": "shopify:\/\/collections\/cerave",
+          "img2": "shopify:\/\/shop_images\/Clarins_Marketingblock1_web_Parisian.jpg",
+          "img2_url": "shopify:\/\/collections\/clarins"
+        }
+      },
+      "1600833340651": {
+        "type": "hero-overlay",
+        "disabled": true,
+        "settings": {
+          "title": "View here",
+          "desk_img": "shopify:\/\/shop_images\/shutterstock_1085288372_2.jpg",
+          "mob_img": "shopify:\/\/shop_images\/shutterstock_1085288372_1_1.jpg",
+          "cta_txt": "View here",
+          "ext_vid": "https:\/\/youtu.be\/kGNUxd23PnA"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "blocks": {
+          "1602137703328": {
+            "type": "gwpcollection",
+            "settings": {
+              "Title": "Greater than Php 3000",
+              "gwp_min": "1",
+              "gwp_max": "3000",
+              "collection": "gift-with-purchase"
+            }
+          },
+          "1602139572348": {
+            "type": "gwpcollection",
+            "settings": {
+              "Title": "Minimum of 5000 and less than 9999.99",
+              "gwp_min": "3001",
+              "gwp_max": "9999",
+              "collection": "gwp-2"
+            }
+          },
+          "1602140050869": {
+            "type": "gwpcollection",
+            "settings": {
+              "Title": "Greater than Php 10000",
+              "gwp_min": "10000",
+              "gwp_max": "",
+              "collection": "gwp-3"
+            }
+          }
+        },
+        "block_order": [
+          "1602137703328",
+          "1602139572348",
+          "1602140050869"
+        ],
+        "settings": {
+          "pay_img": "shopify:\/\/shop_images\/LOOK-Payment_Methods-1.png"
+        }
+      },
+      "1601381603311": {
+        "type": "home-feature-collection",
+        "disabled": true,
+        "settings": {
+          "title": "Featured collection title header",
+          "subtitle": "Lorem ipsum dolor ismet karud ersa doles.",
+          "collection": "featured-collection-1",
+          "limit": 6,
+          "mob_limit": 12,
+          "show_p_sale": false,
+          "show_label_sale": false,
+          "cta_txt": "View more"
+        }
+      },
+      "1601629241806": {
+        "type": "home-brands",
+        "blocks": {
+          "1601629372488": {
+            "type": "logo",
+            "settings": {
+              "title": "Benefit",
+              "logo": "shopify:\/\/shop_images\/brands-benefit-logo_6a731c8b-2247-416c-93ee-78e03fb0b604.png",
+              "url": "shopify:\/\/collections\/benefit"
+            }
+          },
+          "1601629333064": {
+            "type": "logo",
+            "settings": {
+              "title": "Maybelline",
+              "logo": "shopify:\/\/shop_images\/brands-mny-logo_76c8444c-4264-44c1-9736-53676521a818.png",
+              "url": "shopify:\/\/collections\/maybelline"
+            }
+          },
+          "1601629450591": {
+            "type": "logo",
+            "settings": {
+              "title": "Loreal",
+              "logo": "shopify:\/\/shop_images\/brands-loreal-logo_531e8c9c-b2e0-4e88-b27c-a4f24ec69fdc.png",
+              "url": "shopify:\/\/collections\/loreal-cosmetics"
+            }
+          },
+          "1601629392247": {
+            "type": "logo",
+            "settings": {
+              "title": "cosrx",
+              "logo": "shopify:\/\/shop_images\/brands-corsrx-logo_7cf0b234-869d-4770-be3d-028edfdf5f61.png",
+              "url": "shopify:\/\/collections\/cosrx"
+            }
+          },
+          "1601629275974": {
+            "type": "logo",
+            "settings": {
+              "title": "Klairs",
+              "logo": "shopify:\/\/shop_images\/brands-klairs-logo_86d7734d-fa0e-4f36-b031-e2db63d844b7.png",
+              "url": "shopify:\/\/collections\/dear-klairs"
+            }
+          },
+          "1601629415431": {
+            "type": "logo",
+            "settings": {
+              "title": "blk",
+              "logo": "shopify:\/\/shop_images\/brands-blk-logo_a1e1cdca-9fdc-4aaa-ab22-a345e4fd921b.png",
+              "url": "shopify:\/\/collections\/blk"
+            }
+          }
+        },
+        "block_order": [
+          "1601629372488",
+          "1601629333064",
+          "1601629450591",
+          "1601629392247",
+          "1601629275974",
+          "1601629415431"
+        ],
+        "settings": {
+          "title": "Featured Brands",
+          "caption": "",
+          "cta_txt": ""
+        }
+      },
+      "1601860886910": {
+        "type": "home-product-carousel",
+        "settings": {
+          "title": "Fresh drops",
+          "collection": "new-arrival",
+          "limit": 12,
+          "product_column_count": "lg:w-1\/5",
+          "show_p_sale": false,
+          "show_label_sale": true,
+          "cta_btn_txt": "View more"
+        }
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "logo_max_width": 100,
+          "header": "BE THE FIRST TO KNOW OF UPCOMING PROGRAMS AND PROMOS"
+        }
+      },
+      "password-content": {
+        "type": "password-content",
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_form_heading": "Be the first to know when we launch.",
+          "newsletter_form_subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
+          "newsletter_placeholder": "Email address",
+          "newsletter_button_text": "Notify me"
+        }
+      },
+      "brands-page": {
+        "type": "brands-page",
+        "blocks": {
+          "81a6b0c0-7e6e-425b-ac91-d787aa3d760d": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/brands-benefit-logo_440b9a13-fa7a-4d98-8344-f2495f2116dc.png",
+              "brand_url": "shopify:\/\/collections\/benefit"
+            }
+          },
+          "f8a6971c-609e-4ed6-a823-c91f8f8baf4d": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/New_Project4.png",
+              "brand_url": "shopify:\/\/collections\/blk"
+            }
+          },
+          "75d191ac-e936-416b-bca3-865b39d490d4": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/New_Project2.png",
+              "brand_url": "shopify:\/\/collections\/cosrx"
+            }
+          },
+          "9aa61b33-8580-4557-a856-7eceea00bf7a": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/New_Project3.png",
+              "brand_url": "shopify:\/\/collections\/dear-klairs"
+            }
+          },
+          "60a08f9b-c441-46c7-b92f-d368a0ef8d03": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/New_Project.png",
+              "brand_url": "shopify:\/\/collections\/loreal-cosmetics"
+            }
+          },
+          "98698800-3259-459e-b855-12be537e576d": {
+            "type": "featured_brands",
+            "settings": {
+              "brand_image": "shopify:\/\/shop_images\/brands-mny-logo_6102c4f9-9acf-45bc-86aa-e02b7a1c25b5.png",
+              "brand_url": "shopify:\/\/collections\/maybelline"
+            }
+          }
+        },
+        "block_order": [
+          "81a6b0c0-7e6e-425b-ac91-d787aa3d760d",
+          "f8a6971c-609e-4ed6-a823-c91f8f8baf4d",
+          "75d191ac-e936-416b-bca3-865b39d490d4",
+          "9aa61b33-8580-4557-a856-7eceea00bf7a",
+          "60a08f9b-c441-46c7-b92f-d368a0ef8d03",
+          "98698800-3259-459e-b855-12be537e576d"
+        ],
+        "settings": {}
+      },
+      "brands-acwell": {
+        "type": "brands-acwell",
+        "blocks": {
+          "b38f0fc2-80e2-4e3b-abc6-28feee6aea70": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HeroSlider-2280x300_AC.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HeroSlider-750x300_AC.jpg"
+            }
+          },
+          "2415641f-7f86-4e99-9c9e-9900556182be": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HeroSlider-2280x300_Acne.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HeroSlider-750x300_Acne.jpg"
+            }
+          },
+          "75bf8c28-f9fa-473b-81d2-a5723a65a440": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HeroSlider-2280x300_Blue.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HeroSlider-750x300_Blue.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b38f0fc2-80e2-4e3b-abc6-28feee6aea70",
+          "2415641f-7f86-4e99-9c9e-9900556182be",
+          "75bf8c28-f9fa-473b-81d2-a5723a65a440"
+        ],
+        "settings": {}
+      },
+      "brands-ahc": {
+        "type": "brands-ahc",
+        "blocks": {
+          "2bc4f0c6-e495-4735-bd5f-299335cab714": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/AHC-2280x300_bd9fbaa6-295e-4c5c-88d3-bba58fa2975e.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/AHC-750X300_d3f77bce-bd5c-4036-88b2-ccf6b061877c.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2bc4f0c6-e495-4735-bd5f-299335cab714"
+        ],
+        "settings": {}
+      },
+      "brands-american-crew": {
+        "type": "brands-american-crew",
+        "blocks": {
+          "9774b7aa-2b32-4ead-ba9f-dd061bc72091": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_web_brand_landing_page_ac_fe99d221-324b-4a87-8a3c-b7bd296d8ff4.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile_web_brand_landing_page_ac_414099f9-2eef-404a-b8de-129fe0c421be.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "9774b7aa-2b32-4ead-ba9f-dd061bc72091"
+        ],
+        "settings": {}
+      },
+      "brands-anessa": {
+        "type": "brands-anessa",
+        "blocks": {
+          "92b266f3-67a2-45e5-b098-a572b897ba50": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Anessa_BrandCollectionPage_Banner.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Anessa_BrandCollection_Header_750x300px.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "92b266f3-67a2-45e5-b098-a572b897ba50"
+        ],
+        "settings": {}
+      },
+      "brands-armani": {
+        "type": "brands-armani",
+        "blocks": {
+          "66356d8b-ba8a-4035-b158-ccb15854ef43": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Collections_Page_Banner_Website__Armani_1.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Hero_Slider_Image_Armani_7deec964-e82e-4336-9eeb-0292b77a6f86.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "66356d8b-ba8a-4035-b158-ccb15854ef43"
+        ],
+        "settings": {}
+      },
+      "brands-artego": {
+        "type": "brands-artego",
+        "blocks": {
+          "2ace8f86-8a7b-45dd-b2b1-ceecd58030ba": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_44ba0921-b752-4c60-91b5-2af7a21395b2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2ace8f86-8a7b-45dd-b2b1-ceecd58030ba"
+        ],
+        "settings": {}
+      },
+      "brands-aveda": {
+        "type": "brands-aveda",
+        "blocks": {
+          "3ec6641d-ca47-4598-b527-f02c2acafdc3": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_BRAND_BANNER_AVEDA_2280X300PX_FINAL_32b322cc-d746-461a-842b-573f18c5f930.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_BRAND_BANNER_AVEDA_750X500PX_OPTION_1_2bf7f33d-a690-4158-94c9-18fec9cbc081.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3ec6641d-ca47-4598-b527-f02c2acafdc3"
+        ],
+        "settings": {}
+      },
+      "brands-aveeno": {
+        "type": "brands-aveeno",
+        "blocks": {
+          "54268ce0-0102-4c66-bf5f-54dac909df60": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Aveeno_-_Banner-2280x300.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Aveeno_-_Banner-750x300.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "54268ce0-0102-4c66-bf5f-54dac909df60"
+        ],
+        "settings": {}
+      },
+      "brands-avene": {
+        "type": "brands-avene",
+        "blocks": {
+          "981e8ce3-d505-4712-8803-a7bcb35b9721": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Watsons_Banner_Wide_63667ffc-04ed-498f-9515-dc7f9dfb11d7.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WatsonsLookMobileBanner_1_778a3faa-fecf-4901-b310-c52a20008ab7.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "981e8ce3-d505-4712-8803-a7bcb35b9721"
+        ],
+        "settings": {}
+      },
+      "brands-azzaro": {
+        "type": "brands-azzaro",
+        "blocks": {
+          "d603ee04-4ebf-407b-8ece-76116329ae3f": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Azzaro_BrandPage_web_Tonichero.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Azzaro_BrandPage_app_Tonichero_0cfc70b1-7393-471b-b71a-711d17a0aaa9.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d603ee04-4ebf-407b-8ece-76116329ae3f"
+        ],
+        "settings": {}
+      },
+      "brands-banila-co": {
+        "type": "brands-banila-co",
+        "blocks": {
+          "ce1c5ec6-c414-4777-99b7-83f44fe1122b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Web_Banner_3c26839a-d170-4975-bf4b-fb20944a88a4.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Web_Banner_Mobile_10dc628c-cd0d-45ac-9af4-f013cfb496b3.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "ce1c5ec6-c414-4777-99b7-83f44fe1122b"
+        ],
+        "settings": {}
+      },
+      "brands-barry-m": {
+        "type": "brands-barry-m",
+        "blocks": {
+          "d0e6668f-f533-44c0-89a8-39a035e6b0ea": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BM_DESKTOP_1_1d8ffefb-ddfa-482b-b4b7-72c2f4323906.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BM_MOBILE_1_033a2b19-b1d4-48f4-a5fd-f200920e6fd4.jpg"
+            }
+          },
+          "e221266a-b5ff-4856-b40d-41e374797de3": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BM_DESKTOP_2_40a7d70f-2ab4-4525-9d17-0315fb93694a.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BM_MOBILE_2_10b11fb5-1936-43a9-a426-62aa3136b842.jpg"
+            }
+          },
+          "337ea50e-fb95-4224-8d22-81e3a8ad6ddc": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BM_DESKTOP_3.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BM_MOBILE_3.jpg"
+            }
+          },
+          "b0526d39-cadc-48f3-91cc-4191ef01c8f5": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BM_DESKTOP_4_87652200-f9f3-406c-9d1c-6a9cd94c68ec.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BM_MOBILE_4_5fbd2f68-73f4-4d08-8883-26205f34cdc1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d0e6668f-f533-44c0-89a8-39a035e6b0ea",
+          "e221266a-b5ff-4856-b40d-41e374797de3",
+          "337ea50e-fb95-4224-8d22-81e3a8ad6ddc",
+          "b0526d39-cadc-48f3-91cc-4191ef01c8f5"
+        ],
+        "settings": {}
+      },
+      "brands-basic-care": {
+        "type": "brands-basic-care",
+        "blocks": {
+          "8e50ee47-c082-4321-8c82-f3aece8fe93b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BASIC_CARE_WEB_BANNER_DESKTOP.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BASIC_CARE_WEB_BANNER_MOBILE.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "8e50ee47-c082-4321-8c82-f3aece8fe93b"
+        ],
+        "settings": {}
+      },
+      "brands-beauty-blender": {
+        "type": "brands-beauty-blender",
+        "blocks": {
+          "834a8b7f-5107-4f68-a9cb-40b7ffb1204e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BB_DESKTOP_1_f2ff972f-e4fe-4a6c-85f2-df5b904c76b0.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BB_MOBILE_1_07613cb9-829e-4ebe-8c11-d946a502a964.jpg"
+            }
+          },
+          "929ae75f-6851-467e-9d98-62e4e85dcd31": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BB_DESKTOP_2_057c8369-1df7-42a5-ad41-74337a95188a.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BB_MOBILE_2_237bd8b0-29b4-4817-a112-3cff00eceaa9.jpg"
+            }
+          },
+          "c28fcd7a-5ab4-488e-9243-4410bc067551": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BB_DESKTOP_3.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BB_MOBILE_3.jpg"
+            }
+          },
+          "0becfea7-2765-4b8e-adcf-77a1a80e9206": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BB_DESKTOP_4_ee4c4d6a-f2ad-4483-9d1d-65c67c152ac2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BB_MOBILE_4_1d44d074-d009-4d28-8417-e0a1dae0ea64.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "834a8b7f-5107-4f68-a9cb-40b7ffb1204e",
+          "929ae75f-6851-467e-9d98-62e4e85dcd31",
+          "c28fcd7a-5ab4-488e-9243-4410bc067551",
+          "0becfea7-2765-4b8e-adcf-77a1a80e9206"
+        ],
+        "settings": {}
+      },
+      "brands-benefit": {
+        "type": "brands-benefit",
+        "blocks": {
+          "4277729c-3e8e-446b-9429-7752cbb9a22a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Benefit-Desktop-Landing-Banner_fcf038c2-531a-43c2-8a02-b6351298d794.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Benefit-Mobile-Landing-Banner_55958d49-e43f-4b20-bd6f-7bc75abb4b20.png"
+            }
+          }
+        },
+        "block_order": [
+          "4277729c-3e8e-446b-9429-7752cbb9a22a"
+        ],
+        "settings": {}
+      },
+      "brands-biore": {
+        "type": "brands-biore",
+        "blocks": {
+          "64e026aa-319c-4072-bec9-5e956482d028": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Biore_BrandCollectionPageBanner_175bfbfb-76c0-499b-82fa-ca8433b61682.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Biore_BrandCollectionHeader_ebf534aa-39e6-4532-b138-09f1d568df03.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "64e026aa-319c-4072-bec9-5e956482d028"
+        ],
+        "settings": {}
+      },
+      "brands-bioscience": {
+        "type": "brands-bioscience",
+        "blocks": {
+          "a6c9e756-62d3-4c5c-8e87-91b6b67471d6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BIO-2280x300_21578e47-112f-4e26-8350-b1264bf60402.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BIO-750X300_f00e5e1f-b28a-4e4e-b055-cf1b7a3bfbea.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a6c9e756-62d3-4c5c-8e87-91b6b67471d6"
+        ],
+        "settings": {}
+      },
+      "brands-bling-pop": {
+        "type": "brands-bling-pop",
+        "blocks": {
+          "de2502b0-ef08-4480-97e3-6e3009941044": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BlingPop_Desktop_Brand_Landing_Page_-_Brand_Intro_e4424380-0a17-474a-a12e-6a3a2a3320f3.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BlingPop_Mobile_Brand_Landing_Page_cdd463dc-c2f7-4c9d-b829-a7d3d3123d6c.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "de2502b0-ef08-4480-97e3-6e3009941044"
+        ],
+        "settings": {}
+      },
+      "brands-blk": {
+        "type": "brands-blk",
+        "blocks": {
+          "f297de81-bc48-4458-840a-cb96639a3f66": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Look_-_Desktop_Banner_-_2280x300_8feda173-2cf9-40c1-a334-bf8bf3688c05.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Look_-_Mobile_Banner_-_750x300_53ad7ad2-9537-4976-9809-10bcb8045dc8.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f297de81-bc48-4458-840a-cb96639a3f66"
+        ],
+        "settings": {}
+      },
+      "brands-burberry": {
+        "type": "brands-burberry",
+        "blocks": {
+          "2d8c57d8-aad0-47a2-8734-aa9fb9106836": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BURBERRY_2280X300PX_5ba8df46-5a69-44b1-acea-64d22956622c.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BURBERRY_750X500PX_GRAPHICS_57baf736-8328-4978-92fd-f0637caf7f7c.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2d8c57d8-aad0-47a2-8734-aa9fb9106836"
+        ],
+        "settings": {}
+      },
+      "brands-bvlgari": {
+        "type": "brands-bvlgari",
+        "blocks": {
+          "b862acf8-1680-4e49-9153-f529c55c4d5e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BVLGARI_2280X300PX_475bef25-0c54-4a18-b64f-57d6fe7c4d13.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BVLGARI_750X500PX_16fdc72d-ced2-4949-b3e3-ec3bf3b6e680.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b862acf8-1680-4e49-9153-f529c55c4d5e"
+        ],
+        "settings": {}
+      },
+      "brands-carolina-herrera": {
+        "type": "brands-carolina-herrera",
+        "blocks": {
+          "fb9fe750-89e7-4845-bc47-2075fd3db278": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CAH_2280X300PX_eff9c8d1-27b0-476f-bb90-34d9d56e8e90.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CAH_750X500PX_18812a2e-369d-4d2e-8fac-fd75cafdf93a.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "fb9fe750-89e7-4845-bc47-2075fd3db278"
+        ],
+        "settings": {}
+      },
+      "brands-cellapy": {
+        "type": "brands-cellapy",
+        "blocks": {
+          "389cba5c-956c-4ef8-9560-090212acac77": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_0c56b41b-9aeb-4942-9a01-c66064c29c86.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300_5547db62-e619-4747-8915-d20e4cf3d97a.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "389cba5c-956c-4ef8-9560-090212acac77"
+        ],
+        "settings": {}
+      },
+      "brands-cetaphil": {
+        "type": "brands-cetaphil",
+        "blocks": {
+          "f500a5b5-3e66-4408-977d-31dfff8a57a5": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CET_Banner_1_2280x300_201002_56b82495-7189-4f6b-bdc5-dbb03a54c598.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CET_Banner_1_750x300_201002_7634a2ac-bf26-4be5-926b-e2fe0be87001.jpg"
+            }
+          },
+          "fb481ade-5ce8-49ce-b649-6210143f8247": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CET_Banner_2_2280x300_201002.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CET_Banner_2_750x300_201002.jpg"
+            }
+          },
+          "1880f269-ef24-4bdb-9164-4a5dd4086d8d": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CET_Banner_3_2280x300_201002.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CET_Banner_3_750x300_201002.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f500a5b5-3e66-4408-977d-31dfff8a57a5",
+          "fb481ade-5ce8-49ce-b649-6210143f8247",
+          "1880f269-ef24-4bdb-9164-4a5dd4086d8d"
+        ],
+        "settings": {}
+      },
+      "brands-charriol": {
+        "type": "brands-charriol",
+        "blocks": {
+          "75285f6c-271f-4db2-9e3d-ed858b729c8e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Collections_Page_Banner_-_Website.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand_Collections_Page_Banner_-_App.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "75285f6c-271f-4db2-9e3d-ed858b729c8e"
+        ],
+        "settings": {}
+      },
+      "brands-chloe": {
+        "type": "brands-chloe",
+        "blocks": {
+          "a59a84c2-5263-478f-87ed-0bbfbd5659a0": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CHLOE_2280X300PX_f14fbc74-b5ad-4562-b8fc-1b40e40161d2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CHLOE_750X500PX_29043ab5-3b36-43c2-8dd8-3d52308c8fff.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a59a84c2-5263-478f-87ed-0bbfbd5659a0"
+        ],
+        "settings": {}
+      },
+      "brands-ck": {
+        "type": "brands-ck",
+        "blocks": {
+          "c6de7d15-1043-484e-9118-92c41fffcd09": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_CK_2280X300PX_dcd1bd1f-709f-470d-a986-31e46d5830d8.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CK_750X500PX_3877e74b-7140-4803-a968-6594e5f6e9d5.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "c6de7d15-1043-484e-9118-92c41fffcd09"
+        ],
+        "settings": {}
+      },
+      "brands-clarins": {
+        "type": "brands-clarins",
+        "blocks": {
+          "7a5cd23b-01d0-45c1-94e3-e6e208ff52dd": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Clarins_BrandPage_web_Clarins.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Clarins_CategoryPageHighlight_app_DSerum.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "7a5cd23b-01d0-45c1-94e3-e6e208ff52dd"
+        ],
+        "settings": {}
+      },
+      "brands-clio": {
+        "type": "brands-clio",
+        "blocks": {
+          "3f4388cf-dd51-42e8-ba4a-0609514bd06a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_BRAND_BANNER_CLUB_CLIO_2280X300PX_FINAL_b4542819-742a-4929-8e5e-58e46b2961f4.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_BRAND_BANNER_CLUB_CLIO_750X500PX_FINAL_7f1aefbf-8c4c-49c9-b6b5-8148114d02cf.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3f4388cf-dd51-42e8-ba4a-0609514bd06a"
+        ],
+        "settings": {}
+      },
+      "brands-coach": {
+        "type": "brands-coach",
+        "blocks": {
+          "1a1e3b92-1e29-40d8-85b3-77502014ade6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/COACH_2280X300PX_888fa16d-1771-49e5-8504-101905903a9a.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/COACH_750X500PX_c46c9370-314e-41e1-a07b-0dcca9e6bd2a.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1a1e3b92-1e29-40d8-85b3-77502014ade6"
+        ],
+        "settings": {}
+      },
+      "brands-cosrx": {
+        "type": "brands-cosrx",
+        "blocks": {
+          "5167ccff-9513-49e2-ab32-24ddf9a8bb8a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/COSRX_LOOK_Brand_Landing_Page_Banner_-_desktop.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/COSRX_LOOK_Brand_Landing_Page_Banner_-_mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "5167ccff-9513-49e2-ab32-24ddf9a8bb8a"
+        ],
+        "settings": {}
+      },
+      "brands-d-g": {
+        "type": "brands-d-g",
+        "blocks": {
+          "5995bfd4-0d65-4024-8008-822ba3dc3a4d": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SFD_BrandCollectionPage_2280x300_DGShine_83e430d2-582b-49e1-9105-5696f9cbbfc8.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DG_BrandCollectionPage_750x300_Dolce_360c2d22-99ae-4bc7-af64-b78ada967b7c.png"
+            }
+          },
+          "f318ca3e-b297-4dda-905a-9aaef354bd51": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SFD_BrandCollectionPage_2280x300_DGKING.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DG_BrandCollectionPage_750x300_King.png"
+            }
+          }
+        },
+        "block_order": [
+          "5995bfd4-0d65-4024-8008-822ba3dc3a4d",
+          "f318ca3e-b297-4dda-905a-9aaef354bd51"
+        ],
+        "settings": {}
+      },
+      "brands-davidoff": {
+        "type": "brands-davidoff",
+        "blocks": {
+          "5a65164b-2679-4c18-8886-0699294fc33b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DAVIDOFF_2280X300PX_9b15cd0a-c1d2-4dc7-b245-a93d5dcb8ee2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DAVIDOFF_750X500PX_3ac01302-2a94-4533-88d8-8f7915be1c04.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "5a65164b-2679-4c18-8886-0699294fc33b"
+        ],
+        "settings": {}
+      },
+      "brands-day-mellow": {
+        "type": "brands-day-mellow",
+        "blocks": {
+          "4ebb1cce-a507-470d-b72c-bf91f16482dc": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/daymellow__Desktop_Brand_Landing_Page_-_Brand_Intro_74af36b6-d757-4c37-8035-97c4b3f80d40.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/daymellow__Mobile_Brand_Landing_Page_98484cb6-777e-469f-a326-7b202263840d.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "4ebb1cce-a507-470d-b72c-bf91f16482dc"
+        ],
+        "settings": {}
+      },
+      "brands-dear-klairs": {
+        "type": "brands-dear-klairs",
+        "blocks": {
+          "89c0029c-f202-48d3-9c31-c7db572451a7": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DK_Watsons_LOOK_-_Brand_Page_Banner_-_Web.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DK_Watsons_LOOK_-_Brand_Page_Banner_-_Mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "89c0029c-f202-48d3-9c31-c7db572451a7"
+        ],
+        "settings": {}
+      },
+      "brands-dermalogica-elizabeth-arden": {
+        "type": "brands-dermalogica-elizabeth-arden",
+        "blocks": {
+          "7ff4296b-46f8-42b2-9713-6b7e271520db": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_BRAND_BANNER_EA_2280X300PX_FINAL_dbde5ae3-3d06-4704-8e49-b335b803d4d8.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_BRAND_BANNER_EA_750X500PX_FINAL_536c6ad1-081e-4671-863c-0caf9de6d2ec.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "7ff4296b-46f8-42b2-9713-6b7e271520db"
+        ],
+        "settings": {}
+      },
+      "brands-dkny": {
+        "type": "brands-dkny",
+        "blocks": {
+          "8ac4e0de-7861-4c20-99d9-c25ed6aa4692": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/dkny_2280X300PX_599ab7d0-3300-4754-ac47-4aa1f970abeb.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/dkny_750X500PX_b63b9f50-4d88-4b7a-830f-8c07a52b19b1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "8ac4e0de-7861-4c20-99d9-c25ed6aa4692"
+        ],
+        "settings": {}
+      },
+      "brands-dr-ceuracle": {
+        "type": "brands-dr-ceuracle",
+        "blocks": {
+          "e6b19f20-4bc8-4163-b5e1-995c9ec4c421": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DR_CEURACLE_Desktop_Brand_Landing_Page_-_Brand_Intro_b3dc4c3f-ce33-4029-9ccc-13c37a67908d.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DR_CEURACLE_Mobile_Brand_Landing_Page_e21e534a-1877-42b6-9e23-f787ba9da6c7.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "e6b19f20-4bc8-4163-b5e1-995c9ec4c421"
+        ],
+        "settings": {}
+      },
+      "brands-dr-teals": {
+        "type": "brands-dr-teals",
+        "blocks": {
+          "19621a22-2872-453a-ac92-630990e04b2b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DRT_DESKTOP_copy_be97a5b5-815f-499e-bd62-c42748a479ee.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/DRT_MOBILE_copy_12ea4a57-ce43-4f0d-9565-c3a1c1fe0139.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "19621a22-2872-453a-ac92-630990e04b2b"
+        ],
+        "settings": {}
+      },
+      "brands-eco-tools": {
+        "type": "brands-eco-tools",
+        "blocks": {
+          "768cc2b3-a48a-44c4-9a75-0242a9ac178e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/ET_DESKTOP_1_b4998589-21ff-4a70-a3b2-3273480647a7.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/ET_MOBILE_1_e71c1aba-82c3-45be-bb94-9ec16711dc04.jpg"
+            }
+          },
+          "49ad8800-94bb-4a8c-bb13-ad8977be7452": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/ET_DESKTOP_2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/ET_MOBILE_2.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "768cc2b3-a48a-44c4-9a75-0242a9ac178e",
+          "49ad8800-94bb-4a8c-bb13-ad8977be7452"
+        ],
+        "settings": {}
+      },
+      "brands-eksperience": {
+        "type": "brands-eksperience",
+        "blocks": {
+          "bf5696cb-7555-42dd-a848-12b315720663": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_web_brand_landing_page_eks_74f875da-9107-490f-bba2-fe3d33da725c.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile_web_brand_landing_page_eks_b04cdf9b-b27f-4480-9ac0-4bb64c7f008f.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "bf5696cb-7555-42dd-a848-12b315720663"
+        ],
+        "settings": {}
+      },
+      "brands-ellana": {
+        "type": "brands-ellana",
+        "blocks": {
+          "81b1bd65-78a7-4b4b-9425-7df6ae5c7f36": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand-Page-Asset_2280x300px_v2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand-Page-Asset-Mobile_750x500px_v2.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "81b1bd65-78a7-4b4b-9425-7df6ae5c7f36"
+        ],
+        "settings": {}
+      },
+      "brands-eoss": {
+        "type": "brands-eoss",
+        "blocks": {
+          "bf7a57b0-c1ac-49d1-9a69-971eef5bb5ed": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/EOS_Brand_Banner_2280x300_498221e5-dbe8-4ad1-960a-73735b686716.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/EOS_Brand_Banner_750x300_bfe27e1c-6858-4d60-996d-0cfc98aaf702.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "bf7a57b0-c1ac-49d1-9a69-971eef5bb5ed"
+        ],
+        "settings": {}
+      },
+      "brands-euro": {
+        "type": "brands-euro",
+        "blocks": {
+          "a60d7709-35a9-4526-999c-41c0e2f9a41a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_HP_Landing_Page_1902306e-13be-482e-8239-60791f940e05.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile_HP_Landing_Page_9c346615-6e6a-4483-9ed5-a4297997d73b.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a60d7709-35a9-4526-999c-41c0e2f9a41a"
+        ],
+        "settings": {}
+      },
+      "brands-farmskin": {
+        "type": "brands-farmskin",
+        "blocks": {
+          "f057a053-2f22-4d2b-9f17-880188202a19": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Look_Web_Banner_02v2_1_2009e50b-cbda-4977-a0f5-cf235e477f68.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Look_Web_Banner_02v2_1_2009e50b-cbda-4977-a0f5-cf235e477f68.png"
+            }
+          }
+        },
+        "block_order": [
+          "f057a053-2f22-4d2b-9f17-880188202a19"
+        ],
+        "settings": {}
+      },
+      "brands-ferragamo": {
+        "type": "brands-ferragamo",
+        "blocks": {
+          "1a0b7246-d0de-4a52-a13d-afa2b5b5d953": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/FERRAGAMO_2280X300PX_9a2c1284-f193-4664-a2b2-dc8313a54ad9.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/FERRAGAMO_750X500PX_03884aff-4fdb-4e46-83e8-faac8b0b6b48.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1a0b7246-d0de-4a52-a13d-afa2b5b5d953"
+        ],
+        "settings": {}
+      },
+      "brands-filorga": {
+        "type": "brands-filorga",
+        "blocks": {
+          "48b5b931-367a-4c73-a0f0-50ddb5ef2519": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Filorga_BrandPage_web_Optimeyes_7ebc2641-3b68-4ee0-a755-8cc47989bacb.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Filorga_CategoryPageHighlight_app_Time_cc962494-fc73-4ef5-bed4-47d1576fbd34.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "48b5b931-367a-4c73-a0f0-50ddb5ef2519"
+        ],
+        "settings": {}
+      },
+      "brands-garnier": {
+        "type": "brands-garnier",
+        "blocks": {
+          "2b943a52-5369-4eff-b4a6-9e2c9cf9d05f": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop-Brand-Page-2280x300_f5bc538a-04f1-43f6-b4ce-c1aa959c9f21.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile-Brand-Page-750x500.png"
+            }
+          }
+        },
+        "block_order": [
+          "2b943a52-5369-4eff-b4a6-9e2c9cf9d05f"
+        ],
+        "settings": {}
+      },
+      "brands-glam-up": {
+        "type": "brands-glam-up",
+        "blocks": {
+          "73510217-a052-4617-b8ce-05c792acbd36": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/GLAM_UP_Desktop_Brand_Landing_Page_-_Brand_Intro_bbe7d50f-902c-4548-b665-e0263512f81f.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/GLAM_UP_Mobile_Brand_Landing_Page_d9e97606-2b62-422f-aeed-aa83be994d26.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "73510217-a052-4617-b8ce-05c792acbd36"
+        ],
+        "settings": {}
+      },
+      "brands-hada-labo": {
+        "type": "brands-hada-labo",
+        "blocks": {
+          "9f35f37f-7691-4b1e-95f8-b1bc77eaf229": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Watsons_LandingBanner_2280x300_Hadalabo_Sept_1_ed4b206b-e221-4a11-973a-ca8efdf19587.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Watsons_LandingBanner_750x450_Hadalabo_Sept_1_9d4aaa1c-49e9-450d-9a7a-c0ab7b5be601.png"
+            }
+          }
+        },
+        "block_order": [
+          "9f35f37f-7691-4b1e-95f8-b1bc77eaf229"
+        ],
+        "settings": {}
+      },
+      "brands-happy-skin": {
+        "type": "brands-happy-skin",
+        "blocks": {
+          "f26835d9-9c48-4a75-9ed9-50d3da23f250": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_Brand_Landing_Page_BLOOM_KV_2280x300px.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile_Brand_Landing_Page_GHS_BLOOM_KV_750x300px.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f26835d9-9c48-4a75-9ed9-50d3da23f250"
+        ],
+        "settings": {}
+      },
+      "brands-innisfree": {
+        "type": "brands-innisfree",
+        "blocks": {
+          "58c31921-e212-49cc-9dee-d56dfb7f618a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300-2_3894d7cb-1855-4101-bbee-66bda12a7d6c.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750X300-2_fed0febd-3567-475a-864a-4ec5a8c1db1a.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "58c31921-e212-49cc-9dee-d56dfb7f618a"
+        ],
+        "settings": {}
+      },
+      "brands-issey-miyake": {
+        "type": "brands-issey-miyake",
+        "blocks": {
+          "6e0f406e-9136-41ba-9442-48132dd82c9c": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SFD_BrandCollectionPage_2280x300_RRWW_25e1c650-cec0-4984-ac1c-6e7de6102ec5.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/IM_BrandCollectionsHeader_750x500px_RRWW_15f2d1e1-e5b2-451a-b4a6-b51e76ead224.png"
+            }
+          }
+        },
+        "block_order": [
+          "6e0f406e-9136-41ba-9442-48132dd82c9c"
+        ],
+        "settings": {}
+      },
+      "brands-k-palette": {
+        "type": "brands-k-palette",
+        "blocks": {
+          "b7e4c4f1-58ef-4545-9129-48374bf788a9": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/3_Brand_page_asset_desktop_size_41b6e380-3c66-4ef2-a281-691ea955ee38.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/3_Brand_page_asset_mobile_size_21eebb25-b258-425f-9ec5-e8842af0e576.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b7e4c4f1-58ef-4545-9129-48374bf788a9"
+        ],
+        "settings": {}
+      },
+      "brands-kiss-electricals": {
+        "type": "brands-kiss-electricals",
+        "blocks": {
+          "9a125c7a-2e86-4579-ae72-6d93884a358e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_1_1f3a3fc4-ae78-4ea6-99df-48f821379a4f.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300_1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "9a125c7a-2e86-4579-ae72-6d93884a358e"
+        ],
+        "settings": {}
+      },
+      "brands-kiss-new-york": {
+        "type": "brands-kiss-new-york",
+        "blocks": {
+          "faa3e043-07f9-4ee2-b9d2-c62b1c9cdf9a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_1.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300_1_6eb533ae-3ef4-4385-a8b5-8b2d36993371.jpg"
+            }
+          },
+          "266ba340-7f4f-4416-af17-a17e6881dd24": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300_2.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "faa3e043-07f9-4ee2-b9d2-c62b1c9cdf9a",
+          "266ba340-7f4f-4416-af17-a17e6881dd24"
+        ],
+        "settings": {}
+      },
+      "brands-klavuu": {
+        "type": "brands-klavuu",
+        "blocks": {
+          "aea448b8-ead9-47f1-9283-c66e55f8f80b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/KLAVUU_Desktop_Brand_Landing_Page_-_Brand_Intro_11e8d93e-7952-42cf-99b9-1584db8be9b3.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/KLAVUU_Mobile_Brand_Landing_Page_2d9c6474-b268-4d88-9168-77431b2f059f.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "aea448b8-ead9-47f1-9283-c66e55f8f80b"
+        ],
+        "settings": {}
+      },
+      "brands-kocostar": {
+        "type": "brands-kocostar",
+        "blocks": {
+          "363daa95-c61a-4a1f-9b5b-1ae5ed123c98": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/KOCOSTAR_Desktop_Brand_Landing_Page_-_Brand_Intro_90823271-0244-4d4a-af16-874a6d2d755f.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/KOCOSTAR_Mobile_Brand_Landing_Page_9e77d390-b8ac-4b42-bad5-93caed59f0fc.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "363daa95-c61a-4a1f-9b5b-1ae5ed123c98"
+        ],
+        "settings": {}
+      },
+      "brands-kora-organics": {
+        "type": "brands-kora-organics",
+        "blocks": {
+          "fef5b65e-8fc0-4978-90d8-73b480cee750": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/KOS_Brand_collections_Page_Banner_Images.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/KOS_Brand_collection_Header_Images_copy.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "fef5b65e-8fc0-4978-90d8-73b480cee750"
+        ],
+        "settings": {}
+      },
+      "brands-la-coupe": {
+        "type": "brands-la-coupe",
+        "blocks": {
+          "b8416824-9681-4c18-94aa-2b9d6abc91dd": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LCorgnx_COSMARK_BannerAd_2280x300_VS03_eed5b0a5-3513-4ba8-a432-bd4e336f8ca9.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LCorgnx_COSMARK_BannerAd_750x300_VS03_c78ab108-e14f-46bd-8f03-6429940ed1e0.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b8416824-9681-4c18-94aa-2b9d6abc91dd"
+        ],
+        "settings": {}
+      },
+      "brands-lacoste": {
+        "type": "brands-lacoste",
+        "blocks": {
+          "3d42a21d-4216-4819-8be7-c57f8b19acc9": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LACOSTE_2280X300PX_0bb75ce4-93ba-4f4b-b4e4-b9f3191efdbc.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750X500PX_3b3bd45c-d0d1-4190-908e-b08a6f43a149.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3d42a21d-4216-4819-8be7-c57f8b19acc9"
+        ],
+        "settings": {}
+      },
+      "brands-laneige": {
+        "type": "brands-laneige",
+        "blocks": {
+          "2568cdec-0489-4e60-9554-95453cbe4677": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Laneige_WB_Brand_Landing_Page_Desktop_54ccd8a5-2a89-4a6d-8cfa-98043f5986c3.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Laneige_WB_Brand_Landing_Page_Mobile_de994189-4957-4d2e-ba4a-5134c4d9c629.jpg"
+            }
+          },
+          "8eac9854-5e3c-4cb7-b370-e03ef8c34bd6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Laneige_Radian-C_Brand_Landing_Page_Desktop.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Laneige_Radian-C_Brand_Landing_Page_Mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2568cdec-0489-4e60-9554-95453cbe4677",
+          "8eac9854-5e3c-4cb7-b370-e03ef8c34bd6"
+        ],
+        "settings": {}
+      },
+      "brands-lanvin": {
+        "type": "brands-lanvin",
+        "blocks": {
+          "a0f1cd42-a7b4-42ab-930d-0c21c7ed6d6a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LANVIN_2280X300PX_0098d0df-f8bc-41f7-b1ee-d27442df8331.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LANVIN_750X500PX_69e93087-b297-4135-a7c0-34b0e2464953.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a0f1cd42-a7b4-42ab-930d-0c21c7ed6d6a"
+        ],
+        "settings": {}
+      },
+      "brands-laura-mercier": {
+        "type": "brands-laura-mercier",
+        "blocks": {
+          "92974752-78cd-4e40-9c23-4f6e4444c97f": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LM_BrandCollectionsPage_2280x300px.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LM_BrandCollectionHeader_750x500_f7962bb7-9cb2-4d6d-8969-46558d533b45.png"
+            }
+          }
+        },
+        "block_order": [
+          "92974752-78cd-4e40-9c23-4f6e4444c97f"
+        ],
+        "settings": {}
+      },
+      "brands-leaders-in-solution": {
+        "type": "brands-leaders-in-solution",
+        "blocks": {
+          "36ec3b36-ee7f-4882-a5fc-78a597d2c4ad": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_Brand_Page_Asset.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_Brand_Page_Asset.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "36ec3b36-ee7f-4882-a5fc-78a597d2c4ad"
+        ],
+        "settings": {}
+      },
+      "brands-lip-smacker": {
+        "type": "brands-lip-smacker",
+        "blocks": {
+          "a0964209-da90-4085-8178-b620836a209b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LSBANNERA_07de7c49-273b-4f74-ba66-47b77905004d.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LSBANNERB_e3c6d603-7232-4499-afe6-b0143c9af552.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a0964209-da90-4085-8178-b620836a209b"
+        ],
+        "settings": {}
+      },
+      "brands-loreal-cosmetics": {
+        "type": "brands-loreal-cosmetics",
+        "blocks": {
+          "85ab9ae3-0a4c-4d1b-bfc5-0329adb3638e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand-Landing-Page---2280px-x-300px.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand-Landing-Page---750px-x-300px.png"
+            }
+          }
+        },
+        "block_order": [
+          "85ab9ae3-0a4c-4d1b-bfc5-0329adb3638e"
+        ],
+        "settings": {}
+      },
+      "brands-lucas-papaw": {
+        "type": "brands-lucas-papaw",
+        "blocks": {
+          "48e67427-668a-4189-a8dc-35a8acc3d3e7": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LucasPapaw_Brand_Banner_2280x300_0a2287c4-5bda-4cad-86f8-c1c395a91d16.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LucasPapaw_Brand_Banner_750x300_6728521c-69be-46f3-9319-e37fecd64b40.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "48e67427-668a-4189-a8dc-35a8acc3d3e7"
+        ],
+        "settings": {}
+      },
+      "brands-lululun": {
+        "type": "brands-lululun",
+        "blocks": {
+          "d400024f-5df2-411d-8c9d-9977d622567a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BANNER1_f66da83a-44e2-4b76-be56-f6ff42ed9ec9.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BANNER4_78051847-bc38-40d7-aeef-93a4b96a1aca.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d400024f-5df2-411d-8c9d-9977d622567a"
+        ],
+        "settings": {}
+      },
+      "brands-madeca-21": {
+        "type": "brands-madeca-21",
+        "blocks": {
+          "ded0764f-1844-43a3-ae3e-fbd4ae86bd89": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_Brand_Collections_Page_Banner_Images_2280_x_300px.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_Collection_Header_Images_750_x_300_px.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "ded0764f-1844-43a3-ae3e-fbd4ae86bd89"
+        ],
+        "settings": {}
+      },
+      "brands-marc-jacobs": {
+        "type": "brands-marc-jacobs",
+        "blocks": {
+          "5d18d15e-7911-4b24-8b92-9b74e285253a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/mjf_2280X300PX_63337c49-59fc-4931-bf03-0846227882e0.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mj_750X500PX_TEXT_8e5b29e8-3aee-4b44-af74-0483c236dd0d.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "5d18d15e-7911-4b24-8b92-9b74e285253a"
+        ],
+        "settings": {}
+      },
+      "brands-maro": {
+        "type": "brands-maro",
+        "blocks": {
+          "f5fc1bb9-c901-4887-908e-c0193c8dee05": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/MARO_Brand_Banner_2280x300_1049cb6a-95ec-49db-a575-5fb127df9c7c.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MARO_Brand_Banner_750x300_026b41fc-5724-47e9-9822-47099ff121aa.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f5fc1bb9-c901-4887-908e-c0193c8dee05"
+        ],
+        "settings": {}
+      },
+      "brands-maybelline": {
+        "type": "brands-maybelline",
+        "blocks": {
+          "ae214335-0b9a-40f8-b219-ea795cc73112": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand-Collection-Header-Images---750pixels-x-300pixels-FIT-ME.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand-Collection-Header-Images---750pixels-x-300pixels-FIT-ME.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "ae214335-0b9a-40f8-b219-ea795cc73112"
+        ],
+        "settings": {}
+      },
+      "brands-mediheal": {
+        "type": "brands-mediheal",
+        "blocks": {
+          "f0b2997e-2887-4e26-a64b-f87281963834": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Mediheal_brandcollectionpage_e7466f08-ec88-4087-a4ab-bb0b1fd51260.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mediheal_brandcollectionheader_01.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f0b2997e-2887-4e26-a64b-f87281963834"
+        ],
+        "settings": {}
+      },
+      "brands-michael-kors": {
+        "type": "brands-michael-kors",
+        "blocks": {
+          "43ca8a33-77d5-4e73-a100-94165053aaec": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/mk_2280X300PX_2d815a1a-a80e-4b8a-8a13-4becc35bd661.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mk_750X500PX_text_5a3cb8c3-496b-4752-8af9-2a1602d51d58.png"
+            }
+          }
+        },
+        "block_order": [
+          "43ca8a33-77d5-4e73-a100-94165053aaec"
+        ],
+        "settings": {}
+      },
+      "brands-mizumi": {
+        "type": "brands-mizumi",
+        "blocks": {
+          "9fba387d-d2b3-4927-bb1a-516d4368377b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage-2280x300_Defense.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage-750x300_Defense.jpg"
+            }
+          },
+          "c0cf6478-7628-4172-91a5-c2198eaaa8b8": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage-2280x300_Serum.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage-750x300_Serum.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "9fba387d-d2b3-4927-bb1a-516d4368377b",
+          "c0cf6478-7628-4172-91a5-c2198eaaa8b8"
+        ],
+        "settings": {}
+      },
+      "brands-moschino": {
+        "type": "brands-moschino",
+        "blocks": {
+          "9b959de9-e1d6-4807-b31d-0c1046762e04": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SM_moschino_brand_page_banner_toy_2_2280x300_01b9bae3-5e7e-4e5b-932c-916ff91bac22.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SM_moschino_brand_collection_toy_2_750x500_bf1b2433-b047-4237-90df-363be507e0ed.png"
+            }
+          },
+          "2fd51a61-ddba-4082-97e7-55393a17aacf": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SM_moschino_brand_page_banner_toy_boy_2280x300_new.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SM_moschino_brand_collection_toy_boy_750x500_343d57f8-131b-46ef-93ba-031da106469a.png"
+            }
+          }
+        },
+        "block_order": [
+          "9b959de9-e1d6-4807-b31d-0c1046762e04",
+          "2fd51a61-ddba-4082-97e7-55393a17aacf"
+        ],
+        "settings": {}
+      },
+      "brands-mugler": {
+        "type": "brands-mugler",
+        "blocks": {
+          "f97010bf-5725-4803-b238-719cf7ac139f": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Mugler_BrandPage_web_Alienpackshot.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mugler_BrandPage_app_Alienpackshot.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "f97010bf-5725-4803-b238-719cf7ac139f"
+        ],
+        "settings": {}
+      },
+      "brands-narciso-rodriguez": {
+        "type": "brands-narciso-rodriguez",
+        "blocks": {
+          "075f0ac1-9a37-4d19-9d09-cf1eb52d5c60": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NR_BrandCollectionPage_2280x300_Ambree.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NR_BrandCollectionPage_750x300_narciso.png"
+            }
+          },
+          "69503493-ed84-42e0-95fb-cd17cb033512": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NR_BrandCollectionPage_2280x300_ForHer.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NR_BrandCollectionPage_750x300_ForHer.png"
+            }
+          },
+          "613a9d13-47ed-45b4-8a55-bc4563dba8b4": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NR_CollectionPage_2280x150_Ambree_0e81db18-5faf-4191-a72d-48618e652b88.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NR_CollectionHeader_750x300px_Ambree_229bdb65-fc7d-492a-9eb2-49c9b2d2046d.png"
+            }
+          }
+        },
+        "block_order": [
+          "075f0ac1-9a37-4d19-9d09-cf1eb52d5c60",
+          "69503493-ed84-42e0-95fb-cd17cb033512",
+          "613a9d13-47ed-45b4-8a55-bc4563dba8b4"
+        ],
+        "settings": {}
+      },
+      "brands-nars": {
+        "type": "brands-nars",
+        "blocks": {
+          "0bf70369-eedf-4c41-8e38-4c0be7e035d3": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NARS_CollectionsPage_2280x150_290793bc-cebc-4702-8415-6ef6d04f42a4.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NARS_CollectionsHeader_750x300px_1.png"
+            }
+          }
+        },
+        "block_order": [
+          "0bf70369-eedf-4c41-8e38-4c0be7e035d3"
+        ],
+        "settings": {}
+      },
+      "brands-nautica": {
+        "type": "brands-nautica",
+        "blocks": {
+          "b12c1687-f4fa-4e83-a1e8-811646a5e1b0": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_Brand_Collections_Page_Banner_2280_x_300_475a7d4c-345f-4b8e-8129-1159fd228a65.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile_Brand_Collection_Header_750x300-500px_27989ec7-a303-4471-ac5c-b18422f3bb12.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b12c1687-f4fa-4e83-a1e8-811646a5e1b0"
+        ],
+        "settings": {}
+      },
+      "brands-neo-gen": {
+        "type": "brands-neo-gen",
+        "blocks": {
+          "36665257-6536-4b42-af4d-0199fc9b0dfb": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/DESKTOP_NEOGEN_Banner_Hero_Slider_2280_x_300px.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MOBILE_NEOGEN_Collection_Header_Images_750_x_300_px.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "36665257-6536-4b42-af4d-0199fc9b0dfb"
+        ],
+        "settings": {}
+      },
+      "brands-noughty": {
+        "type": "brands-noughty",
+        "blocks": {
+          "5c75ada9-78cb-4b41-9543-30e8080ff8fd": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Noughty_2280x300_e35d9595-cf6e-4707-b36b-56ad5d063c62.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Noughty_750x300_9bd8b962-6568-4a1d-8222-e9c23f051cd0.png"
+            }
+          }
+        },
+        "block_order": [
+          "5c75ada9-78cb-4b41-9543-30e8080ff8fd"
+        ],
+        "settings": {}
+      },
+      "brands-nutri-color-creme": {
+        "type": "brands-nutri-color-creme",
+        "blocks": {
+          "3f11abc5-c3a8-4dda-bf4b-baa568950a06": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Nutri_Color_Creme_For_Desktop_Brand_Collection_page_banner_2280x300px.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile_web_brand_landing_page_ncc.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3f11abc5-c3a8-4dda-bf4b-baa568950a06"
+        ],
+        "settings": {}
+      },
+      "brands-nuxe": {
+        "type": "brands-nuxe",
+        "blocks": {
+          "2b2deb62-7792-4375-93fb-18e411b5f6ba": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NUXE_BRANDPAGEBANNERIMAGE_2280X300PX.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NUXE_BRANDPAGEBANNERIMAGE_750X300-500PX.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2b2deb62-7792-4375-93fb-18e411b5f6ba"
+        ],
+        "settings": {}
+      },
+      "brands-orofluido": {
+        "type": "brands-orofluido",
+        "blocks": {
+          "d1f0243c-3603-4c10-b94a-e7f325265dcc": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Orofluido_For_Desktop_Brand_Collection_page_banner_2280x300px.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Orofluido_Mobile_brand_collection_page_banner_750x300px_jpg.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d1f0243c-3603-4c10-b94a-e7f325265dcc"
+        ],
+        "settings": {}
+      },
+      "brands-papa-recipe": {
+        "type": "brands-papa-recipe",
+        "blocks": {
+          "b7f0cbd0-e939-4d5e-8900-1227b1ffe43e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage_2280x300-Pink.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage_750x300_Pink.jpg"
+            }
+          },
+          "6c9fd926-1a7c-43e0-a7a7-454368f308d3": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage_2280x300-Yellow.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage_750x300_Yellow.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b7f0cbd0-e939-4d5e-8900-1227b1ffe43e",
+          "6c9fd926-1a7c-43e0-a7a7-454368f308d3"
+        ],
+        "settings": {}
+      },
+      "brands-parfum-de-marly": {
+        "type": "brands-parfum-de-marly",
+        "blocks": {
+          "d7597e23-8c8d-49f5-9b52-fd28bce0ea9c": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/PDM_BrandPage_web_Kalan.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/PDM_FeaturedCollection_app_MasculineEX.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d7597e23-8c8d-49f5-9b52-fd28bce0ea9c"
+        ],
+        "settings": {}
+      },
+      "brands-peter-thomas-roth": {
+        "type": "brands-peter-thomas-roth",
+        "blocks": {
+          "4d2fc2d3-db6d-4b76-92d3-e90544f50f85": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/PTR_Brand_collections_Page_Banner_Images.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/PTR_Brand_collection_Header_Images_copy.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "4d2fc2d3-db6d-4b76-92d3-e90544f50f85"
+        ],
+        "settings": {}
+      },
+      "brands-quickfx": {
+        "type": "brands-quickfx",
+        "blocks": {
+          "6d925610-ac73-45fc-b5cb-7dd05f87284a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/QFX_LOOK_BRAND_PAGE_BANNERS_BRAND_COLLECTION_CLEAN.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/QFX_LOOK_BRAND_PAGE_BANNERS_BRAND_COLLECTION_HEADER_CLEAN_750x300_58683857-d0d1-4dcc-a3a9-22334c43a2d6.jpg"
+            }
+          },
+          "c5da5652-d6a8-4924-81f7-d2ac5951c3af": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/QFX_LOOK_BRAND_PAGE_BANNERS_BRAND_COLLECTION_MASKS.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/QFX_LOOK_BRAND_PAGE_BANNERES_BRAND_COLLECTION_HEADER_MASKS_750x300_975baf9e-a000-42bc-abe3-3198eab6c5b2.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "6d925610-ac73-45fc-b5cb-7dd05f87284a",
+          "c5da5652-d6a8-4924-81f7-d2ac5951c3af"
+        ],
+        "settings": {}
+      },
+      "brands-ralph-lauren": {
+        "type": "brands-ralph-lauren",
+        "blocks": {
+          "be42d677-c2e8-4fbb-a0a5-9d7059c10410": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/RL_BrandPage_web_DBlue.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/RL_BrandPage_app_DBluehero.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "be42d677-c2e8-4fbb-a0a5-9d7059c10410"
+        ],
+        "settings": {}
+      },
+      "brands-real-techniques": {
+        "type": "brands-real-techniques",
+        "blocks": {
+          "5281dd57-d19b-41a0-8611-cc685ddeb088": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/RT_DESKTOP_copy_4d18c53d-5580-428d-b0fa-5f84b03df973.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/RT_MOBILE_copy_e358fa62-7892-4725-8cf7-cc4d80f9c41d.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "5281dd57-d19b-41a0-8611-cc685ddeb088"
+        ],
+        "settings": {}
+      },
+      "brands-roja": {
+        "type": "brands-roja",
+        "blocks": {
+          "b435b0a5-1ab5-4431-94db-7e6a143ed5c8": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Roja_BrandPage_web_51PourFemme.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Roja_BrandPage_app_51PourFemme.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b435b0a5-1ab5-4431-94db-7e6a143ed5c8"
+        ],
+        "settings": {}
+      },
+      "brands-sally-hansen": {
+        "type": "brands-sally-hansen",
+        "blocks": {
+          "e3e4935b-914c-4c5e-ba9c-1d253a00b01a": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280_x_300_c1c3d34a-4083-4624-abdb-7bdcb561b126.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750_X_300_0f93726e-de8f-4e48-9148-8ba980ed7f16.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "e3e4935b-914c-4c5e-ba9c-1d253a00b01a"
+        ],
+        "settings": {}
+      },
+      "brands-scalp-to-hair": {
+        "type": "brands-scalp-to-hair",
+        "blocks": {
+          "6043ea5f-6092-4aa3-959e-ed43cab2f959": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_64cf9772-156b-4c38-9f1f-8b0fed540110.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/750x300_0b133570-bec1-4380-a3a6-e01b144fd75f.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "6043ea5f-6092-4aa3-959e-ed43cab2f959"
+        ],
+        "settings": {}
+      },
+      "brands-senka": {
+        "type": "brands-senka",
+        "blocks": {
+          "ba2cbfbb-2294-4206-a872-f1bb4cb18829": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Senka_BrandCollectionPage_Banner.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Senka_BrandCollection_Header_750x300px.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "ba2cbfbb-2294-4206-a872-f1bb4cb18829"
+        ],
+        "settings": {}
+      },
+      "brands-serioxyl": {
+        "type": "brands-serioxyl",
+        "blocks": {
+          "0a3a609d-347c-40a5-9f25-921240a6f264": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Page_Banner_Image.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile_Brand_Page_Banner.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "0a3a609d-347c-40a5-9f25-921240a6f264"
+        ],
+        "settings": {}
+      },
+      "brands-shiseido": {
+        "type": "brands-shiseido",
+        "blocks": {
+          "77d03a64-76c2-45d2-9e0b-66f5f95dad66": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_2280x300_d9c58a6a-9269-4305-b0af-cbd83548f228.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_Header_750x500_2.png"
+            }
+          },
+          "b8e5da9e-ad8a-440b-a8bf-9664a16ccd39": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_2280x300_UTM.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_Header_750x500_1.png"
+            }
+          },
+          "70342b48-a085-49d7-a92d-e411cad7cc6d": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_2280x300_SMU.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Shiseido_BrandCollectionPage_Header_750x500_3.png"
+            }
+          }
+        },
+        "block_order": [
+          "77d03a64-76c2-45d2-9e0b-66f5f95dad66",
+          "b8e5da9e-ad8a-440b-a8bf-9664a16ccd39",
+          "70342b48-a085-49d7-a92d-e411cad7cc6d"
+        ],
+        "settings": {}
+      },
+      "brands-snail-white": {
+        "type": "brands-snail-white",
+        "blocks": {
+          "5e600595-773a-46f7-b30f-8ee16b1de609": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SNAILWHITE_LOOK_Brand_Landing_Page.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SNAILWHITE_LOOK_Brand_Landing_Page_Mobile.png"
+            }
+          }
+        },
+        "block_order": [
+          "5e600595-773a-46f7-b30f-8ee16b1de609"
+        ],
+        "settings": {}
+      },
+      "brands-solinotes": {
+        "type": "brands-solinotes",
+        "blocks": {
+          "b243c1a6-873d-41e5-bb39-7b4cf6c4b717": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Page_Banner_-_Web.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand_Page_Banner_-_App.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b243c1a6-873d-41e5-bb39-7b4cf6c4b717"
+        ],
+        "settings": {}
+      },
+      "brands-some-by-mi": {
+        "type": "brands-some-by-mi",
+        "blocks": {
+          "889e19de-c87b-4835-99bd-3d18e8382e2e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/BRAND_COLLECTION_PAGE_1.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/BRAND_COLLECTION_PAGE_750_1.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "889e19de-c87b-4835-99bd-3d18e8382e2e"
+        ],
+        "settings": {}
+      },
+      "brands-son-park": {
+        "type": "brands-son-park",
+        "blocks": {
+          "55b7513f-c20d-4e74-a7cf-6cdaac2ee470": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HeroSlider-2280x300_A.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HeroSlider-750x300_A.jpg"
+            }
+          },
+          "a810d1f0-7baa-4fc0-9d75-7a556cf8c3d6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HeroSlider-2280x300_C.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HeroSlider-750x300_C.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "55b7513f-c20d-4e74-a7cf-6cdaac2ee470",
+          "a810d1f0-7baa-4fc0-9d75-7a556cf8c3d6"
+        ],
+        "settings": {}
+      },
+      "brands-teviant": {
+        "type": "brands-teviant",
+        "blocks": {
+          "eb2aa0fa-715f-4ca7-9cff-df1d0f85b382": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Collections_Page_Banner_Images_3_225565f4-226d-4d37-becd-bc1faec9db53.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand_Collection_Header_Images_3_44aba882-444b-4cb7-be23-04618032baf9.jpg"
+            }
+          },
+          "00d0e669-f4d1-453b-8b4f-5564b571e7f6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Collections_Page_Banner_Images_2.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand_Collection_Header_Images_2.jpg"
+            }
+          },
+          "f4dfe6c9-80dc-4032-86a0-4559d6e71a40": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Collections_Page_Banner_Images.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Brand_Collection_Header_Images.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "eb2aa0fa-715f-4ca7-9cff-df1d0f85b382",
+          "00d0e669-f4d1-453b-8b4f-5564b571e7f6",
+          "f4dfe6c9-80dc-4032-86a0-4559d6e71a40"
+        ],
+        "settings": {}
+      },
+      "brands-thank-you-farmer": {
+        "type": "brands-thank-you-farmer",
+        "blocks": {
+          "df2f9889-b084-4daf-a374-f95444051763": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage-2280x300_BackToPure.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage-750x300_BackToPure.jpg"
+            }
+          },
+          "3b01d5b8-cec8-4991-826a-20e298aa2af9": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage-2280x300_BackToRelax.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage-750x300_BackToRelax.jpg"
+            }
+          },
+          "06fb7bc6-1af3-488c-b151-aded4f55abc9": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/WebHomepage-2280x300_SunProject.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/WebHomepage-750x300_SunProject.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "df2f9889-b084-4daf-a374-f95444051763",
+          "3b01d5b8-cec8-4991-826a-20e298aa2af9",
+          "06fb7bc6-1af3-488c-b151-aded4f55abc9"
+        ],
+        "settings": {}
+      },
+      "brands-tommy-hilfiger": {
+        "type": "brands-tommy-hilfiger",
+        "blocks": {
+          "d75846df-2a29-406b-9e0a-be352a230d0d": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/tommy_2280X300PX_52f8b3b0-d8b0-4b20-8a67-a617d3e85251.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/tommy_750X500PX_ab4d31ec-d53e-4b22-9a66-d82f7811796d.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "d75846df-2a29-406b-9e0a-be352a230d0d"
+        ],
+        "settings": {}
+      },
+      "brands-uniqone": {
+        "type": "brands-uniqone",
+        "blocks": {
+          "3b958370-39ac-49a6-be63-7869aa728c59": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_web_brand_landing_page_unione.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile_web_brand_landing_page_uniqone.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3b958370-39ac-49a6-be63-7869aa728c59"
+        ],
+        "settings": {}
+      },
+      "brands-vera-wang": {
+        "type": "brands-vera-wang",
+        "blocks": {
+          "2598a666-49ac-49b7-907b-b88010d4598e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Desktop_Brand_Collections_Page_2280x300_d317e53b-7505-4569-bd39-212ff237ceed.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Mobile_Brand_Collection_Header_750-300-500.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "2598a666-49ac-49b7-907b-b88010d4598e"
+        ],
+        "settings": {}
+      },
+      "brands-versace": {
+        "type": "brands-versace",
+        "blocks": {
+          "ac97a398-946d-4818-8ed4-9e5443a79ab6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SM_Versace_brand_page_banner_Bright_Crystals_2280x300_new.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SM_versace_brand_collection_bright_crystals_750x500_6f337621-abb1-4558-b983-fc038d3d327c.png"
+            }
+          },
+          "3654cb65-2a5d-48f4-8938-c5433e1e0d00": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SM_Versace_brand_page_banner_Dylan_Blue_femme_2280x300_new.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SM_versace_brand_collection_dylan_blue_750x500_new.png"
+            }
+          }
+        },
+        "block_order": [
+          "ac97a398-946d-4818-8ed4-9e5443a79ab6",
+          "3654cb65-2a5d-48f4-8938-c5433e1e0d00"
+        ],
+        "settings": {}
+      },
+      "brands-viktor-and-rolf": {
+        "type": "brands-viktor-and-rolf",
+        "blocks": {
+          "76859b14-0c3a-40c7-9023-ce75ac5f87a5": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Brand_Collection_Page_Website__Viktor___Rolf_9247a144-599f-4b73-a54d-40240d18f649.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Hero_Slider_Image_Website__Viktor___Rolf_66b31314-e040-4b3f-87b9-174377d08885.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "76859b14-0c3a-40c7-9023-ce75ac5f87a5"
+        ],
+        "settings": {}
+      },
+      "brands-vt-cosmetics": {
+        "type": "brands-vt-cosmetics",
+        "blocks": {
+          "200f9444-f8fb-400e-90f5-72a887e86161": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/VT_COSMETICS_Desktop_Brand_Landing_Page_-_Brand_Intro.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/VT_COSMETICS_Mobile_Brand_Landing_Page_e4ae8e03-ace5-4f15-aa10-6c502c9c6090.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "200f9444-f8fb-400e-90f5-72a887e86161"
+        ],
+        "settings": {}
+      },
+      "brands-wet-brush": {
+        "type": "brands-wet-brush",
+        "blocks": {
+          "200f16b4-1a7a-4770-92c7-f0ca215b2f6b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2280x300_a3c46363-1c40-4031-9f78-1fead8b82467.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/650x300_8e7c837a-c498-4da9-ae29-c8f939ae55a0.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "200f16b4-1a7a-4770-92c7-f0ca215b2f6b"
+        ],
+        "settings": {}
+      },
+      "brands-xerjoff": {
+        "type": "brands-xerjoff",
+        "blocks": {
+          "00770394-b6fd-46a2-b990-074f16186c14": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Xerjoff_BrandPage_web_V.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/Xerjoff_BrandPage_app_V.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "00770394-b6fd-46a2-b990-074f16186c14"
+        ],
+        "settings": {}
+      },
+      "brands-mis-en-scene": {
+        "type": "brands-mis-en-scene",
+        "blocks": {
+          "adc0a8c6-d28e-473f-882c-7551c11b6ac9": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/MES_Landing_Page_Banner_Desktop.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/MES_Landing_Page_Banner_Mobile.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "adc0a8c6-d28e-473f-882c-7551c11b6ac9"
+        ],
+        "settings": {}
+      },
+      "brands-ysl": {
+        "type": "brands-ysl",
+        "blocks": {
+          "65ce26fe-f2b2-4e54-aef5-a37a0e5b7792": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/YSL.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/YSL.png"
+            }
+          }
+        },
+        "block_order": [
+          "65ce26fe-f2b2-4e54-aef5-a37a0e5b7792"
+        ],
+        "settings": {}
+      },
+      "brands-sulwhasoo": {
+        "type": "brands-sulwhasoo",
+        "blocks": {
+          "76dd951a-8285-4566-9564-5495f4f58341": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SULWHASOO.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SULWHASOO.png"
+            }
+          }
+        },
+        "block_order": [
+          "76dd951a-8285-4566-9564-5495f4f58341"
+        ],
+        "settings": {}
+      },
+      "brands-shu-uemura": {
+        "type": "brands-shu-uemura",
+        "blocks": {
+          "12ed0279-9050-4d6f-a9af-982092c6b200": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/SHU_UEMURA.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/SHU_UEMURA.png"
+            }
+          }
+        },
+        "block_order": [
+          "12ed0279-9050-4d6f-a9af-982092c6b200"
+        ],
+        "settings": {}
+      },
+      "brands-rcma": {
+        "type": "brands-rcma",
+        "blocks": {
+          "56450efe-e3d3-44e7-8f82-a1ef200329f3": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/RCMA.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/RCMA.png"
+            }
+          }
+        },
+        "block_order": [
+          "56450efe-e3d3-44e7-8f82-a1ef200329f3"
+        ],
+        "settings": {}
+      },
+      "brands-nude-stix": {
+        "type": "brands-nude-stix",
+        "blocks": {
+          "793a9e13-3e3c-417e-b64e-1e4bb394272c": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NUDE_STIX.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/NUDE_STIX.png"
+            }
+          }
+        },
+        "block_order": [
+          "793a9e13-3e3c-417e-b64e-1e4bb394272c"
+        ],
+        "settings": {}
+      },
+      "brands-loccitane": {
+        "type": "brands-loccitane",
+        "blocks": {
+          "d9b61517-4ced-4ae6-95cb-c5bcf6cbb325": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LOCCITANE.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LOCCITANE.png"
+            }
+          }
+        },
+        "block_order": [
+          "d9b61517-4ced-4ae6-95cb-c5bcf6cbb325"
+        ],
+        "settings": {}
+      },
+      "brands-lime-crime": {
+        "type": "brands-lime-crime",
+        "blocks": {
+          "14d21934-ef55-41a3-bcfe-8a6e35e7fbf6": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LIME_CRIME.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LIME_CRIME.png"
+            }
+          }
+        },
+        "block_order": [
+          "14d21934-ef55-41a3-bcfe-8a6e35e7fbf6"
+        ],
+        "settings": {}
+      },
+      "brands-la-mer": {
+        "type": "brands-la-mer",
+        "blocks": {
+          "8e5adef4-b8f3-43e4-bd24-71e73f3c4fb2": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/LA_MER.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/LA_MER_8a91331d-b15e-4ff6-8e70-7cc46bc039a8.png"
+            }
+          }
+        },
+        "block_order": [
+          "8e5adef4-b8f3-43e4-bd24-71e73f3c4fb2"
+        ],
+        "settings": {}
+      },
+      "brands-kylie": {
+        "type": "brands-kylie",
+        "blocks": {
+          "cdd07889-c403-49d1-8d9e-7011a85a4330": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/KYLIE.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/KYLIE.png"
+            }
+          }
+        },
+        "block_order": [
+          "cdd07889-c403-49d1-8d9e-7011a85a4330"
+        ],
+        "settings": {}
+      },
+      "brands-kat-von": {
+        "type": "brands-kat-von",
+        "blocks": {
+          "c8216067-7474-49a0-b570-54788e02deb2": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/KAT_VON_D.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/KAT_VON_D.png"
+            }
+          }
+        },
+        "block_order": [
+          "c8216067-7474-49a0-b570-54788e02deb2"
+        ],
+        "settings": {}
+      },
+      "brands-huda-beauty": {
+        "type": "brands-huda-beauty",
+        "blocks": {
+          "31a50341-939c-4ec3-8a8a-76e1f8a24672": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/HUDA_BEAUTY.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/HUDA_BEAUTY.png"
+            }
+          }
+        },
+        "block_order": [
+          "31a50341-939c-4ec3-8a8a-76e1f8a24672"
+        ],
+        "settings": {}
+      },
+      "brands-glossier": {
+        "type": "brands-glossier",
+        "blocks": {
+          "c4c60249-2b23-41df-bffa-78aac4c37e35": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/GLOSSIER.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/GLOSSIER.png"
+            }
+          }
+        },
+        "block_order": [
+          "c4c60249-2b23-41df-bffa-78aac4c37e35"
+        ],
+        "settings": {}
+      },
+      "brands-fenty": {
+        "type": "brands-fenty",
+        "blocks": {
+          "5a04fe95-9482-44d2-bee1-917c51be74f0": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/FENTI.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/FENTI.png"
+            }
+          }
+        },
+        "block_order": [
+          "5a04fe95-9482-44d2-bee1-917c51be74f0"
+        ],
+        "settings": {}
+      },
+      "brands-caudalie": {
+        "type": "brands-caudalie",
+        "blocks": {
+          "7d085d36-ae9a-475e-a507-4e5f8ecd9ccb": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/CAUDALIE.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/CAUDALIE.png"
+            }
+          }
+        },
+        "block_order": [
+          "7d085d36-ae9a-475e-a507-4e5f8ecd9ccb"
+        ],
+        "settings": {}
+      },
+      "brands-st-ives": {
+        "type": "brands-st-ives",
+        "blocks": {
+          "dbe0844c-c9e3-4b55-bd63-ce17996dad3b": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/NEW_Desktop_1.png",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile.png"
+            }
+          }
+        },
+        "block_order": [
+          "dbe0844c-c9e3-4b55-bd63-ce17996dad3b"
+        ],
+        "settings": {}
+      },
+      "16050097384e18e99a": {
+        "type": "full-width-img",
+        "settings": {
+          "title": "Kora Organics",
+          "heading": "",
+          "caption": "",
+          "desk_img": "shopify:\/\/shop_images\/KOS_Banner_Image_1_5360d634-b5a1-4fa5-9c6e-6061432cf200.jpg",
+          "mob_img": "shopify:\/\/shop_images\/KOS_Banner_Image_1_5360d634-b5a1-4fa5-9c6e-6061432cf200.jpg",
+          "cta_txt": "",
+          "cta_url": "shopify:\/\/collections\/kora-organics"
+        }
+      },
+      "lam-collection-template": {
+        "type": "lam-collection-template",
+        "blocks": {
+          "ed0966e4-fd70-4240-a44f-c5ed144c8693": {
+            "type": "popup",
+            "settings": {
+              "collection": "skincare",
+              "alert_popup_title": "Member promo",
+              "alert_popup_img": "shopify:\/\/shop_images\/Cosmetics.jpg",
+              "alert_popup_url": "shopify:\/\/collections\/make-up"
+            }
+          },
+          "faa80273-2489-48b9-9e79-22f6d2a1e41f": {
+            "type": "popup",
+            "settings": {
+              "collection": "make-up",
+              "alert_popup_title": "Member promo",
+              "alert_popup_img": "shopify:\/\/shop_images\/SKin_care_1a905ccc-09e6-4ae3-aedc-e69a18ff1366.jpg",
+              "alert_popup_url": "shopify:\/\/collections\/skincare"
+            }
+          }
+        },
+        "block_order": [
+          "ed0966e4-fd70-4240-a44f-c5ed144c8693",
+          "faa80273-2489-48b9-9e79-22f6d2a1e41f"
+        ],
+        "settings": {}
+      },
+      "contact-us": {
+        "type": "contact-us",
+        "settings": {}
+      },
+      "brands-cerave": {
+        "type": "brands-cerave",
+        "blocks": {
+          "1a81d49f-6bd1-4c02-a0f6-34ccf1d0317e": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Cerave_2280x300_dce9ade6-b260-43cc-8c56-ed41f5f36b25.png"
+            }
+          }
+        },
+        "block_order": [
+          "1a81d49f-6bd1-4c02-a0f6-34ccf1d0317e"
+        ],
+        "settings": {}
+      },
+      "brands-embryolisse": {
+        "type": "brands-embryolisse",
+        "blocks": {
+          "dfe79689-173b-4543-ab5a-bde44c6972d8": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Embryolisse_2280x300_bdfae060-ecda-4773-9fd8-67360ded5ce5.png"
+            }
+          }
+        },
+        "block_order": [
+          "dfe79689-173b-4543-ab5a-bde44c6972d8"
+        ],
+        "settings": {}
+      },
+      "brands-frank-body": {
+        "type": "brands-frank-body",
+        "blocks": {
+          "63e863a3-8e3d-402a-a4dd-8d1353ae0d76": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/3.png"
+            }
+          }
+        },
+        "block_order": [
+          "63e863a3-8e3d-402a-a4dd-8d1353ae0d76"
+        ],
+        "settings": {}
+      },
+      "brands-plant-base": {
+        "type": "brands-plant-base",
+        "blocks": {
+          "16d7f129-82b1-48e6-b794-ea288596dfad": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/PC_THE_PLANT_BASE_Banner.jpg",
+              "featured_image_mobile": "shopify:\/\/shop_images\/mobile_THE_PLANT_BASE_Banner.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "16d7f129-82b1-48e6-b794-ea288596dfad"
+        ],
+        "settings": {}
+      },
+      "brands-pyungkang-yul": {
+        "type": "brands-pyungkang-yul",
+        "blocks": {
+          "3f0a89aa-5ba5-4772-bdff-3574a2c0c8a2": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/Pyungkang_2280x300_ef6165ac-7fca-41a2-b85b-27688100e4c5.png"
+            }
+          }
+        },
+        "block_order": [
+          "3f0a89aa-5ba5-4772-bdff-3574a2c0c8a2"
+        ],
+        "settings": {}
+      },
+      "brands-summer-fridays": {
+        "type": "brands-summer-fridays",
+        "blocks": {
+          "dd9d37e6-c30b-40b1-bf48-6f93fbc38691": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/2.png"
+            }
+          }
+        },
+        "block_order": [
+          "dd9d37e6-c30b-40b1-bf48-6f93fbc38691"
+        ],
+        "settings": {}
+      },
+      "brands-the-ordinary": {
+        "type": "brands-the-ordinary",
+        "blocks": {
+          "6ff5d0fa-1d0a-45b5-aa77-b0d666bab643": {
+            "type": "features_images",
+            "settings": {
+              "featured_image_desktop": "shopify:\/\/shop_images\/The_Ordinary_2280x300_bfba5c3f-3338-42fe-8978-b54d4df66360.png"
+            }
+          }
+        },
+        "block_order": [
+          "6ff5d0fa-1d0a-45b5-aa77-b0d666bab643"
+        ],
+        "settings": {}
+      },
+      "16053238176ae3f588": {
+        "type": "home-product-carousel",
+        "disabled": true,
+        "settings": {
+          "title": "Brand Spotlight",
+          "collection": "shiseido",
+          "limit": 12,
+          "product_column_count": "lg:w-1\/5",
+          "show_p_sale": false,
+          "show_label_sale": false,
+          "cta_btn_txt": "View more"
+        }
+      },
+      "160543611948f9eed1": {
+        "type": "home-product-carousel",
+        "settings": {
+          "title": "Skincare Must Haves",
+          "collection": "skincare",
+          "limit": 10,
+          "product_column_count": "lg:w-1\/5",
+          "show_p_sale": false,
+          "show_label_sale": false,
+          "cta_btn_txt": "View more"
+        }
+      },
+      "categories-new-arrival": {
+        "type": "categories-new-arrival",
+        "blocks": {
+          "520449ed-73e3-462d-9db1-e5a7070e5c24": {
+            "type": "category-img-new",
+            "settings": {
+              "category-image": "shopify:\/\/shop_images\/LOOK_KV_2280-x-150px_NEW.png",
+              "category-image-mbl": "shopify:\/\/shop_images\/NEW_03962c3c-5124-49de-bf6d-0735ed00e018.jpg"
+            }
+          },
+          "b0430e73-c6c4-4623-a6b3-8f5e3954c0ea": {
+            "type": "category-img-new",
+            "settings": {
+              "category-image": "shopify:\/\/shop_images\/2280x150px_LookList.png",
+              "category-image-mbl": "shopify:\/\/shop_images\/750x300_LookList_88946761-7425-4c87-9ded-be6a7ff6f497.png"
+            }
+          }
+        },
+        "block_order": [
+          "520449ed-73e3-462d-9db1-e5a7070e5c24",
+          "b0430e73-c6c4-4623-a6b3-8f5e3954c0ea"
+        ],
+        "settings": {}
+      },
+      "categories-make-up": {
+        "type": "categories-make-up",
+        "blocks": {
+          "b525de15-7f8a-4e16-a774-10c4f170394e": {
+            "type": "category-img-new",
+            "settings": {
+              "category-image": "shopify:\/\/shop_images\/LOOK_KV_2280-x-150px_MAKE-UP.png",
+              "category-image-mbl": "shopify:\/\/shop_images\/MAKE_UP_584a0706-2757-4fba-9a75-419ed15f7c54.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b525de15-7f8a-4e16-a774-10c4f170394e"
+        ],
+        "settings": {}
+      },
+      "categories-skincare": {
+        "type": "categories-skincare",
+        "blocks": {
+          "fe6baa64-26e6-47c8-8a02-7de14c067350": {
+            "type": "category-img-new",
+            "settings": {
+              "category-image": "shopify:\/\/shop_images\/LOOK_KV_2280-x-150px_SKIN.png",
+              "category-image-mbl": "shopify:\/\/shop_images\/SKIN_4e69d612-8a1e-4ca0-99f2-0b559122ed36.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "fe6baa64-26e6-47c8-8a02-7de14c067350"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "1599552574962",
+      "1600825722412",
+      "1600833340651",
+      "16050097384e18e99a",
+      "16053238176ae3f588",
+      "1599552586919",
+      "1601629241806",
+      "1601860886910",
+      "1599552620486",
+      "1599735832447",
+      "1601381603311",
+      "160543611948f9eed1"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

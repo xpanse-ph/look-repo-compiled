@@ -1,0 +1,106 @@
+<div data-section-id="{{ section.id }}" data-section-type="brands-section" class="mt-100">
+    <div class="mb-100">
+        {% if section.settings.title != blank %}
+            <div class="section-header flex justify-center items-center flex-col">
+                <h3 class="uppercase text-center md:text-xlg text-base pb-4 font-extrabold leading-snug tracking-widest">{{ section.settings.title }}</h3>
+                {% if section.settings.caption != blank %}
+                <div class="text-lg font-light text-silver">{{ section.settings.caption }}</div>
+                {% endif %}
+            </div>
+        {% endif %}
+        <div class="flex flex-wrap mt-16 max-w-3/4 mx-auto mxlg:hidden">
+            {%- for block in section.blocks -%}
+                <div class="brand-logo flex-auto flex justify-center items-center flex-grow px-25px lg:mb-4">
+                    <a href="{{block.settings.url}}" class="block">
+                        <div class="h-0 relative" style="padding-bottom: {{ 1 | divided_by: block.settings.logo.aspect_ratio | times: 100 }}%">
+                            <img class="w-auto h-auto lazyload" data-src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.title }}">
+                        </div>
+                    </a>
+                </div>
+            {%- endfor -%}
+        </div>
+        <div class="block lg:hidden slideshow mt-25px h-32 mxlg:px-25px" data-page-dots="true" data-gallery-size="false">
+            {%- for block in section.blocks -%}
+                <div class="brand-logo md:w-1/3 mxmd:w-1/3 mxmd:mr-20px flex justify-center items-center md:px-25px h-full">
+                    <a href="{{block.settings.url}}" class="block">
+                        <div class="h-0 relative" style="padding-bottom: {{ 1 | divided_by: block.settings.logo.aspect_ratio | times: 100 }}%">
+                            <img class="w-full h-auto lazyload block" data-src="{{ block.settings.logo | img_url: 'master' }}" alt="{{ block.settings.title }}">
+                        </div>
+                    </a>
+                </div>
+            {%- endfor -%}
+        </div>
+        {%- if section.settings.cta_txt != blank or section.settings.cta_url != blank -%}
+        <div class="block text-center mxlg:hidden">
+            <a href="{{ section.settings.cta_url }}" title="{{ section.settings.cta_txt }}" class="table mx-auto uppercase text-secondary bg-primary font-black text-lg py-3 px-16 tracking-widest">{{ section.settings.cta_txt }}</a>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Brands",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Heading"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Brands we live by"
+            },
+            {
+                "type": "text",
+                "id": "caption",
+                "label": "Caption",
+                "default": "Lorem ipsum dolor ismet karud ersa doles."
+            },
+            {
+                "type": "header",
+                "content": "CTA"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "CTA Text",
+                "default": "See more"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "CTA URL"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "logo",
+                "name": "Brand logo",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Brand Title"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "logo",
+                        "label": "Brand logo"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "URL"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Brands",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

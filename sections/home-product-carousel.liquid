@@ -1,0 +1,125 @@
+{%- capture width_classes -%}{{section.settings.product_column_count}} md:w-1/3 sm:w-1/2 w-1/2{%- endcapture -%}
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign product_limit = section.settings.limit -%}
+<div data-section-id="{{ section.id }}" data-section-type="product-carousel-section" class="mt-50">
+    <div class="container mx-auto mxlg:px-25px">
+        {% if section.settings.title != blank or section.settings.collection != blank %}
+        <div class="section-header flex justify-center items-center">
+            <h3 class="uppercase text-center text-xlg tracking-widest font-bold leading-snug">
+                {%- if section.settings.title != blank -%}
+                    {{ section.settings.title }}
+                {%- else -%}
+                    {{ collection.title }}
+                {%- endif -%}
+            </h3>
+        </div>
+        {% endif %}
+        <div class="mt-50 pr-slideshow block">
+        {% for product in collection.products limit: product_limit %}
+            {% include 'product-card', product: product, widths: width_classes, show_discount: section.settings.show_p_sale, show_sale_label: section.settings.show_label_sale %}
+        {% else %}
+            {% for i in (1..product_limit) %}
+                <div class="grid-item slideshow-item lg:w-1/4 md:w-1/3 sm:w-1/2 w-full">
+                    <div class="grid-item-inner sm:pl-50 sm:pr-0 px-5 mb-8">
+                        <a href="#" class="block relative h-0" style="padding-bottom: 139.9%;">
+                            {% comment %} <img src="{{ 'product-placeholder-img.jpg' | asset_url }}" alt="Placeholder"> {% endcomment %}
+                            <img id="{{ img_id }}"
+                                class="lazyload w-full h-auto absolute top-0 left-0"
+                                alt="{{ preview_image.alt }}"
+                                data-src="{{ 'product-image-250x350.png' | asset_url }}"
+                                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                data-aspectratio="{{ preview_image.aspect_ratio }}"
+                                data-sizes="auto"
+                                data-image>
+                        </a>
+                        <div class="mt-8">
+                            <h1 class="uppercase text-base font-bold mb-1 text-black">Product name</h1>
+                            <div class="text-danger text-sm font-bold">From ₱ 2,499.99</div>
+                            <button class="w-full uppercase text-black bg-transparent border border-gray mt-5 py-4 px-5" type="submit">Add to bag - ₱ 1,499.99</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        {%- if section.settings.cta_btn_txt != blank -%}
+        <div class="cta text-center md:mt-8">
+            <a href="{{ collection.url }}" title="{{ collection.title }}" class="h-35px flex justify-center items-center mx-auto border-2 text-center uppercase text-base font-bold border-primary py-2 w-40">
+                {{ section.settings.cta_btn_txt }}
+            </a>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Product Carousel",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Grab attention with these stunning must-haves"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Collection"
+            },
+            {
+                "type": "range",
+                "id": "limit",
+                "label": "Product to show",
+                "min": 1,
+                "max": 12,
+                "step": 1,
+                "default": 2
+            },
+            {
+                "type": "select",
+                "id": "product_column_count",
+                "label": "Column count",
+                "options": [
+                    {
+                        "value": "lg:w-1/5",
+                        "label": "5"
+                    },
+                    {
+                        "value": "lg:w-1/4",
+                        "label": "4"
+                    },
+                    {
+                        "value": "lg:w-1/3",
+                        "label": "3"
+                    }
+                ],
+                "default": "lg:w-1/5"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_p_sale",
+                "label": "Show percent discount",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "show_label_sale",
+                "label": "Show sale label",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "cta_btn_txt",
+                "label": "Button label",
+                "default": "View more"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Product Carousel",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

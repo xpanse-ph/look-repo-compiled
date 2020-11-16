@@ -1,0 +1,313 @@
+{
+  "form": {
+    "id": "xPtnKj",
+    "name": "Contact",
+    "handle": "contact-6",
+    "theme_id": "111893053604",
+    "settings": {
+      "locales": {
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "edit_link": "Edit account",
+        "fix_errors": "Please fix errors before continuing",
+        "is_invalid": "{{label}} is invalid",
+        "email_taken": "Email has already been taken",
+        "phone_taken": "Phone number has already been taken",
+        "server_error": "Could not save form, please try again later",
+        "step_counter": "Step {{current}} of {{total}}",
+        "verify_email": "Check your email for a verification link to activate your account.",
+        "not_available": "An error occurred while saving your account, please try again in a few minutes.",
+        "create_account": "Sign me up!",
+        "update_account": "Update account",
+        "recaptcha_error": "Challenge verification failed, please try again",
+        "creating_account": "Submitting...",
+        "updating_account": "Updating account...",
+        "invalid_email_domain": "Email contains an invalid domain name"
+      },
+      "enableRecaptcha": false,
+      "whitelistedTags": "",
+      "recaptchaSiteKey": "",
+      "markRequiredFields": true,
+      "displayCancelButton": false,
+      "goBackAfterSubmission": false,
+      "cancelButtonRedirectUrl": "\/account\/login",
+      "postSubmissionRedirectUrl": "\/",
+      "goBackAfterCancelButtonClick": false
+    },
+    "install_locations": [
+      "manual"
+    ],
+    "created_at": "2020-11-06T06:43:09Z",
+    "updated_at": "2020-11-06T07:38:55Z",
+    "revision_ids": [
+      "Z6TA8w",
+      "X1T4zq",
+      "DRTExo",
+      "MDTM1o",
+      "OzTyXq",
+      "PnTVgw",
+      "znTaZx",
+      "58TPkY",
+      "rATmEZ",
+      "p4TRMr",
+      "Y9TYPN",
+      "RxT2OA",
+      "Z6TAv3",
+      "yzTDP8"
+    ]
+  },
+  "revision": {
+    "id": "Z6TA8w",
+    "created_at": "2020-11-10T02:54:31Z",
+    "updated_at": "2020-11-10T02:54:31Z",
+    "embed_version": "4.1.1",
+    "published_at": null,
+    "fields": [
+      {
+        "id": 192832,
+        "dataColumn": {
+          "key": "first_name",
+          "label": "First name",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 0,
+        "type": "text",
+        "stepId": 169240,
+        "default": "",
+        "label": "First name",
+        "placeholder": "First name",
+        "description": null,
+        "enum": null,
+        "appearance": {
+          "width": 6,
+          "cssClass": ""
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": "first_name",
+        "autotag": null
+      },
+      {
+        "id": 169781,
+        "dataColumn": {
+          "key": "last_name",
+          "label": "Last name",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 1,
+        "type": "text",
+        "stepId": 169240,
+        "default": "",
+        "label": "Last name",
+        "placeholder": "Last name",
+        "description": null,
+        "enum": null,
+        "appearance": {
+          "width": 6,
+          "cssClass": ""
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": "last_name",
+        "autotag": null
+      },
+      {
+        "id": 241116,
+        "dataColumn": {
+          "key": "birthdate",
+          "label": "Birthday",
+          "dataType": "date"
+        },
+        "parentId": null,
+        "position": 2,
+        "type": "date",
+        "stepId": 169240,
+        "default": "",
+        "label": "Birthday",
+        "placeholder": "Birthday",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 6,
+          "cssClass": ""
+        },
+        "settings": {
+          "dateInput": "picker",
+          "hideLabel": true,
+          "yearsBack": 100,
+          "dateFormat": "MM-DD-YYYY",
+          "yearsForward": 20
+        },
+        "validations": [
+          {
+            "operator": "is_valid",
+            "comparand": null,
+            "errorMessage": "Please specify a valid date",
+            "metadata": {
+              "mandatory": true,
+              "staticOperator": true
+            }
+          },
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 104865,
+        "dataColumn": {
+          "key": "phone",
+          "label": "Phone number",
+          "dataType": "phone"
+        },
+        "parentId": null,
+        "position": 3,
+        "type": "phone",
+        "stepId": 169240,
+        "default": "",
+        "label": "Phone",
+        "placeholder": "Phone",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 6,
+          "cssClass": ""
+        },
+        "settings": {
+          "hideLabel": true,
+          "defaultCountryCode": "PH"
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": "phone_number",
+        "autotag": null
+      },
+      {
+        "id": 968096,
+        "dataColumn": {
+          "key": "email",
+          "label": "Email address",
+          "dataType": "email"
+        },
+        "parentId": null,
+        "position": 4,
+        "type": "email",
+        "stepId": 169240,
+        "default": "",
+        "label": "Email address",
+        "placeholder": "Email",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": ""
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [
+          {
+            "operator": "is_valid_email",
+            "comparand": null,
+            "errorMessage": "Please provide a valid email address"
+          },
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": "email_address",
+        "autotag": null
+      },
+      {
+        "id": 260795,
+        "dataColumn": {
+          "key": "accepts_marketing",
+          "label": "Accepts marketing",
+          "dataType": "boolean"
+        },
+        "parentId": null,
+        "position": 5,
+        "type": "checkbox",
+        "stepId": 169240,
+        "default": true,
+        "label": "Subscribe to our newsletter",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hidden"
+        },
+        "settings": {},
+        "validations": [],
+        "sensitive": null,
+        "preset": "accepts_marketing",
+        "autotag": null
+      }
+    ],
+    "steps": [
+      {
+        "id": 169240,
+        "title": "Step 1",
+        "description": ""
+      }
+    ],
+    "rules": [
+      {
+        "id": 188437,
+        "title": "New rule 1",
+        "conditionChaining": "all",
+        "conditions": [],
+        "actions": [
+          {
+            "effect": "tag_customer",
+            "metadata": {
+              "value": "prospect"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

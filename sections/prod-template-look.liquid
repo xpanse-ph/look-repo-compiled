@@ -1,0 +1,331 @@
+{% comment %} Title Data split assigning {% endcomment %}
+{% assign split_title = product.title | split: '-' %}
+{% assign title_vendor = "" %}
+{% assign title_product = "" %}
+{% assign title_type = "" %}
+{% assign split_size = split_title | size %}
+
+{% for titleParts in split_title %}
+     
+    {%- if forloop.first -%}
+        {% assign title_vendor = titleParts %}
+    {% elsif forloop.index == 2 %}
+        {% assign title_product = titleParts %}
+    {% elsif forloop.last %}
+        {% assign title_type = titleParts %}
+    {%- endif -%}
+    
+{% endfor %}
+
+{% assign vendor_handle = title_vendor | handleize %}
+
+
+
+{% comment %} Get date from published date to current date {% endcomment %}
+{% assign days = 30 %}
+{% assign period_time = days | times: 24 | times: 60 | times: 60 %}
+{% assign date_now = 'now' | date:'%s' %}
+{% assign date_finished = product.published_at | date:'%s' | plus: period_time | date:'%s' %}
+{%- capture eyebrow_badge -%}
+    {%- if product.type == 'Eyebrows' -%}
+        {%- if date_finished > date_now -%}
+            New
+        {%- elsif product.tags contains 'Exclusive' -%}
+            {% include 'icon-exclusive-badge' %}
+        {%- elsif product.tags contains 'Brand Spotlight' -%}
+            Brand Spotlight
+        {%- elsif product.tags contains 'Bestseller' -%}
+            Bestseller
+        {%- endif -%}
+    {%- endif -%}
+{%- endcapture -%}
+
+{%- capture product_badge -%}
+    {%- if product.tags contains 'Member Promo' -%}
+        Member Promo
+    {%- elsif product.tags contains 'Cruelty Free' -%}
+        Cruelty Free
+    {%- elsif product.tags contains 'Natural' or product.tags contains 'Organic' -%}
+        Natural
+    {%- elsif product.tags contains 'Vegan' -%}
+        Vegan
+    {%- endif -%}
+{%- endcapture -%}
+
+{%- capture badge_html -%}
+    {%- if product.tags contains 'Member Promo' or product.tags contains 'Cruelty Free' or product.tags contains 'Natural' or product.tags contains 'Organic' or product.tags contains 'Vegan' -%}
+        <span class="rounded-full bg-primary text-white w-16 h-16 uppercase absolute lg:top-0 bottom-10px left-10px text-10px flex justify-center items-center font-bold text-center">
+            {{product_badge}}
+        </span>
+    {%- endif -%}
+{%- endcapture -%}
+
+<main id="look-product-main" class="product-template-look outline-none products-vue">
+    <input type="hidden" name="product_data" data-productId='{{ product.id }}' data-prodTitleCore='{{ title_product | strip }}' data-custlogged="{% if customer %}true{% else %}false{% endif %}" data-productHandle='{{ product.handle }}'>
+    <!-- *This is the section for everything related to the product data like images, ids, details, metafields, etc -->
+    <section class="product product-section">
+        {% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+            <nav class="breadcrumb container mx-auto text-sm my-4 px-5" role="navigation" aria-label="breadcrumbs">
+            <a href="/" title="Home">Home</a>
+            {% if template contains 'page' %}
+                <span aria-hidden="true">/</span>
+                <span>{{ page.title }}</span>
+            {% elsif template contains 'product' %}
+                {% comment %} {% if collection.url %}
+                {{ collection.title | link_to: collection.url }}
+                {% endif %} {% endcomment %}
+                <span aria-hidden="true">/</span>
+                <span><a href="/collections/{{vendor_handle}}">{{ title_vendor }}</a></span>
+                <span aria-hidden="true">/</span>
+                <span class="font-bold">
+                    {%- if split_size > 2 -%}
+                        {{ title_product }}
+                    {%- else -%}
+                        {{ product.title }}
+                    {%- endif -%}
+                </span>
+            {% elsif template contains 'collection' and collection.handle %}
+                <span aria-hidden="true">/</span>
+                {% if current_tags %}
+                {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+                {{ collection.title | link_to: url }}
+                <span aria-hidden="true">/</span>
+                <span class="font-bold">{{ current_tags | join: " + " }}</span>
+                {% else %}
+                <span class="font-bold">{{ collection.title }}</span>
+                {% endif %}
+            {% else %}
+            <span aria-hidden="true">/</span>
+            <span>{{ page_title }}</span>
+            {% endif %}
+            </nav>
+        {% endunless %}
+
+
+        <div class="products-section">
+            <div class="lg:flex justify-between container mx-auto lg:px-5">
+
+                {% render 'look-prod-image', badge: badge_html %}
+                {% comment %} {% render 'look-prod-image' %} {% endcomment %}
+
+                <div class="prod-information lg:max-w-prod-details w-full lg:p-0 sm:px-10 px-6">
+                    <form action="" class="product-form flex justify-between">
+                        <template v-if="product && selectedVariantQty">
+                            <div class="prodTitle--container lg:max-w-335px">
+                                <div class="specialLabel--container">
+                                
+                                    
+                                    {%- if product.type == 'Eyebrows' -%}
+                                        <span class="block badge text-secondary mb-10px uppercase font-bold tracking-wide">
+                                            {{eyebrow_badge}}
+                                        </span>
+                                    {%- endif -%}
+                                    <img src="" alt="">
+                                </div>
+                                <div class="title--Container pr-10">
+                                    <h2 class="prodBrand uppercase font-extrabold text-primary text-20px mb-2">
+                                        {%- if split_size > 2 -%}
+                                            {{ title_vendor }}
+                                        {%- else -%}
+                                            {{ product.vendor }}
+                                        {%- endif -%}
+                                    </h2>
+                                    <div class="prodTitle font-thin">
+                                        {%- if split_size > 2 -%}
+                                            {{ title_product }}
+                                        {%- else -%}
+                                            {{ product.title }}
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+
+                                <div class="hulkapps-reviews">
+                                    <div class="item-reviews prodForm font-extrabold" data-product-id="{{product.id}}"></div>
+                                </div>
+
+                                <div class="prices--container mt-6" v-if="productPrice" v-html="productPrice">
+                                </div>
+
+                                <div class="prodVariantSelectors--container mt-12">
+                                
+                                        <!-- ! Vue Point -->
+                                        <template v-if="variantData.length > 1">
+                                            <div class="flex items-center mb-3">
+                                                <span class="uppercase font-extrabold text-sm w-48px mr-18px inline-block">Variant: </span>
+
+                                                <select class="px-6 py-3 pr-12 border-2 border-solid border-gray90 text-base min-w-150px" @change="variantRedirect(selectedColorHandle)" v-model="selectedColorHandle">
+                                                    <option :value="product.handle" disabled hidden>${getTitle(product.title, 2)}</option>
+                                                    <template v-for="colorVar in variantData">
+                                                        <option :value="colorVar.handle" v-text="getTitle(colorVar.title, 2)"></option>
+                                                    </template>
+                                                </select>
+                                            </div>
+                                        </template>
+
+                                        <!-- ! Vue Point -->
+                                        <template v-if="product.variants.length > 1">
+                                            <template v-if="product.options.length > 1">
+                                                <div class="flex items-center mb-3">
+                                                    <span class="uppercase font-extrabold text-sm w-48px mr-18px inline-block">Size: </span>
+                                                    <select class="px-6 py-3 pr-12 border-2 border-solid border-gray90 text-base min-w-150px" @change="qtyReset" v-model="selectedSizeId" name="" id="">
+                                                        <option :value="product.variants[0].id" disabled hidden>${product.variants[0].option2}</option>
+                                                        <option v-for="sizeVar in product.variants" :value="sizeVar.id" v-text="sizeVar.option2"></option>
+                                                    </select>
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <div class="flex items-center mb-3">
+                                                    <span class="uppercase font-extrabold text-sm mr-18px inline-block">${ product.options[0].name }:</span>
+                                                    <select class="px-6 py-3 pr-12 border-2 border-solid border-gray90 text-base min-w-150px" @change="qtyReset" v-model="selectedSizeId" name="" id="">
+                                                        <option :value="product.variants[0].id" disabled hidden>${product.variants[0].option1}</option>
+                                                        <option v-for="sizeVar in product.variants" :value="sizeVar.id" v-text="sizeVar.option1"></option>
+                                                    </select>
+                                                </div>
+                                            </template>
+                                        </template>
+                                </div>
+
+                                <!-- ! Vue Point -->
+                                <div class="stockCount--container mt-8"><span class="uppercase font-semibold">
+                                    <template v-if="selectedVariantQty.inventoryCount > 0">
+                                        ${selectedVariantQty.inventoryCount} Piece<template v-if="selectedVariantQty.inventoryCount > 1">s</template> Left!
+                                    </template>
+                                    <template v-else>
+                                        out of stock
+                                    </template>
+                                </span></div>
+
+                            </div>
+
+                            <div class="addToCart--container float-right">
+                                <template v-if="selectedVariantQty.inventoryCount > 0">
+                                    <div class="qty--container flex items-center text-left  mb-6">
+                                        <span class="font-bold mr-4 uppercase text-sm mxlg:hidden">Quantity:</span>
+                                        <select class="w-20 py-3 px-5 pr-8 font-semibold border border-solid border-gray90 text-sm" v-model="selectedQuantity" name="qty" id="">
+                                            <option :value="selectedQuantity" disabled hidden v-text="selectedQuantity"></option>
+                                            <template v-if="selectedVariantQty">
+                                                <option v-for="inventory in selectedVariantQty.inventoryCount" :value="inventory" v-text="inventory"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+
+                                    <div class="cartButton--container">
+                                        <button id="look-addToCart-Button" class="bg-primary text-white font-semibold uppercase py-3 lg:w-addcart w-full center tracking-wide" @click="addToCart"> Add to bag</button>
+                                    </div>
+
+                                    <div class="wishList--container text-center mt-4 mxlg:hidden">
+                                        {% render 'swym-product-view', product: product %}
+                                        <div class="add-to-wl-btn text-sm text-center">
+                                            <button class="unq-btn flex items-center mx-auto" data-swaction="addToWishlist" data-product-id="{{product.id | json}}">
+                                                <!-- <span class="inline-block mr-2">
+                                                    <svg class="w-auto h-auto" width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0047 20L1.85548 10.8527C1.83945 10.8367 1.82343 10.8187 1.8054 10.8027L1.04413 9.86911C0.140513 8.49326 -0.194546 6.82067 0.109392 5.20292C0.41333 3.58517 1.33259 2.14826 2.67395 1.19419C4.0153 0.240114 5.67429 -0.156811 7.30221 0.0868585C8.93013 0.330528 10.4002 1.19581 11.4034 2.50082C12.4115 1.18034 13.8963 0.306708 15.5402 0.0667321C17.1842 -0.173244 18.8567 0.23948 20.2003 1.21666C21.5438 2.19384 22.4517 3.65791 22.7299 5.2958C23.008 6.93369 22.6342 8.61539 21.6886 9.9813L20.9353 10.8688C20.8351 10.9669 20.735 11.0691 20.6268 11.1533L11.0047 20ZM3.45414 9.31218L11.0668 16.9249L19.1603 9.48047C19.6543 9.05929 20.0421 8.52772 20.2924 7.92882C20.5428 7.32991 20.6486 6.68048 20.6013 6.03308C20.5541 5.38568 20.3551 4.7585 20.0204 4.2023C19.6857 3.64611 19.2248 3.17652 18.675 2.83154C18.1251 2.48655 17.5017 2.27587 16.8553 2.21655C16.2089 2.15722 15.5576 2.25092 14.9542 2.49005C14.3507 2.72918 13.812 3.10703 13.3817 3.59302C12.9514 4.07901 12.6415 4.65948 12.4772 5.28746C12.4248 5.53393 12.2894 5.75494 12.0935 5.91351C11.8977 6.07208 11.6534 6.15861 11.4014 6.15861C11.1494 6.15861 10.9051 6.07208 10.7093 5.91351C10.5134 5.75494 10.378 5.53393 10.3256 5.28746C9.76266 3.4484 8.12193 2.19631 6.31892 2.19631C5.50469 2.19597 4.70848 2.43593 4.03002 2.88609C3.35156 3.33626 2.82102 3.97663 2.50488 4.72698C2.18874 5.47733 2.10106 6.30429 2.25281 7.10425C2.40457 7.90421 2.78901 8.64159 3.35799 9.22403L3.45414 9.31218Z" fill="#F0B2AA"/></svg>
+                                                </span> -->
+                                                <span class="swym-wishlist-cta uppercase font-extrabold">Add to Wishlist</span>
+                                                <span class="swym-fave-count" data-count=""></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div class="wishList--container oos-wishlist text-center mt-4 mxlg:w-full">
+                                        {% render 'swym-product-view', product: product %}
+                                        <div class="add-to-wl-btn text-center">
+                                            <button class="unq-btn flex justify-center items-center mx-auto text-white bg-primary py-4 px-5 mxlg:w-full" data-swaction="addToWishlist" data-product-id="{{product.id | json}}">
+                                                {% comment %} <span class="inline-block mr-2">
+                                                    <svg class="w-auto h-auto" width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0047 20L1.85548 10.8527C1.83945 10.8367 1.82343 10.8187 1.8054 10.8027L1.04413 9.86911C0.140513 8.49326 -0.194546 6.82067 0.109392 5.20292C0.41333 3.58517 1.33259 2.14826 2.67395 1.19419C4.0153 0.240114 5.67429 -0.156811 7.30221 0.0868585C8.93013 0.330528 10.4002 1.19581 11.4034 2.50082C12.4115 1.18034 13.8963 0.306708 15.5402 0.0667321C17.1842 -0.173244 18.8567 0.23948 20.2003 1.21666C21.5438 2.19384 22.4517 3.65791 22.7299 5.2958C23.008 6.93369 22.6342 8.61539 21.6886 9.9813L20.9353 10.8688C20.8351 10.9669 20.735 11.0691 20.6268 11.1533L11.0047 20ZM3.45414 9.31218L11.0668 16.9249L19.1603 9.48047C19.6543 9.05929 20.0421 8.52772 20.2924 7.92882C20.5428 7.32991 20.6486 6.68048 20.6013 6.03308C20.5541 5.38568 20.3551 4.7585 20.0204 4.2023C19.6857 3.64611 19.2248 3.17652 18.675 2.83154C18.1251 2.48655 17.5017 2.27587 16.8553 2.21655C16.2089 2.15722 15.5576 2.25092 14.9542 2.49005C14.3507 2.72918 13.812 3.10703 13.3817 3.59302C12.9514 4.07901 12.6415 4.65948 12.4772 5.28746C12.4248 5.53393 12.2894 5.75494 12.0935 5.91351C11.8977 6.07208 11.6534 6.15861 11.4014 6.15861C11.1494 6.15861 10.9051 6.07208 10.7093 5.91351C10.5134 5.75494 10.378 5.53393 10.3256 5.28746C9.76266 3.4484 8.12193 2.19631 6.31892 2.19631C5.50469 2.19597 4.70848 2.43593 4.03002 2.88609C3.35156 3.33626 2.82102 3.97663 2.50488 4.72698C2.18874 5.47733 2.10106 6.30429 2.25281 7.10425C2.40457 7.90421 2.78901 8.64159 3.35799 9.22403L3.45414 9.31218Z" fill="white"/></svg>
+                                                </span> {% endcomment %}
+                                                <span class="swym-wishlist-cta uppercase font-semibold tracking-wide">Add to Wishlist</span>
+                                                <span class="swym-fave-count" data-count=""></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </form>
+
+                    {% render 'prod-metafields' %}
+
+                    <div class="free-delivery mt-8">
+                        <svg width="27" height="20" viewBox="0 0 27 20" fill="none" class="inline-block w-auto h-auto" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.55556 8.88889V10H14.4444V2.22222H3.33333V1.11111C3.33333 0.497778 3.83111 0 4.44444 0H15.5556C16.1689 0 16.6667 0.497778 16.6667 1.11111V3.33333H21.8522C23.0933 3.33333 23.63 3.97333 24.0033 4.56333C24.6633 5.60778 25.71 7.26556 26.3467 8.31667C26.5556 8.66333 26.6667 9.06111 26.6667 9.46667V14.4444C26.6667 15.6544 25.8411 16.6667 24.4444 16.6667H23.3333C23.3333 18.5067 21.84 20 20 20C18.16 20 16.6667 18.5067 16.6667 16.6667H12.2222C12.2222 18.5067 10.7289 20 8.88889 20C7.04889 20 5.55556 18.5067 5.55556 16.6667H4.44444C3.83111 16.6667 3.33333 16.1689 3.33333 15.5556V8.88889H1.11111V6.66667H8.88889V8.88889H5.55556ZM8.88889 15.3333C9.62444 15.3333 10.2222 15.9311 10.2222 16.6667C10.2222 17.4022 9.62444 18 8.88889 18C8.15333 18 7.55556 17.4022 7.55556 16.6667C7.55556 15.9311 8.15333 15.3333 8.88889 15.3333ZM20 15.3333C20.7356 15.3333 21.3333 15.9311 21.3333 16.6667C21.3333 17.4022 20.7356 18 20 18C19.2644 18 18.6667 17.4022 18.6667 16.6667C18.6667 15.9311 19.2644 15.3333 20 15.3333ZM16.6667 12.2222H5.55556V14.4444H6.40556C7.01555 13.7622 7.90222 13.3333 8.88889 13.3333C9.87556 13.3333 10.7622 13.7622 11.3722 14.4444H17.5167C18.1267 13.7622 19.0133 13.3333 20 13.3333C20.9867 13.3333 21.8733 13.7622 22.4833 14.4444H24.4444V9.36111L22.5433 6.10667C22.3444 5.76556 21.9789 5.55556 21.5844 5.55556H16.6667V12.2222ZM17.7778 6.66667V10H23.3333L21.7478 7.22667C21.55 6.88 21.1822 6.66667 20.7833 6.66667H17.7778ZM0 3.33333H8.88889V5.55556H0V3.33333Z" fill="#302E2B"/>
+                        </svg>
+                            
+                        <span class="ml-2 font-extrabold text-base align-middle">FREE DELIVERY ABOVE {% if customer %}₱2,000{% else %}₱3,000{% endif %}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto lg:hidden">
+            <div class=" w-11/12 border border-gray90 mx-auto my-16 mb-4"></div>
+        </div>
+
+        
+        <div class="share lg:hidden">
+            <div class="flex justify-center items-center">
+                <span class="uppercase text-smbase font-bold mr-3">Share On: </span>
+                <span><a class="w-auto h-auto" target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: product.url }}"><svg class="mx-2 w-auto h-auto" width="35" height="35" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.9997 18.4995C35.9997 28.1646 28.1646 36 18.5 36C8.83538 36 1 28.1646 1 18.4995C1 8.83435 8.83512 1 18.5 1C28.1649 1 35.9997 8.83513 35.9997 18.4995Z" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M15.2033 30.0325H19.4382V19.4271H22.3927L22.7093 15.8759H19.4382V13.8543C19.4382 13.0169 19.6065 12.6852 20.4159 12.6852H22.7081V9H19.7756C16.624 9 15.2033 10.3883 15.2033 13.0449V15.8759H13V19.4717H15.2033V30.0325Z" fill="#302E2B"/></svg></a></span>
+                <span><a class="w-auto h-auto" target="_blank" href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ shop.url | append: product.url }}"><svg class="mx-2 w-auto h-auto" width="36" height="35" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.7951 18.4997C36.7951 28.1649 28.9603 36 19.2957 36C9.63105 36 1.79541 28.1649 1.79541 18.4997C1.79541 8.83461 9.63028 1 19.2957 1C28.9611 1 36.7951 8.83513 36.7951 18.4997Z" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M10.7705 25.5374C12.6149 26.7229 14.7616 27.3522 16.9541 27.3501C24.4457 27.3501 28.6756 21.0236 28.4209 15.3497C29.2109 14.779 29.8926 14.0717 30.4338 13.2611C29.6976 13.5876 28.9166 13.8018 28.1168 13.8963C28.9595 13.3928 29.5899 12.5994 29.89 11.6646C29.0983 12.1347 28.232 12.466 27.3286 12.6442C26.9513 12.2413 26.4952 11.9203 25.9885 11.7011C25.4819 11.4819 24.9357 11.3691 24.3837 11.3699C21.7797 11.3699 19.8658 13.8 20.4542 16.3239C17.1009 16.1557 14.1288 14.5491 12.1394 12.1082C11.0826 13.9216 11.5912 16.2944 13.3882 17.4946C12.7472 17.4746 12.1203 17.3014 11.56 16.9896C11.5168 18.8591 12.8555 20.6062 14.7961 20.9965C14.2022 21.158 13.5792 21.1815 12.9748 21.0652C13.232 21.867 13.7335 22.5682 14.4092 23.0706C15.0848 23.573 15.9007 23.8514 16.7426 23.8668C15.052 25.1932 12.9039 25.7941 10.7705 25.5374Z" fill="#302E2B"/></svg></a></span>
+                <span><a class="w-auto h-auto" target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: product.url }}&amp;media={{ product.featured_media | img_url: '1024x1024' }}&amp;description={{ product.title | url_param_escape }}"><svg class="mx-2 w-auto h-auto" width="36" height="35" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.7951 18.4997C36.7951 28.1649 28.9603 36 19.2957 36C9.63105 36 1.79541 28.1649 1.79541 18.4997C1.79541 8.83461 9.63028 1 19.2957 1C28.9611 1 36.7951 8.83513 36.7951 18.4997Z" fill="#302E2B" stroke="#302E2B" stroke-width="2" stroke-miterlimit="10"/><path d="M19.2954 35C17.5938 35 15.9542 34.7422 14.4093 34.2637C15.0817 33.1685 16.0862 31.3721 16.4595 29.9366L17.4887 26.0158C18.027 27.0429 19.5986 27.9091 21.2692 27.9091C26.2481 27.9091 29.8327 23.3324 29.8327 17.6461C29.8327 12.1949 25.3839 8.11738 19.6584 8.11738C12.5387 8.11738 8.75603 12.8962 8.75603 18.1019C8.75603 20.5233 10.0451 23.5346 12.1055 24.4957C12.417 24.6401 12.584 24.5761 12.6583 24.275L13.1162 22.4043C13.1553 22.2372 13.1368 22.0949 13.0007 21.9299C12.318 21.1049 11.7735 19.5828 11.7735 18.1659C11.7735 14.5256 14.529 11.0049 19.2232 11.0049C23.276 11.0049 26.114 13.7666 26.114 17.7183C26.114 22.1816 23.8597 25.2733 20.9268 25.2733C19.3057 25.2733 18.093 23.9347 18.4828 22.2909C18.9489 20.3294 19.8502 18.2133 19.8502 16.7964C19.8502 15.53 19.1696 14.4719 17.763 14.4719C16.1068 14.4719 14.7765 16.1859 14.7765 18.4794C14.7765 19.9417 15.2694 20.9296 15.2694 20.9296C15.2694 20.9296 13.6338 27.8452 13.3348 29.1322C13.0027 30.5574 13.1327 32.5601 13.277 33.8636C7.14316 31.4607 2.79541 25.4898 2.79541 18.5C2.79541 9.38787 10.1833 2 19.2954 2C28.4075 2 35.7954 9.38787 35.7954 18.5C35.7954 27.6121 28.4075 35 19.2954 35Z" fill="white"/></svg></a></span>
+            </div>
+        </div>
+
+        <div class="container mx-auto">
+            <div class=" w-11/12 border border-gray90 mx-auto my-16 mxlg:mt-4"></div>
+        </div>
+
+        {% render 'product-reviews' %}
+        
+    </section>
+
+</main>
+
+
+
+<style>
+    .item-reviews.prodForm > .reviews-rating{
+        margin-top: 2rem;
+    }
+</style>
+
+<script>
+    let allOrganizerGroup = document.querySelectorAll("[data-organizer]"),
+        headerOrganizer = document.querySelectorAll('.organizer__header-btn')
+    
+    // console.log(allOrganizerGroup)
+    
+    function organizerSwitcher(){
+        let dataValue = this.getAttribute('data-organizer')
+        allOrganizerGroup.forEach(organizer => {
+            organizer.classList.remove('active')
+        });
+    
+        let activeContent = document.querySelector(`.organizer__contents[data-organizer='${dataValue}']`)
+    
+        this.classList.add('active')
+        activeContent.classList.add('active')
+    }   
+
+    headerOrganizer.forEach(headers => {
+        headers.addEventListener('click', organizerSwitcher)
+    })
+
+    window.variants_count = {};
+
+    {% for variant in product.variants %}
+        window.variants_count[{{ variant.id }}] = {{ variant.inventory_quantity }}
+    {% endfor %}
+
+</script>
+
+{% schema %}
+    {
+        "name": "Look Product Page",
+        "class": "shopify-section outline-none",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

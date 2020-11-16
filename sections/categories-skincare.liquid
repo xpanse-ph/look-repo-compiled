@@ -1,0 +1,43 @@
+{% assign count = 0 %}
+<header class="m-auto mb-5 overflow-hidden collection-header">
+  <div class="slider_cont_flick" data-flickity='{"autoPlay": 3000, "pauseAutoPlayOnHover": true, "pageDots": true, "prevNextButtons": false, "imagesLoaded": true }'>
+    {% for block in section.blocks %}
+      <div class="w-full slider-shell">
+        <div class="border-2 border-solid border-black-600">
+          <picture>
+            <source media="(max-width: 767px)" class="w-full" srcset="{{block.settings.category-image-mbl | img_url: 'master'}}">
+            <img src="{{block.settings.category-image | img_url: 'master'}}" class="w-full" alt="">
+          </picture>
+        </div>
+      </div>
+      {% assign count = count | plus: 1 %}
+    {% endfor %}
+  </div>
+</header>
+
+
+{% schema %}
+  {
+    "name": "Category Banner",
+    "settings": [
+    ],
+    "blocks": [
+    {
+      "type": "category-img-new",
+      "name": "Category Block",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "category-image",
+            "label": "Category Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "category-image-mbl",
+            "label": "Category Image Mobile"
+        }
+      ]
+    }
+    ]
+  }
+  {% endschema %}

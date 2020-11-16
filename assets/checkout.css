@@ -1,0 +1,377 @@
+.co-wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.co-wrap .divider {
+  height: 1px;
+  width: 100%;
+  background-color: #cbcbca;
+  border: none;
+}
+
+.co-sidebar {
+    width: 500px;
+}
+
+.page-title,
+.sidebar__content-title {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.section--shipping-method .section__title,
+.section--contact-information .section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.section--contact-information .layout-flex__item a {
+  color: #F0B2AA;
+  font-weight: 700;
+}
+
+.section--contact-information .layout-flex__item  > span {
+  font-weight: 300;
+}
+
+.order-summary__section--discount .field__input,
+.section--contact-information .section__content .field__input {
+  border-color: #cbcbca;
+}
+
+.section--contact-information .section__content .field__input:focus {
+  outline: 0;
+}
+
+.section--contact-information .section__content .checkbox__label {
+  font-weight: 300;
+  color: #302E2B;
+}
+
+.content-box:first-of-type, .content-box-spacing:first-of-type {
+  border-color: #cbcbca;
+/*   border-radius: 0; */
+}
+
+
+.order-summary__section--discount .field__label {
+  display: block;
+  position: relative;
+  opacity: 1;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 1rem;
+  transform: translateY(0px);
+}
+
+
+.floating-labels  .order-summary__section--discount .field--show-floating-label .field__input {
+  padding: 0.9285714286em 0.7857142857em;
+}
+
+.order-summary__section--discount .field__input {
+  background: #E5E5E5;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.order-summary__section--discount .field__input-btn {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 0;
+  margin: 0;
+  background: #302E2B;
+  align-self: flex-end;
+  padding: 13px 20px;
+}
+  
+
+.order-summary__section--total-lines .payment-due__price,
+.order-summary__section--total-lines .payment-due-label__total {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #302E2B;
+}
+
+.order-summary__section--total-lines .payment-due-label__taxes {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.total-line-table__tbody+.total-line-table__tbody .total-line:first-child th::before, 
+.total-line-table__tbody+.total-line-table__tbody .total-line:first-child td::before, 
+.total-line-table__tbody+.total-line-table__footer .total-line:first-child th::before, 
+.total-line-table__tbody+.total-line-table__footer .total-line:first-child td::before {
+	background: #cbcbca;
+}
+
+.field__input {
+  border: 1px solid #cbcbca;
+}
+
+.order-summary__section~.order-summary__section {
+  border-top: 0;
+}
+
+.order-summary__section__content {
+  border: 1px solid #cbcbca;
+  padding: 0 15px;
+  border-radius: 5px;
+}
+
+.order-summary__section__content .product-table {
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.order-summary__section__content .product-table .visually-hidden,
+.order-summary__section__content .product-table .product-table__header {
+  display: none;
+}
+
+.order-summary__section__content .product-table .product td:first-child {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+.order-summary__section__content .product-table .product td:last-child {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+.order-summary__section__content .product-table .product th {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.order-summary__section__content .product-table .product td.visually-hidden {
+  display: none;
+  padding: 0;
+}
+
+
+.order-summary__section__content .product-table .product {
+  border: 1px solid #cbcbca;
+}
+
+.order-summary__section__content .product-table .product td {
+  padding: 10px;
+}
+
+
+.total-line-table__tbody .total-line__price,
+.total-line-table__tbody .total-line__name {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #302E2B;
+}
+
+.section--shipping-address {
+  border-top: 1px solid #cbcbca;
+  margin-top: 36px;
+}
+
+.section--shipping-address .content-box {
+  border: none;
+}
+
+.section--shipping-address  .tabs__list {
+  display: block;
+  border: 1px solid #cbcbca;
+  margin-bottom: 18px;
+  border-radius: 5px;
+}
+
+.section--shipping-address .tabs__button {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  justify-content: left;
+  color: #000;
+}
+
+.section--shipping-address .section__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.section--shipping-address .tabs__button {
+  position: relative;
+  padding-left: 40px
+}
+
+.section--shipping-address .tabs__button > span {
+  margin-left: 5px;
+}
+
+.section--shipping-address .tabs__button > span:before {
+  height: 20px;
+  width: 20px;
+  content: " ";
+  display: block;
+  background: #fff;
+  margin: auto;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  position: absolute; 
+  border-radius: 50%;
+  border: 1px solid #cbcbca;
+}
+
+.section--shipping-address .tabs__button--active > span:after {
+  height: 12px;
+  width: 12px;
+  content:" ";
+  display: block;
+  background: #000;
+  margin: auto;
+  top: 0;
+  left: 14px;
+  bottom: 0;
+  position: absolute; 
+  border-radius: 50%;
+  border: 1px solid #cbcbca;
+}
+
+.section--shipping-address .tabs__item:last-child  {
+  border-top: 1px solid #cbcbca;
+}
+
+.tabs__button--active, .tabs__button--active:hover, .tabs__button--active:focus {
+  border-bottom: none;
+}
+
+.content-box__panel {
+  background-color: transparent;
+  padding: 0;
+}
+
+.section--billing-address .section__title,
+.section--payment-method .section__title, 
+.section--shippping-method .section__title,
+.section--shipping-address .content-box__panel h3 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: block;
+  padding-left: 0;
+  text-transform: capitalize;
+}
+
+.section--billing-address .section__text,
+.section--payment-method .section__text, 
+.section--shippping-method .section__text {
+  font-weight: 300;
+  color: #302E2B;
+}
+
+.section--shipping-address .content-box__panel .content-box {
+  background-color: transparent;
+  border: 1px solid #cbcbca;
+/*   border-radius: 8px; */
+}
+
+
+.input-checkbox:checked, .input-radio:checked,
+.content-box .input-checkbox:checked, 
+.content-box .input-radio:checked {
+    -webkit-box-shadow: 0 0 0 10px #302E2B inset;
+    box-shadow: 0 0 0 10px #302E2B inset;
+}
+
+.content-box .field__input,
+.section--shipping-address .field__input {
+  border-color: #cbcbca;
+}
+
+.step__footer__previous-link {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.icon-svg--color-accent {
+  color: currentColor;
+}
+
+.step__footer__continue-btn {
+/* 	display: none; */
+  /*visibility: hidden;
+  height: 0;
+  font-size: 0;
+  opacity: 0; */
+  background: #302E2B;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.btn:hover, .sp-modal-toggle:hover {
+  background: #302E2B;
+}
+
+.anyflexbox .step__footer {
+/*   justify-content: left; */
+/*   flex-direction: row; */
+/*   display: none; */
+}
+
+.co-main__footer {
+  background-color: #F0B2AA;
+  text-align: center;
+  padding: 20px;
+}
+
+.co-main__footer > a {
+  display: inline-block;
+}
+
+
+.reduction-code,
+.product__description__name {
+  font-size: 12px;
+}
+
+.order-summary__section__content .product-table .product + .product {
+  margin-top: 1rem;
+}
+
+.content-box .icon {
+  height: 81px;
+}
+
+@media screen and (min-width: 1024px) {
+	.co-main .page-title {
+      display: block !important;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+	.co-sidebar {
+      width: 100%;
+    }
+  
+  	.js .co-sidebar .order-summary--is-collapsed {
+      height: auto;
+      visibility: visible;
+    }
+  
+  	.order-summary__sections {
+      height: auto !important;
+    }
+}

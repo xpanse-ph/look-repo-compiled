@@ -1,0 +1,92 @@
+<script id="gwpCartTemplate" type="text/template">
+    {%raw%}
+        <form action="/cart" method="post">
+            <div class="block w-full md:mb-50 mxmd:mb-25px border border-gray">
+                <h3 class="uppercase text-base font-bold p-5 mxmd:text-center mxmd:border-b mxmd:border-gray">{{#if many}}Samples{{else}}Sample{{/if}} added</h3>
+                <table class="table-auto mxmd:hidden w-full">
+                    <thead class="mxmd:hidden">
+                        <tr class="bg-light-gray">
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Image</th>
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Products</th>
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left"></th>
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Price</th>
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Quantity</th>
+                            <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#items}}
+                        <tr class="h-3"></tr>
+                        <tr id="item_{{line}}" data-line="{{line}}">
+                            <td class="md:px-4 mxmd:w-1/3 mxmd:pl-25px min-h-100px">
+                                <div class="block w-full">
+                                    <img
+                                        class="w-full h-auto"
+                                        alt="{{title}}"
+                                        src="{{imageDesktop}}"
+                                        data-image>
+                                </div>
+                            </td>
+                            <td class="md:px-4 md:py-6 mxmd:w-1/3 mxmd:py-25px mxmd:pl-2">
+                                <h1 class="uppercase md:text-base mxmd:text-sm font-bold">{{title}}</h1>
+                                <h3 class="uppercase md:text-base mxmd:text-sm font-light">
+                                {{variant}}
+                                </h3>
+                            </td>
+                            <td></td>
+                            <td class="md:px-4 mxmd:hidden">
+                                <span class="uppercase font-bold text-sm">
+                                Free
+                                </span>
+                            </td>
+                            <td class="md:px-8 mxmd:hidden">
+                                <span class="uppercase font-bold text-sm">{{quantity}}</span>
+                            </td>
+                            <td class="md:px-4 mxmd:pr-25px mxmd:w-1/3 mxmd:pl-2 relative">
+                                <span class="uppercase font-bold text-sm">
+                                Free
+                                </span>
+                                <a onclick="cartAjax.removeToCart({{id}})" href="javascript:void(0)" title="Remove item" class="mxmd:text-danger text-xsm font-bold uppercase underline block text-right absolute bottom-20px right-20px gwp-remove-btn">Remove and choose again</a>
+                            </td>
+                        </tr>
+                    {{/items}}
+                        <tr class="h-3"></tr>
+                    </tbody>
+                </table>
+                <div class="my-5 md:hidden">
+                    <div class="slideshow px-25px" data-gallery-size="true">
+                        {{#items}}
+                        <div class="slider-item lg:w-1/4 md:w-1/3 w-1/2 mr-4">
+                            <div class="block w-full mb-4">
+                                <div class="block w-full relative">
+                                    <img
+                                        class="w-full h-auto"
+                                        alt="{{title}}"
+                                        src="{{imageMobile}}"
+                                        data-image>
+                                    <span class="absolute top-0 left-0 text-base font-bold">{{quantity }}x</span>
+                                </div>
+                            </div>
+                            <h1 class="text-base font-bold uppercase text-center">{{vendor}}</h1>
+                                <label class="text-sm font-light uppercase block text-center">
+                                    Volume
+                                </label>
+                                <span class="text-sm font-light uppercase block text-center">
+                                    {{variant}}
+                                </span>
+                            <a 
+                                onclick="cartAjax.removeToCart({{id}})"
+                                href="javascript:void(0)"
+                                data-id="{{item.variant.id}}"
+                                type="submit" 
+                                class="mt-8 border border-primary text-center w-full py-10px text-sm font-bold uppercase block">
+                                Remove
+                            </a>
+                        </div>
+                        {{/items}}
+                    </div>
+                </div>                
+            </div>
+        </form>
+    {%endraw%}
+</script>

@@ -1,0 +1,103 @@
+<main class="look-about-us">
+  <div class="container mx-auto mt-10 px-8 mb-24">
+
+    <div class="img-container mb-8">
+        {% if section.settings.banner_image %}
+            <img class="lazyload" data-src="{{ section.settings.banner_image | img_url }}" alt="">
+        {% else %}
+            <img class="lazyload" data-src="{{ '1800x800px_CONTACT-US_01.png' | file_url }}" alt="">
+        {% endif %}
+    </div>
+
+    <h2 class="md:text-32px text-lg font-bold uppercase text-left mb-8">{{ section.settings.page_title }}</h2>
+
+    <div class="body-section text-16px">
+        {{ page.content }}
+      {% comment %} <div class="mb-10">The Terms and Conditions stated herein, as defined by Watsons Personal Care Stores (Phils) Inc. (herein referred to as “Watsons” ), forms the basis and guidelines of the issuance of the Watsons Card (herein referred to as “Watsons Card” or “Membership Card”), defines the rights and obligations of the Member (herein referred to as the “Member”) in the Watsons membership and loyalty program (herein referred to as “Watsons Program”), and provides for the collection and processing of personal data by Watsons and its subsidiaries and affiliates of Watsons and other service providers that may be engaged by it (herein collectively referred to as “Service Group”), among others. Members are subject to these guidelines, including those referred to in the Watsons Card Membership Application Form, and are deemed to have accepted and agreed to any and all of the Terms, Conditions, Guidelines and Rules thereof upon signing the Membership Application or application form, or, in the case of online or electronic processes, upon clicking the sign-up icon or button.</div>
+      <div class="mb-10">1. This Return and Refund policy is only applicable for Watsons Philippines Online Store Home Delivery and Click & Collect orders.*</div>
+      <div class="mb-10">2. For any discrepancy of products delivered or for any other valid reason as defined in this policy, you may request for return and refund via our online request form or Live Chat/Messaging on the website.</div>
+      <div class="mb-10">3. Requests will only be entertained within seven (7) days of receipt of the product.</div>
+      <div class="mb-10">4. Request may be made for the following reasons:</div>
+      <div class="mb-10 pl-6">a. If the products delivered is in damaged or defective condition; or </div>
+        <div class="mb-10 pl-6">b. If the product is near expiry or expired; or </div>
+        <div class="mb-10 pl-6">c. If the product delivered is incorrect or different from the order placed, or different from how it is described on the website.</div>
+        <div class="mb-10">5. Hygiene-sensitive products sold are non-refundable.</div>
+      <div class="mb-10">6. Watsons Customer Service representative may request the submission of electronic files, including photos, receipt, etc. to support the review process.</div>
+      <div class="mb-10">7. Return requests will be processed within 2 to 3 working days (Monday-Friday) after the complete set of supporting documents is received by Watsons.</div>
+      <div class="mb-10">8. Upon the approval, the Customer will be notified of the scheduled of the product pick-up.  </div>
+      <div class="mb-10 pl-6">Product pick-up schedule will depend on the location of the Customer.</div>
+        <div class="mb-10 pl-6">Item(s) must be returned in its original and complete condition, unused, as of the time received from Watsons.  Items purchased as a set must also be returned as a set.  Customer must likewise enclose together with the product all gift items (if any), and proof of its purchase.</div>
+        <div class="mb-16">9. Returned items will then go through quality evaluation for next 48 hours upon receipt of the items. Certain products may require a longer quality evaluation period.      </div> {% endcomment %}
+
+        {% assign blocks_length = section.blocks | size %}
+
+        <div class="marketing-blocks md:flex {% if blocks_length < 2 %} md:justify-center {% endif %} mb-16">
+            {% for block in section.blocks %}
+                {% if forloop.length < 2 %}
+                    <div class="block-images">
+                        <a href="{{ block.settings.marketing_link }} ">
+                            {% if block.settings.marketing_image %}
+                                <img src="{{ block.settings.marketing_image | img_url }}" class="mx-auto" alt="">
+                            {% else %}
+                                <img src="https://via.placeholder.com/550x240" class="mx-auto" alt="">
+                            {% endif %}
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="block-images {% if forloop.first %} md:mr-4 md:mb-0 mb-4 {% else %} md:ml-4 {% endif %}">
+                        <a href="{{ block.settings.marketing_link }} ">
+                            {% if block.settings.marketing_image %}
+                                <img src="{{ block.settings.marketing_image | img_url }}" class="mx-auto" alt="">
+                            {% else %}
+                                <img src="https://via.placeholder.com/550x240" class="mx-auto" alt="">
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div> 
+
+  </div>
+</main>
+
+{% schema %}
+    {
+        "name": "About Look",
+        "class": "about-look",
+        "settings": [
+            {
+                "type": "text",
+                "id": "page_title",
+                "label": "Title of Page",
+                "default": "About Look"
+            },
+            {
+                "type": "image_picker",
+                "id": "banner_image",
+                "label": "Banner Image for About Look"
+            }
+        ],
+        "blocks":[
+            {
+                "type": "marketing",
+                "name": "Marketing Blocks", 
+                "limit": 2,
+                "settings":[
+                    {
+                        "type": "url",
+                        "id": "marketing_link",
+                        "label": "Link for Marketing"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "marketing_image",
+                        "label": "Image for Marketing Blocks"
+                    }
+                ]
+             }
+         ]
+        
+    }
+{% endschema %}
+

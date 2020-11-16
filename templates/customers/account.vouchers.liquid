@@ -1,0 +1,198 @@
+<div class="mx-auto account-page">
+
+    <input type="hidden" name="customer_data_port" data-memberid="{{ customer.metafields.member_id.member_id }}" data-cust-orders-date="{{ 'customer.orders.date' | t }}" data-cust-payment="{{ 'customer.orders.payment_status' | t }}" data-cust-fulfill="{{ 'customer.orders.fulfillment_status' | t }}">
+    <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+         <!-- LEFT  -->
+        <div class="h-full p-4 border lg:w-1/6 md:w-full md:mb-12 lg:mb-0 mxmd:w-full mxmd:mb-12 border-gray account-nav">
+            <div class="relative">
+            <h3 class="font-bold mobile-member-btn lg:hidden md:block">MEMBER PROFILE</h3>
+            <div class="absolute top-0 right-0 pt-2 lg:hidden md:block"><img src="{{'Polygon-1.png' | file_img_url: 'master'}}" alt=""></div>  
+            </div>
+            <ul class="mb-20 md:hidden lg:block mobile-member-details mxmd:hidden">
+                <li class="leading-8 details-list" id="account-profile" class="py-1"><a href="/account">MEMBER PROFILE</a></li>
+                <li class="leading-8 details-list" id="account-order" class="py-1"><a href="/account?view=recent-orders" class="view-order">RECENT ORDERS</a></li>
+                <li class="leading-8 details-list" id="account-wishlist" class="py-1"><a href="/account?view=wishlist">WISHLIST</a></li>
+                <li class="leading-8 details-list" id="account-address" class="py-1"><a href="/account/addresses">ADDRESS BOOK</a></li>
+                <li class="leading-8 details-list" id="account-subscription" class="py-1"><a href="/account?view=subscription">SUBSCRIPTIONS</a></li>
+                <li class="my-6 leading-8 details-list" class="py-1"><div><hr></div></li>
+                <li class="leading-8 details-list" id="account-loyalty" class="py-1"><a href="/account?view=loyalty">LOOK LOYALTY</a></li>
+                <li class="leading-8 details-list" id="account-voucher"class="py-1"><a href="/account?view=vouchers">VOUCHERS</a></li>
+            </ul>
+        </div>
+         <!-- END LEFT  -->
+        <!-- RIGHT -->
+        <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-main">
+            <h2 class="p-4 border-t border-l border-r border-gray mxmd:text-left mxmd:hidden">
+                <span class="font-bold">YOUR AVAILABLE VOUCHERS</span>
+            </h2>
+            <div class="w-full">
+                <div class="w-full mxmd:overflow-x-scroll">
+                    {%comment%}
+                    <div class="flex p-4 border border-gray mxmd:border-0 mxmd:border-b">
+                        <div class="w-1/5 font-bold text-center mxmd:min-w-1/2">
+                            Voucher Code
+                        </div>
+                        <div class="w-2/5 font-bold text-center mxmd:min-w-1/2">
+                            Voucher Details
+                        </div>
+                        <div class="w-1/5 font-bold text-center mxmd:min-w-1/2">
+                            Expires On
+                        </div>
+                        <div class="w-1/5 font-bold text-center mxmd:min-w-1/2">
+                            Uses Left
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap border border-t-0 border-b-0 border-gray mxmd:border-0">
+                        <!--ENTER VOUCHER LOOP -->
+                        <div class="flex items-center w-full p-4 border-b border-gray">
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>FSSEP2020</p>
+                            </div>
+                            <div class="w-2/5 text-center mxmd:min-w-1/2">
+                                <p>Free Shipping for orders</p>
+                                <p>PHP 500 and above</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>09 / 30 / 2020</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>Used</p>
+                            </div>
+                        </div>
+        
+                        <div class="flex items-center w-full p-4 border-b border-gray">
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>FSSEP2020</p>
+                            </div>
+                            <div class="w-2/5 text-center mxmd:min-w-1/2">
+                                <p>Free Shipping for orders</p>
+                                <p>PHP 500 and above</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>09 / 30 / 2020</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>Multi-Used</p>
+                            </div>
+                        </div>
+        
+                        <div class="flex items-center w-full p-4 border-b border-gray">
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>FSSEP2020</p>
+                            </div>
+                            <div class="w-2/5 text-center mxmd:min-w-1/2">
+                                <p>Free Shipping for orders</p>
+                                <p>PHP 500 and above</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>09 / 30 / 2020</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>Single-Use</p>
+                            </div>
+                        </div>
+        
+                        <div class="flex items-center w-full p-4 border-b border-gray">
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>FSSEP2020</p>
+                            </div>
+                            <div class="w-2/5 text-center mxmd:min-w-1/2">
+                                <p>Free Shipping for orders</p>
+                                <p>PHP 500 and above</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>09 / 30 / 2020</p>
+                            </div>
+                            <div class="w-1/5 text-center mxmd:min-w-1/2">
+                                <p>Used</p>
+                            </div>
+                        </div>
+                        <!-- END VOUCHER LOOP -->
+                    </div>
+                    {%endcomment%}
+                    <table class="w-full text-center">
+                        <thead class="w-full border border-gray mxmd:border-0 mxmd:border-b">
+                          <tr>
+                            <th class="p-2 font-bold text-center mxmd:min-w-200px" scope="col">Voucher Code</th>
+                            <th class="p-2 font-bold text-center mxmd:min-w-200px" scope="col">Voucher Details</th>
+                            <th class="p-2 font-bold text-center mxmd:min-w-200px" scope="col">Expires On</th>
+                            <th class="p-2 font-bold text-center mxmd:min-w-200px" scope="col">Uses Left</th>
+                          </tr>
+                        </thead>
+                        <tbody class="w-full border border-gray mxmd:border-0 mxmd:border-b voucer_table_body">
+                            {% comment %} <tr class="border border-gray mxmd:border-0 mxmd:border-b">
+                              <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                <p>FSSEP2020</p>
+                              </td>
+                              <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                <p>Free Shipping for orders</p>
+                                <p>PHP 500 and above</p>
+                              </td>
+                              <td class="p-2" data-label="{{ 'customer.orders.payment_status' | t }}">
+                                <p>09 / 30 / 2020</p>
+                              </td>
+                              <td class="p-2" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                                <p class="mxmd:hidden">Used</p>
+                                <button class="hidden w-5/6 py-2 mx-auto text-black uppercase bg-gray mxmd:block">USED</button>
+                              </td>
+                            </tr>
+
+                            <tr class="border border-gray mxmd:border-0 mxmd:border-b">
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                  <p>FSSEP2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                  <p>Free Shipping for orders</p>
+                                  <p>PHP 500 and above</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.payment_status' | t }}">
+                                  <p>09 / 30 / 2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                                  <p class="mxmd:hidden">Used</p>
+                                  <button class="hidden w-5/6 py-2 mx-auto text-white uppercase bg-black mxmd:block">Claim Voucher</button>
+                                </td>
+                            </tr>
+
+                            <tr class="border border-gray mxmd:border-0 mxmd:border-b">
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                    <p>FSSEP2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                    <p>Free Shipping for orders</p>
+                                    <p>PHP 500 and above</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.payment_status' | t }}">
+                                    <p>09 / 30 / 2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                                    <p class="mxmd:hidden">Used</p>
+                                    <button class="hidden w-5/6 py-2 mx-auto text-white uppercase bg-black mxmd:block">Claim Voucher</button>
+                                </td>
+                            </tr>
+
+                            <tr class="border border-gray mxmd:border-0 mxmd:border-b">
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                    <p>FSSEP2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.date' | t }}">
+                                    <p>Free Shipping for orders</p>
+                                    <p>PHP 500 and above</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.payment_status' | t }}">
+                                    <p>09 / 30 / 2020</p>
+                                </td>
+                                <td class="p-2" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                                    <p class="mxmd:hidden">Used</p>
+                                    <button class="hidden w-5/6 py-2 mx-auto text-white uppercase bg-black mxmd:block">Claim Voucher</button>
+                                </td>
+                            </tr> {% endcomment %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END RIGHT -->
+    </div>
+</div>

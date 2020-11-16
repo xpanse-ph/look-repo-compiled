@@ -1,0 +1,192 @@
+<footer class="site-footer bg-primary mt-12" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
+    <div class="container mx-auto mxmd:py-35px md:py-35px mxlg:px-6 mxlg:mx-1 flex flex-wrap">
+        <div class="lg:w-1/3 w-full mxlg:order-2">
+            <div class="flex justify-between">
+                <ul class="footer-links flex w-full">
+                {%- for link in linklists[section.settings.links].links -%}
+                    <li class="link-category lg:mr-12 mxlg:w-1/2">
+                        <div class="category-title text-base text-secondary uppercase font-extrabold leading-relaxed">{{link.title}}</div>
+                        {%- if link.links != blank -%}
+                        <ul class="category-links md:mt-4">
+                            {%- for child_link in link.links -%}
+                            <li class="link md:py-2">
+                                <a href="{{ child_link.url }}" class="text-secondary text-base font-light leading-relaxed" title="{{ child_link.title }}">
+                                    {{ child_link.title }}
+                                </a>
+                            </li>
+                            {%- endfor -%}
+                        </ul>
+                        {%- endif -%}
+                    </li>
+                {%- endfor -%}
+                </ul>
+            </div>
+            <div class="flex justify-start w-full mt-12 mxlg:hidden">
+                <h1 class="site-logo">
+                    <a
+                    href="{{ shop.url }}"
+                    class="site-logo-link block"
+                    title="{{ shop.name }}"
+                    >
+                    {% include 'lam-logo-pink' %}
+                    </a>
+                </h1>
+            </div>
+        </div>
+        <div class="lg:w-1/3 w-full lg:flex lg:flex-col lg:items-center mxlg:order-3 mxlg:mt-25px">
+            <div class="lg:max-w-67/100 w-full text-center lg:flex lg:flex-col mxlg:grid mxlg:grid-cols-2 mxlg:gap-4">
+                <div class="mxlg:text-left lg:mb-4 lg:order-1 mxlg:flex mxlg:justify-start mxlg:items-end">
+                    <span class="text-base leading-relaxed font-extrabold uppercase text-secondary">Earn rewards as a look member</span>
+                </div>
+                <a href="/pages/look-loyalty" title="Look rewards" class="px-20px lg:block table bg-secondary text-primary uppercase text-center text-sm leading-8 py-1 font-extrabold tracking-wide lg:order-3">Learn more</a>
+                <div class="block px-2 mb-5 lg:order-2 mxlg:col-start-2 mxlg:row-start-1 mxlg:row-end-3">
+                    <img src="{{ 'LookAtMe-VirtualCardS-1.png' | asset_url }}" class="w-full h-auto">
+                </div>
+            </div>
+        </div>
+        <div class="lg:w-1/3 w-full mxlg:order-1">
+            <a href="https://m.me/look.philippines" class="mb-4 flex justify-end items-end" target="_blank">
+                <span class="text-secondary text-base leading-relaxed font-bold uppercase">Let's chat:</span>
+                <div class="ml-4 h-35px w-35px">
+                    {% render 'icon-messenger' %}
+                </div>
+            </a>
+            <div class="footer-socials mb-4 mxlg:hidden">
+                <div class="text-right flex lg:justify-end lg:items-end">
+                    <span class="text-secondary text-base leading-relaxed font-bold uppercase">Follow us:</span>
+                    <div class="flex ml-4">
+                        <a href="{{ section.settings.fb_url }}" title="Facebook" class="ml-4 social-icon facebook-icon" target="_blank">
+                            {% include 'icon-facebook' %}
+                        </a>
+                        <a href="{{ section.settings.ig_url }}" title="Instagram" class="ml-4 social-icon instagram-icon" target="_blank">
+                            {% include 'icon-instagram' %}
+                        </a>
+                        {% comment %}
+                          <!-- edited by Rengie - 11/13/2020 -->
+                          <a href="#" title="Twitter" class="ml-4 social-icon twitter-icon" target="_blank">
+                            {% include 'icon-twitter' %}
+                          </a>
+                          <a href="#" title="Youtube" class="ml-4 social-icon youtube-icon" target="_blank">
+                            {% include 'icon-youtube' %}
+                          </a>
+                        {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter">
+                {% if show_newsletter %}
+                <div class="newsletter-title lg:text-right block text-secondary uppercase text-smbase font-extrabold leading-5">Sign up for our newsletter</div>
+                {% endif %}
+                <div class="site-footer__newsletter">
+                  {% if show_newsletter %}
+                    {%- assign formId = 'ContactFooter' -%}
+                    {% form 'customer', id: formId, novalidate: 'novalidate', class: 'flex justify-end' %}
+                        {%- if form.posted_successfully? -%}
+                        <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                            {{ 'general.newsletter_form.confirmation' | t }}
+                        </p>
+                        {%- endif -%}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="input-group {% if form.errors %} input-group--error{% endif %} flex w-full lg:justify-end">
+                        <input type="email"
+                            name="contact[email]"
+                            id="{{ formId }}-email"
+                            class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %} bg-white w-full rounded-none appearance-none"
+                            value="{{ form.email }}"
+                            placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                            aria-required="true"
+                            required
+                            autocorrect="off"
+                            autocapitalize="off"
+                            {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="{{ formId }}-email-error"
+                            data-form-status
+                            {% endif %}>
+                        <span class="input-group__btn">
+                            <button type="submit" class="btn newsletter__submit bg-secondary" name="commit" >
+                            <span class="newsletter__submit-text--large text-primary h-4 flex justify-center items-center">{% include 'icon-newsletter-arrow-btn' %}</span>
+                            </button>
+                        </span>
+                        </div>
+                        {% if form.errors contains 'email' %}
+                        <span id="{{ formId }}-email-error" class="input-error-message">
+                            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                            {% include 'icon-error' %}
+                            <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                        </span>
+                        {% endif %}
+                    {% endform %}
+                  {% endif %}
+                  <div class="footer-cta flex items-end mt-5 justify-end mxlg:hidden">
+                    <a href="{{ routes.account_register_url }}" title="Register" class="uppercase border border-secondary bg-secondary block text-sm leading-loose text-center font-extrabold px-6 py-1 w-full">Register</a>
+                    <a href="{{ routes.account_login_url }}" title="Login" class="uppercase bg-transparent border-secondeary border block text-sm leading-loose text-center font-extrabold px-6 py-1 w-full text-secondary ml-5">Login</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-socials mt-20px lg:hidden order-4 w-full">
+            <div class="text-right flex justify-start items-end">
+                <span class="text-secondary text-base leading-relaxed font-bold uppercase">Follow us:</span>
+                <div class="flex">
+                    <a href="{{ section.settings.fb_url }}" title="Facebook" class="ml-4 social-icon facebook-icon" target="_blank">
+                        {% include 'icon-facebook' %}
+                    </a>
+                    <a href="{{ section.settings.ig_url }}" title="Instagram" class="ml-4 social-icon instagram-icon" target="_blank">
+                        {% include 'icon-instagram' %}
+                    </a>
+                  	{% comment %}
+                  	  <!-- edited by Rengie - 11/13/2020 -->
+                      <a href="#" title="Twitter" class="ml-4 social-icon twitter-icon" target="_blank">
+                          {% include 'icon-twitter' %}
+                      </a>
+                      <a href="#" title="Youtube" class="ml-4 social-icon youtube-icon" target="_blank">
+                          {% include 'icon-youtube' %}
+                      </a>
+                  	{% endcomment%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-credits bg-secondary">
+        <div class="container mx-auto">
+            <div class="py-3 flex justify-center">
+                <small class="text-base flex"><strong class="mr-2">&copy; {{ 'now' | date: "%Y" }}</strong><div class="icon w-16px h-16px">{% render 'lam-logo', width: '16', height: '16' %}</div></small>
+            </div>
+        </div>
+    </div>
+</footer>
+{% schema %}
+    {
+        "name": "Footer",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Footer links"
+            },
+            {
+                "type": "link_list",
+                "id": "links",
+                "label": "Footer links"
+            },
+            {
+                "type": "text",
+                "id": "fb_url",
+                "label": "Facebook URL",
+                "default": "https://facebook.com/look.philippines"
+            },
+            {
+                "type": "text",
+                "id": "ig_url",
+                "label": "Instagram URL",
+                "default": "https://instagram.com/look.philippines"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_newsletter",
+                "label": "Show newsletter form"
+            }
+        ]
+    }
+{% endschema %}

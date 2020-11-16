@@ -1,0 +1,16 @@
+<div id="ouibounce-modal" class="z-20">
+    <div onclick="document.getElementById('ouibounce-modal').style.display = 'none';" class="underlay"></div>
+      <div class="modal" style="height:400px;">
+        <div class="modal-body"><a href="/account/register"><img src="{{ 'LOOK-Exit-Intent-Banner.jpg' | asset_img_url: 'master'}}" alt=""></a></div>
+
+          <div class="modal-footer">
+              <p class="font-bold text-white text-24px" onclick="document.getElementById('ouibounce-modal').style.display = 'none';">X</p>
+          </div>
+    </div>
+</div>
+
+<script>
+    var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'),{
+        // aggressive: true, //Making this true makes ouibounce not to obey "once per visitor" rule
+    });
+</script>

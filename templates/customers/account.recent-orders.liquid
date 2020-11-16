@@ -1,0 +1,97 @@
+<div class="mx-auto account-page">
+    <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+        <!-- LEFT  -->
+        {% include 'account-left-nav'%}
+        <!-- END LEFT  -->
+            <!-- START RECENT ORDERS -->
+    {% paginate customer.orders by 5 %}
+    <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-order">
+      <div class="w-full h-full">
+        <h2 class="p-4 border-t border-l border-r border-gray mxmd:text-center">
+          <img class="mb-2 mxmd:mx-auto {%if customer.orders.size != 0%}hidden{%else%}block{%endif%}" src="{{'Vector.png' | file_img_url: 'master'}}" alt="">
+          <span class="font-bold">YOUR RECENT ORDERS</span>
+          {%if customer.orders.size <= 0%}
+          <span class="block pt-4 text-sm">You have no active orders</span>
+          <span class="block text-sm">Shop from our bestsellers below</span>
+          {%endif%}
+        </h2>
+        <div class="w-full border border-gray">
+          <div class="w-full p-0 mxmd:overflow-x-scroll">
+ 
+              
+                {% if customer.orders.size != 0 %}
+          
+                  <table class="w-full">
+                    <thead>
+                      <tr class="h-10">
+                        <th class="py-4 text-base mxmd:min-w-10" scope="col">{{ 'customer.orders.order_number' | t }} Name</th>
+                        <th class="py-4 text-base mxmd:min-w-10" scope="col">Order {{ 'customer.orders.date' | t }}</th>
+                        <th class="py-4 text-base mxmd:min-w-10" scope="col">Order Type</th>
+                        <th class="py-4 text-base mxmd:min-w-10" scope="col"># of Items</th>
+                        <th class="py-4 text-base mxmd:min-w-10" scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      {% for order in customer.orders %}
+                      {% assign count = 0 %}
+                      {%for line_items in order.line_items%}
+                      {% assign count = count | plus: 1%}
+                      {%endfor%}
+                        <tr class="h-10 border-t border-gray">
+                          <th class="py-4 text-base" data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
+                            <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+                          </th>
+                          <td class="py-4 text-base" data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+                          <td class="py-4 text-base" data-label="{{ 'customer.orders.payment_status' | t }}">Online</td>
+                          <td class="py-4 text-base" data-label="{{ 'customer.orders.total' | t }}">{{count}}</td>
+                          <td class="py-4 text-base" data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+          
+                {% else %}
+          
+                  <!-- <p class="p-4">{{ 'customer.orders.none' | t }}</p> -->
+
+                  <div class="p-4">
+                    <p class="py-4 text-center">RECOMMENDED PRODUCTS</p>
+                    <div class="w-full bg-white text-carousel">
+                    {% for product in collections.featured-collection.products limit: 12 %}
+                      <div class="w-1/4 mxmd:w-1/2 product-card">
+                        <div class="mb-10 md:px-3 lg:px-6 collection-list mxmd:px-2">
+                          <div class="relative border grid-list-image border-gray">
+                            <span class="absolute right-0 validator">
+                              {% if product.available == false %}
+                                <div class="oos"><img src="{{ 'oos.png' | file_img_url: 'master' }}"></div>
+                              {% endif %}
+                            </span>
+                            <a href="{{ product.url }}" class="grid-link">
+                              <img data-flickity-lazyload="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" class="lazyload"/>
+                            </a>
+                          </div>
+                          <a href="/products/{{itemHandle}}" class="grid-link">
+                            <p class="text-lg font-bold uppercase grid-link__vendor mxmd:text-smbase">{{ product.vendor }}</p>
+                            <p class="my-2 text-sm grid-link__title">{{ product.title }}</p>
+                            <p class="text-sm font-bold grid-link__title">₱{{ product.price | money_without_currency }}</p>
+                            <div class="mt-2 overflow-hidden hulkapps-reviews" style="max-height: 20px">
+                              <div class="item-reviews" data-product-id="{{product.id}}"></div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    {%endfor%}
+                    </div>
+                  </div>             
+                {% endif %}
+          </div>
+        </div>
+      </div>
+      {%- if paginate.pages > 1 -%}
+        {% include 'order-pagination', paginate: paginate %}
+      {%- endif -%}
+    </div>
+    {% endpaginate %}
+    <!-- END RECENT ORDERS -->
+    </div>
+</div>

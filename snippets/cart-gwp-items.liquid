@@ -1,0 +1,128 @@
+<form action="/cart" method="post">
+    <div class="block w-full md:mb-50 mxmd:mb-25px border border-gray">
+        <h3 class="uppercase text-base font-bold p-5 mxmd:text-center mxmd:border-b mxmd:border-gray">{% if gwp_item_count > 1 %}Samples{% else %}Sample{% endif %} added</h3>
+        <table class="table-auto mxmd:hidden w-full">
+            <thead class="mxmd:hidden">
+                <tr class="bg-light-gray">
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Image</th>
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Products</th>
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left"></th>
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Price</th>
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Quantity</th>
+                <th class="text-base font-bold tracking-wider uppercase px-25px py-3 text-left">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in cart.items %}
+                {%- if item.properties.type == 'GWP' -%}
+                    {%- assign img_url = item.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    {% assign split_title = item.title | split: '-' %}
+                    <tr class="h-3"></tr>
+                    <tr id="item_{{item.id}}" data-type="{{item.properties.type}}" data-min="{{item.properties.tier.min}}" data-max="{{item.properties.tier.max}}">
+                        <td class="md:px-4 mxmd:w-1/3 mxmd:pl-25px">
+                            <div class="block w-full">
+                            <a class="relative h-0 block" href="#" style="padding-bottom: {{ 1 | divided_by: item.image.aspect_ratio | times: 100 }}%">
+                                <img
+                                    class="lazyload w-full h-auto absolute top-0 left-0"
+                                    alt="{{ split_title[1] }}"
+                                    data-src="{{ img_url }}"
+                                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                    data-aspectratio="{{ preview_image.aspect_ratio }}"
+                                    data-sizes="auto"
+                                    data-image>
+                            </a>
+                            </div>
+                        </td>
+                        <td class="md:px-4 md:py-6 mxmd:w-1/3 mxmd:py-25px mxmd:pl-2">
+                            <h1 class="uppercase md:text-base mxmd:text-sm font-bold">{{ split_title[1] }}</h1>
+                            <h3 class="uppercase md:text-base mxmd:text-sm font-light">
+                            {%- unless item.product.has_only_default_variant -%}
+                            {%- for option in item.options_with_values -%}
+                                {%- if option.selected_value == value -%}
+                                {{ option.value }}{% unless forloop.last %}, {% endunless %}
+                                {%- endif -%}
+                            {%- endfor -%}
+                            {%- endunless -%}
+                            </h3>
+                            {%- assign qty = item.variant.inventory_quantity -%}
+                            <div class="inline-block relative md:hidden mt-4 mxmd:w-20">
+                            <select name="updates[]" id="update_qty_{{item.id}}" class="text-sm font-light cart-select block appearance-none w-full bg-white border border-gray px-4 py-2 pr-8 leading-tight focus:border-gray focus:shadow-none">
+                                {% for i in (i..qty) %}
+                                <option {% if i == item.quantity %}selected{% endif %}>{{i}}</option>
+                                {% endfor %}
+                            </select>
+                            <div id="update_qty_pointer_{{item.id}}" class="cart-select-pointer pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="md:px-4 mxmd:hidden">
+                            <span class="uppercase font-bold text-sm">
+                            Free
+                            </span>
+                        </td>
+                        <td class="md:px-8 mxmd:hidden">
+                            <span class="uppercase font-bold text-sm">{{ item.quantity }}</span>
+                        </td>
+                        <td class="md:px-4 mxmd:pr-25px mxmd:w-1/3 mxmd:pl-2 relative">
+                            <span class="uppercase font-bold text-sm">
+                            Free
+                            </span>
+                            <a onclick="cartAjax.removeToCart({{item.variant.id}})" href="javascript:void(0)" title="Remove item" class="mxmd:text-danger text-xsm font-bold uppercase underline block text-right absolute bottom-20px right-20px gwp-remove-btn">Remove and choose again</a>
+                        </td>
+                    </tr>
+                {%- endif -%}
+            {% endfor %}
+                    <tr class="h-3"></tr>
+            </tbody>
+        </table>
+        <div class="my-5 md:hidden">
+        <div class="slideshow px-25px" data-gallery-size="true">
+            {% for item in cart.items %}
+                {%- if item.properties.type == 'GWP' -%}
+                {%- assign img_url = item.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <div class="slider-item lg:w-1/4 md:w-1/3 w-1/2 mr-4">
+                    <div class="block w-full mb-4">
+                        <div class="h-0 relative block" style="padding-bottom: {{ 1 | divided_by: item.image.aspect_ratio | times: 100 }}%">
+                        <img
+                            class="lazyload w-full h-auto absolute top-0 left-0"
+                            alt="{{ split_title[1] }}"
+                            data-src="{{ img_url }}"
+                            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                            data-aspectratio="{{ preview_image.aspect_ratio }}"
+                            data-sizes="auto"
+                            data-image>
+                        <span class="absolute top-0 left-0 text-base font-bold">{{ item.quantity }}x</span>
+                        </div>
+                    </div>
+                    <h1 class="text-base font-bold uppercase text-center">{{ item.product.vendor }}</h1>
+                    {% unless item.product.has_only_default_variant %}
+                    {% for option in item.product.options_with_values %}
+                        {% unless option.name == 'title' %}
+                        {% endunless %}
+                        <label class="text-sm font-light uppercase block text-center" {{product_option.name}}>
+                            {{ option.name }}
+                        </label>
+                        {% for value in option.values %}
+                        <span class="text-sm font-light uppercase block text-center">
+                            {{ value }}
+                        </span>
+                        {% endfor %}
+                    {% endfor %}
+                    {% endunless %}
+                    <a 
+                        onclick="cartAjax.removeToCart({{item.variant.id}})"
+                        href="javascript:void(0)"
+                        data-id="{{item.variant.id}}"
+                        type="submit" 
+                        class="mt-8 border border-primary text-center w-full py-10px text-sm font-bold uppercase block">
+                        Remove
+                    </a>
+                </div>
+                {%- endif -%}
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+</form>

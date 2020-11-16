@@ -1,0 +1,32 @@
+{% layout none %}
+{
+    "menu": [
+    {% for link in linklists.main-menu.links %}
+    {
+        "name": {{link.title | json}},
+        "link": {{link.url | json}},
+        "handle": {{link.handle | json}},
+        "image": {%if link.object.image%}{{link.object.image | img_url: 'master' | json}}{%else%}""{% endif %},
+        "submenu": [
+            {% for sub_link in link.links %}
+                {
+                    "name": {{sub_link.title | json}},
+                    "link": {{sub_link.url | json}},
+                    "handle": {{sub_link.handle | json}},
+                    "submenu": [
+                        {% for grand_sub_link in sub_link.links %}
+                        {
+                            "name": {{grand_sub_link.title | json}},
+                            "link": {{grand_sub_link.url | json}},
+                            "handle": {{grand_sub_link.handle | json}},
+                            "submenu": []
+                        }{% unless forloop.last %},{% endunless %}
+                        {% endfor %}
+                    ]
+                }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ]
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    ]
+}

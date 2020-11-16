@@ -1,0 +1,48 @@
+
+<nav role="navigation" class="flex justify-end w-full">
+  <ol class="flex pagination">
+    {%- if paginate.previous-%}
+      <li class="px-2 py-1 border border-gray">
+        <a href="{{ paginate.previous.url }}">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {%- else -%}
+      <li class="px-2 py-1 border disabled border-gray">
+        <span aria-hidden="true">&laquo;</span>
+      </li>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}
+        <li class="px-2 py-1 border border-gray">
+          <a href="{{ part.url }}">
+            {{ part.title }}
+          </a>
+        </li>
+      {%- else -%}
+        {%- if part.title == paginate.current_page -%}
+          <li class="px-2 py-1 border active border-gray" aria-current="page">
+            {{ part.title }}
+          </li>
+        {%- else -%}
+          <li class="px-2 py-1 border border-gray">
+            {{ part.title }}
+          </li>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <li class="px-2 py-1 border border-gray">
+        <a href="{{ paginate.next.url }}">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {%- else -%}
+      <li class="px-2 py-1 border disabled border-gray">
+        <span aria-hidden="true">&raquo;</span>
+      </li>
+    {%- endif -%}
+  </ol>
+</nav>

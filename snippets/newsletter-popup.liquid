@@ -1,0 +1,113 @@
+<div id="newsletter-popup" class="hidden">
+    <div class="popup-overlay fixed max-w-500px md:w-full w-11/12 sm:w-full-mob-width center top-50% left-50% z-40">
+        <div class="md:px-50 px-4 sm:pt-50 md:pb-20px sm:pb-50 bg-primary relative w-full py-4">
+            <div class="block text-center">
+                <h1 class="site-logo mx-auto">
+                    <div
+                    class="site-logo-link block"
+                    >
+                    {% render 'lam-logo-pink' %}
+                    </div>
+                </h1>
+            </div>
+            <h3 class="uppercase text-secondary text-lg md:text-xlg font-bold text-center mt-4 md:mt-30px">Looking for free samples?</h3>
+            <span class="block text-center text-white text-sm uppercase font-light mb-3 sm:mb-20px">Free samples exclusives promos and more</span>
+            <div class="contact-popup-form">
+            {% render "customer-fields", form_id: "xPtnKj" %}
+            <div class="form-input block mb-20px">
+                <input type="close" value="No, thanks!" class="popup-cta w-full md:h-50 h-35px flex justify-center items-center text-16px font-normal cursor-pointer uppercase text-secondary bg-transparent border border-secondary text-center">
+            </div>
+            </div>
+            <style>
+            .contact-popup-form input, button {
+                height: 100%;
+                padding: 8px 12px;
+                height: 50px;
+            }
+            .contact-popup-form button[type="submit"] {
+                width: 100%;
+                color: #fff;
+                background: #F0B2AA;
+                text-transform: uppercase;
+            }
+            @media (max-width: 767px) {
+                .contact-popup-form input {
+                    height: 35px;
+                }
+            }
+            @media (max-width: 360px) {
+                .cf-form-inner [data-cf-column-width="6"] {
+                    width: 50%;
+                }
+                .cf-form-actions {
+                    margin-top: 0.5rem !important;
+                }
+                .contact-popup-form button[type="submit"] {
+                    height: 35px;
+                }
+            }
+
+            </style>
+            {% comment %} {% form 'customer', class: "newsletter-form" %}
+                <input type="hidden" name="contact[tags]" value="prospect">
+                <div class="form-input block mb-20px">
+                    <input name="contact[first_name]" type="text" placeholder="First name" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light">
+                </div>
+                <div class="form-input block mb-20px">
+                    <input name="contact[last_name]" type="text" placeholder="Last name" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light">
+                </div>
+                <div class="form-input flex justify-between mb-20px">
+                    <div class="relative">
+                        {% assign bmonth = "January,February,March,April,May,June,July,August,September,October,November,December" | split: ',' %}
+                        <select name="contact[note][birthday_month]" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light appearance-none bg-white">
+                            <option>Birth month</option>
+                            {%- for month in bmonth -%}
+                            <option value="{{month}}">{{month}}</option>
+                            {%- endfor -%}
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 text-light-silver w-20px">
+                            {% render 'icon-select-arrows' %}
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <select name="contact[note][birthday_day]" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light appearance-none bg-white">
+                            <option>Day</option>
+                            {%- for i in (1..31) -%}
+                            <option value="{{i}}">{{i}}</option>
+                            {%- endfor -%}
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 text-light-silver w-20px">
+                            {% render 'icon-select-arrows' %}
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <select name="contact[note][birthday_year]" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light appearance-none bg-white">
+                            <option>Year</option>
+                            {%- for i in (1920..2002) -%}
+                            <option value="{{i}}">{{i}}</option>
+                            {%- endfor -%}
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 text-light-silver w-20px">
+                            {% render 'icon-select-arrows' %}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-input block mb-20px">
+                    <input type="tel" name="contact[note][phone]" placeholder="Phone" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light">
+                </div>
+                <div class="form-input block mb-20px">
+                    <input type="email" name="contact[email]" placeholder="Email" class="w-full md:h-50 h-35px py-4 px-20px text-16px font-light">
+                </div>
+                <div class="form-input block mb-20px">
+                    <input type="submit" value="Sign me up!" class="w-full md:h-50 h-35px flex justify-center items-center text-16px font-normal cursor-pointer uppercase text-primary bg-secondary">
+                </div>
+            {% endform %} {% endcomment %}
+            <div class="absolute top-10px right-10px">
+                <div class="w-50 md:h-50 h-35px text-white cursor-pointer popup-cta">
+                    {% render 'icon-close' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray fixed top-0 left-0 w-full h-full cursor-pointer popup-cta z-30"></div>
+</div>

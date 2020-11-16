@@ -1,0 +1,27 @@
+{% comment %}
+  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
+{% endcomment %}
+
+{%if collection.handle == 'new-arrival' %}
+  {%section 'categories-new-arrival' %}
+{%elsif collection.handle == 'make-up' %}
+  {%section 'categories-make-up' %}
+{%elsif collection.handle == 'skincare' %}
+  {%section 'categories-skincare' %}
+{%elsif collection.handle == 'hair' %}
+
+{%elsif collection.handle == 'tools-brushes' %}
+
+{%elsif collection.handle == 'bath-body' %}
+
+{%elsif collection.handle == 'fragrance' %}
+
+{%elsif collection.handle == 'gift-sets' %}
+
+{%elsif collection.handle == 'automated-collection-sample' %}
+
+{%elsif collection.handle == 'featured-collection' %}
+
+{% endif %}
+
+{% section 'lam-collection-template' %}

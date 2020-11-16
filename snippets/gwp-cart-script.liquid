@@ -1,0 +1,281 @@
+<script>
+
+window.addEventListener('DOMContentLoaded', (e) => {
+  var $gwpContainer = $('#gwp-cart-container'),
+      add_btn = $('.gwp-add-btn'),
+      selection_container = $('#gwp-items'),
+      regular_item = $('.cart-regular-item'),
+      regular_item_id = regular_item.data('id'),
+      qty_select = $('.update_qty');
+  var source   = $("#gwpCartTemplate").html(),
+      template = Handlebars.compile(source);
+
+  window.cartAjax = {
+    addRegularItem: function(id, quantity, callback) {
+      var quantity = quantity || 1;
+      console.log(id, quantity, callback)
+      var params = {
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+          quantity: quantity,
+          id: id
+        },
+        dataType: 'json',
+        success: function(cart_items) {
+          if(typeof callback === 'function') {
+            callback()
+          }
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          console.log(XMLHttpRequest, textStatus);
+        }
+      };
+      jQuery.ajax(params);
+    },
+    addToCart: function(id, quantity, tierObj) {
+      var quantity = quantity || 1;
+      var params = {
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+          quantity: quantity,
+          id: id,
+          properties: {
+            type: "GWP",
+            tier: tierObj
+          }
+        },
+        dataType: 'json',
+        success: function(cart_items) {
+          cartAjax.getCart("add")
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          console.log(XMLHttpRequest, textStatus);
+        }
+      };
+      jQuery.ajax(params);
+    },
+    removeToCart: function(id) {
+      jQuery.ajax({
+        type: "POST",
+        url: "/cart/change.js",
+        data: {
+          quantity: 0,
+          id: id
+        },
+        dataType: "json",
+        success: function(cart_items) {
+          cartAjax.getCart("remove")
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    },
+    updateCartItem: function(id, quantity, callback) {
+      jQuery.ajax({
+        type: "POST",
+        url: "/cart/change.js",
+        data: {
+          quantity: quantity,
+          id: id
+        },
+        dataType: "json",
+        success: function(cart_items) {
+          if(typeof callback === 'function') {
+            callback()
+          }
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    },
+    removeGwpItems: function(query) {
+      jQuery.post('/cart/update.js', query).done(success => {
+        this.getCart('remove')
+      })
+    },
+    checkTier: function(cart) {
+      var gwp_ids = [],
+        cart_total_price = cart.total_price / 100,
+        tier = null;
+
+      var gwp_items = cart.items.filter(item => {return item.properties.type === 'GWP'})
+      
+      gwp_items.map(item => {
+        gwp_ids.push(item.variant_id)
+        tier = item.properties.tier;
+      })
+
+
+      if(tier) {
+        var id_length = gwp_ids.length,
+            query = '';
+        
+        gwp_ids.map((id, i) => {
+          query += `updates[${id}]=0${i !== id_length - 1 ? '&' : ''}`
+        })
+        console.log(tier)
+
+        if(parseInt(tier.max) !== 0) {
+          if(cart_total_price > parseInt(tier.max) || cart_total_price < parseInt(tier.min) || !theme.customer_logg_in) {
+            this.removeGwpItems(query)
+          }
+        }else {
+          if(cart_total_price < parseInt(tier.min) || !theme.customer_logg_in) {
+            this.removeGwpItems(query)
+          }
+        }
+
+      }
+    },
+    getCart: function(action) {
+      jQuery.getJSON('/cart.js', function (cart, textStatus) {
+        if(action === 'check') {
+          cartAjax.checkTier(cart)
+        }else {
+          $gwpContainer.hide();
+          cartAjax.updateCart(cart, action)
+        }
+      });
+    },
+    clearCart: function() {
+      jQuery.getJSON('/cart/clear.js', function (cart, textStatus) {
+        cartAjax.getCart(cart)
+      });
+    },
+    onLoad: function() {
+      this.getCart('check')
+    },
+    updateCart: function(cart, action) {
+
+      var items = [],
+          reg_items = [];
+
+      $.each(cart.items, (i, cartItem) => {
+        if(cartItem.properties.type === 'GWP') {
+
+          var prodImgDesk = cartItem.image.replace(/(\.[^.]*)$/, "_100x100$1").replace('http:', '');
+          var prodImgMob = cartItem.image.replace(/(\.[^.]*)$/, "_medium$1").replace('http:', '');
+          var prodName = cartItem.title.replace(/(\-[^-]*)$/, "");
+          var prodVariation = cartItem.title.replace(/^[^\-]*/, "").replace(/-/, "");
+
+          item = {
+            id: cartItem.id,
+            key: cartItem.key,
+            line: i + 1,
+            imageDesktop: prodImgDesk,
+            imageMobile: prodImgMob,
+            title: prodName,
+            variant: prodVariation,
+            quantity: cartItem.quantity,
+            url: cartItem.url,
+            vendor: cartItem.vendor
+          }
+
+          items.push(item);
+
+        }else {
+          reg_items.push(cartItem)
+        }
+
+      })
+
+      data = {
+        items: items,
+        many: items.length > 1 ? true : false
+      }
+
+      $gwpContainer.html(template(data));
+
+      setTimeout(function() {
+
+        if(items.length > 0) {
+          $gwpContainer.slideDown().delay(500);
+        }else if(items.length === 0 && action === 'remove') {
+          $gwpContainer.slideUp();
+          $gwpContainer.empty();
+        }else if (reg_items.length) {
+          $gwpContainer.slideUp();
+          $gwpContainer.empty();
+        }
+
+        var ids = []
+        data.items.filter(item => {ids.push(item.id)})
+
+        var gwp_req_count = {{section.settings.gwp_added_count | plus: 0}},
+            notice_text;
+
+        if(gwp_req_count > 1) {
+          notice_text = `${gwp_req_count} samples only`;
+        }else {
+          notice_text = `${gwp_req_count} sample only`;
+        }
+        
+        if(ids.length >= {{section.settings.gwp_added_count | plus: 0}}) {
+          add_btn.prop('disabled', true).text(notice_text)
+        }
+        else {
+          add_btn.each((i, e) => {
+            ids.includes($(e).data('id')) ? $(e).prop('disabled', true).text('added') : $(e).prop('disabled', false).text('Add to bag')
+          })
+        }
+
+        document.querySelectorAll('.slideshow').forEach(window.sliderSlideshow)
+
+      }, 500)
+
+    }
+
+  }
+
+  add_btn.click(function(e) {
+    e.preventDefault();
+    var $this = $(this),
+        $id = $this.data('id'),
+        $itemsContainer = $this.closest('#gwp-items');
+    var tier = {
+      "min": $itemsContainer.data('min'),
+      "max": $itemsContainer.data('max')
+    }
+    $this.text('ADDING...')
+    cartAjax.addToCart($id, 1, tier)
+  })
+
+  qty_select.change(function() {
+    var id = $(this).data('id'),
+        qty = parseInt($(this).val());
+    cartAjax.updateCartItem(id, qty, loadPage);
+    //cartAjax.addRegularItem(id, qty, loadPage);
+  })
+
+  function loadPage() {
+    setTimeout(function() {
+      location.reload();
+    }, 1000)
+  }
+
+
+  function submitCartForm() {
+    $('#cart-regular-form').trigger('submit')
+  }
+
+  $('.cart-popup-cta').click(function(e) {
+    e.preventDefault;
+    $('#cart-checkout-popup').fadeToggle();
+    console.log($(this))
+  })
+
+
+
+
+
+{% if reg_item_count <= 0 %}
+  window.cartAjax.clearCart();
+{% endif %}
+window.cartAjax.onLoad();
+})
+
+</script>

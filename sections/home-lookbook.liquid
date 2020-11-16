@@ -1,0 +1,68 @@
+<div data-section-id="{{ section.id }}" data-section-type="lookbook-section" class="mt-100">
+    <div class="max-w-4/5 mx-auto">
+        <div class="block">
+            {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            {%- if section.settings.image != blank -%}
+                <div class="img-container-{{section.id}}">
+                    <img class="lazyload lazypreload w-full h-auto"
+                        src="{{ section.settings.image | img_url: '300x300' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                        data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ section.settings.image.alt | escape }}">
+                    </div>
+                    <style>
+                        .img-container-{{section.id}} {
+                            position: relative;
+                            height: 0;
+                            padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+                        }
+                        .img-container-{{section.id}} img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    </style>
+            {%- endif -%}
+        </div>
+        {%- if section.settings.cta_txt != blank or section.settings.cta_url != blank -%}
+        <div class="mt-12 block text-center">
+            <a id="cta-btn-{{section.id}}" href="{{ section.settings.cta_url }}" title="{{ section.settings.cta_txt }}" class="table mx-auto w-auto uppercase text-secondary border border-danger text-danger font-black text-lg py-3 px-16 tracking-widest">{{ section.settings.cta_txt }}</a>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Look book",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "CTA"
+            },
+            {
+                "type": "text",
+                "id": "cta_txt",
+                "label": "CTA Text",
+                "default": "Get exclusive"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "CTA URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Look book",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

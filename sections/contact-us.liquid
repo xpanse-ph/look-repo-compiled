@@ -1,0 +1,179 @@
+<main class="look-contact-us">
+  <div class="container mx-auto mt-10 px-8 mb-24">
+
+    <div class="img-container mb-8">
+      {% comment %} <img class="lazyload" data-src="{{ '1800x800px_CONTACT-US_02.png' | file_url }}" alt=""> {% endcomment %}
+      {% if section.settings.contactus_image %}
+        <img class="lazyload" data-src="{{ section.settings.contactus_image | img_url }}" alt="">
+        {% else %}
+        <img class="lazyload" data-src="{{ '1800x800px_CONTACT-US_02.png' | file_url }}" alt="">      
+      {% endif %}
+    </div>
+
+    <div class="contact-intro text-center mb-6 max-w-825px mx-auto px-4">
+      {{ page.content }}
+    </div>
+
+    {% form 'contact', id: formId, class: "max-w-825px mx-auto mt-10 mb-12" %}
+      {% include 'form-status', form: form, form_id: formId %}
+
+      <div class="flex mb-4 mxsm:flex-wrap">
+        <div class=" sm:w-1/2 w-full sm:pr-2">
+          <label for="{{ formId }}-fname" class="font-bold inline-block mb-2"><span class="text-danger">*</span>First Name</label>
+          <input type="text" id="{{ formId }}-fname" class="w-full bg-light-gray p-3 border border-gray90" name="contact[first_name]" value="{% if customer %}{{ customer.first_name }}{% endif %}" required>
+        </div>
+  
+        <div class=" sm:w-1/2 w-full sm:pl-2">
+          <label for="{{ formId }}-lname" class="font-bold inline-block mb-2"><span class="text-danger">*</span>Last Name</label>
+          <input type="text" id="{{ formId }}-lname" class="w-full bg-light-gray p-3 border border-gray90" name="contact[last_name]" value="{% if customer %}{{ customer.last_name }}{% endif %}" required>
+        </div>
+      </div>
+
+      <div class="flex mb-4 mxsm:flex-wrap">
+        <div class=" sm:w-1/2 w-full sm:pr-2">
+          <label for="{{ formId }}-email" class="font-bold inline-block mb-2"><span class="text-danger">*</span>Email Address</label>
+          <input type="email" id="{{ formId }}-email" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" aria-required="true"
+          class="{%- if form.errors contains 'email' -%}border-danger{%- endif -%} w-full bg-light-gray p-3 border border-gray90"
+          {%- if form.errors contains 'email' -%}
+            aria-invalid="true"
+            aria-describedby="{{ formId }}-email-error"
+          {%- endif -%}
+          required
+          >
+        </div>
+  
+        <div class=" sm:w-1/2 w-full sm:pl-2">
+          <label for="{{ formId }}-phone" class="font-bold inline-block mb-2"><span class="text-danger">*</span>Phone Number</label>
+          <input type="tel" id="{{ formId }}-phone" class="w-full bg-light-gray p-3 border border-gray90" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" required>
+        </div>
+      </div>
+
+      
+      <div class="flex mb-4 mxsm:flex-wrap">
+        <div class=" sm:w-1/2 w-full sm:pr-2">
+          <label for="{{ formId }}-concern" class="font-bold inline-block mb-2"><span class="text-danger">*</span>What is your concern?</label>
+          <select name="contact[concern]" class="w-full bg-light-gray p-3 border border-gray90" id="" required>
+            <option value="general_inquiries" hidden disabled>General Inquiries</option>
+            <option value="general_inquiries">General Inquiries</option>
+            <option value="look_membership">LOOK List (Membership)</option>
+            <option value="orders">Orders</option>
+            <option value="technical_concerns">Technical Concerns</option>
+            <option value="store_concerns">Store Concerns</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </div>
+      </div>
+
+      
+      <label for="{{ formId }}-message" class="font-bold inline-block mb-2"><span class="text-danger">*</span>{{ 'contact.form.message' | t }}</label>
+      <textarea rows="10" id="{{ formId }}-message" class="w-full bg-light-gray p-3 border border-gray90" name="contact[{{ 'contact.form.message' | t }}]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+      <div class="submit-cont text-center mt-4">
+        <button type="submit" class="py-3 px-10 bg-primary text-white uppercase font-bold tracking-5px">Submit</button>
+      </div>
+
+    {% endform %}
+
+    <div class="contact-info text-center">
+      <h3 class="uppercase font-bold text-xlg mb-8">Contact Information</h3>
+
+      <div class="flex justify-center">
+        <div class="shell mr-12">
+          <div class="look-address text-left">
+            <h4 class="font-bold">LOOK - SM Aura</h4>
+            <ul class="mb-5 font-semibold">
+              <li>111/124-129</li>
+              <li>Upper Ground Floor</li>
+              <li>SM Aura Premier,</li>
+              <li>Taguig City</li>
+              <li>Philippines</li>
+              <!-- <li>2nd Level,</li>
+              <li>SM Aura Premier,</li>
+              <li>26th Street cor. Mckinley Parkway,</li>
+              <li>Taguig City 1630</li>
+              <li>Philippines</li> -->
+            </ul>
+
+            <a href="https://www.google.com/maps/place/SM+Aura+Premier/@14.5466078,121.0540456,17z/data=!4m5!3m4!1s0x3397c8ed130da79f:0x94c0149c71482dbc!8m2!3d14.546748!4d121.0545499" target="_blank" class="underline text-secondary">Open Map in new tab →</a>
+          </div>
+        </div>
+        <div class="shell text-left">
+          <h4 class="font-bold mb-1">Customer Support:</h4>
+          <a href="mailto:lookphcs@lookatme.com.ph" class="underline text-secondary inline-block mb-3">lookphcs@lookatme.com.ph</a>
+          <!-- Edited by Rengie - 11/13/2020 -->
+          <h4 class="font-bold mb-1">Support Schedule:</h4>
+          <div class="font-semibold">Monday - Friday, 9-6PM only</div>
+          {% comment %} 
+          <a href="" class="underline text-secondary">brand@lookatme.com.ph</a>
+          <h4 class="font-bold mb-1 mt-5">Press:</h4>
+          <a href="" class="underline text-secondary">press@lookatme.com.ph</a> {% endcomment %}
+        </div>
+
+      </div>
+    
+    </div>
+  </div>
+
+</main>
+
+{% schema %}
+    {
+        "name": "Contact Us",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "contactus_image",
+                "label": "Banner Image for Contact Us Page"
+            }
+        ]
+    }
+{% endschema %}
+
+
+{% comment %} <div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      {% if page.content.size > 0 %}
+        <div class="rte">
+          {{ page.content }}
+        </div>
+      {% endif %}
+
+      <div class="contact-form form-vertical">
+        {%- assign formId = 'ContactForm' -%}
+        {% form 'contact', id: formId %}
+          {% include 'form-status', form: form, form_id: formId %}
+
+          <div class="grid grid--half-gutters">
+            <div class="grid__item medium-up--one-half">
+              <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+              <input type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+            </div>
+            <div class="grid__item medium-up--one-half">
+              <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+              <input
+                >
+              {%- if form.errors contains 'email' -%}
+                <span id="{{ formId}}-email-error" class="input-error-message">
+                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                  {% include 'icon-error' %}
+                  <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+          <input type="tel" id="{{ formId }}-phone" name="contact[{{ 'contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+          <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}

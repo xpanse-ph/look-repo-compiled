@@ -1,0 +1,112 @@
+{% comment %} 
+{% for discount_application in cart.discount_applications %}
+  Discount name: {{ discount_application.title }}
+  Savings: -{{ discount_application.total_allocated_amount | money }}
+{% endfor %} {% endcomment %}
+
+{% comment %} <div class="cart-promo">
+  <h2>ENTER A PROMO CODE</h2>
+  <input type="text" id="devPromo">
+  <a href="/checkout?discount=none" id="redemDevPromo">Apply Coupon</a>
+</div>
+<script>
+  $(document).ready(function(){
+    //listen to the promo button click
+    $('#redemDevPromo').on('click', function(event){
+      //disable the button event
+      event.preventDefault();
+      //write the url format
+      var theUrl = '/checkout?discount=';
+      //grab the discount code from the input
+      var theDiscount = $('#devPromo').val();
+      //full url to redirect to checkout with promo code
+      var toRedirect = theUrl+theDiscount;
+      console.log(toRedirect);
+      //redirect
+      window.location.href = toRedirect;
+    });
+  });
+</script> {% endcomment %}
+
+<script>
+window.addEventListener("DOMContentLoaded", (e) => {
+  $(document).ready(function(){
+    var btn = $('#js-cart-discount')
+    //listen to the promo button click
+    btn.on('click', function(event){
+      //disable the button event
+      event.preventDefault();
+      //write the url format
+      var theUrl = '/checkout?discount=';
+      //grab the discount code from the input
+      var theDiscount = $('#discountCode').val();
+      //full url to redirect to checkout with promo code
+      var toRedirect = theUrl+theDiscount;
+      console.log(toRedirect)
+      //redirect
+      {% comment %} window.location.href = toRedirect; {% endcomment %}
+      addCode(toRedirect, theDiscount)
+      $(this).text('APPLYING...')
+
+    });
+
+    function addCode(url, tag) {
+        param = {
+            type: "GET",
+            url: url,
+            dataType: "html",
+            success: function(data) {
+                var html = $(data),
+                    dis_form = html.find('.order-summary__section--discount'),
+                    $elem = $('#tags-list'),
+                    tagLists = dis_form.find('.tags-list'),
+                    totalPrice = html.find('.total-line__price .payment-due__price').text(),
+                    notice = html.find('.notice--warning'),
+                    lineReduction = html.find('.total-line--reduction'),
+                    prices = [];
+
+                
+                lineReduction.each((i, disCode) => {
+                  var $this = $(disCode),
+                      title = $(disCode).find('.total-line__name span:nth-child(1)').eq(0).text().trim()
+                  if(title === 'Discount' || title === 'Gift card') {
+                    var mainTag = $this.find('.reduction-code__text').text().trim(),
+                        discountPrice = $this.find('.total-line__price .order-summary__emphasis').data('checkout-applied-gift-card-amount-target') || $this.find('.total-line__price .order-summary__emphasis').data('checkout-discount-amount-target');
+                        
+                        prices.push(discountPrice)
+                    appendCode(mainTag, prices)
+                  }
+                })
+
+                {% comment %} var discountTag = `${tagLists.find('.reduction-code__text').text().trim() === tag ? tag : notice.find('.notice__text').text()}`,
+                    errorTag = "discount code isn’t available to you right now"; {% endcomment %}
+
+
+                function appendCode(code, price) {
+                  $elem.append(`
+                      <p class="${lineReduction.length > 0 ? "discount-tag mb-2" : "error-discount-tag"}">${lineReduction.length > 0 ? code : notice.find('.notice__text').text()}</p>
+                  `);
+                  var newPrice = price.reduce((a, b) => a + b, 0)
+                  $('#line-discounted #discountPrice').text(`- ${Shopify.formatMoney(newPrice, theme.moneyFormat)}`);
+                }
+                if(lineReduction.length > 0) {
+                    {% comment %} $('a[name="checkout"]').attr('href', url) {% endcomment %}
+                    $('#cart-total-price').text(totalPrice)
+                    $('#line-discounted').removeClass('hidden').addClass('flex');
+                    btn.prop('disabled', true).text('APPLIED')
+                }else {
+                  $elem.append(`
+                      <p class="error-discount-tag text-danger">${notice.find('.notice__text').text()}</p>
+                  `);
+                  btn.prop('disabled', false).text('TRY AGAIN')
+                }
+            },
+            error: function(error) {
+            console.log(error);
+            }
+        }
+        jQuery.ajax(param);
+    }
+  });
+})
+</script>

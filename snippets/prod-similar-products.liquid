@@ -1,0 +1,25 @@
+<section class="mt-8">
+    <div class="container mx-auto">
+        <h3 class="text-mdxlg font-extrabold uppercase"></h3>
+
+        <div class="carousel-cont">
+            <div class="product-card w-1/5 md:px-3 lg:px-6 mb-10 collection-list mxmd:w-1/2 mxmd:px-2">
+                <div class="{{soldOutClass}} {{saleClass}}">
+                    <div class="grid-list-image relative">
+                        <span class="validator absolute right-0">
+                        </span>
+                        <a href="{{ product.url }}" class="grid-link">
+                            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" />
+                        </a>
+                    </div>
+                    <a href="/products/{{itemHandle}}" class="grid-link">
+                        <p class="grid-link__vendor">{{ product.vendor }}</p>
+                        <p class="grid-link__title">{{ product.title }}</p>
+                        <p class="grid-link__title">{{ product.price }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</section>

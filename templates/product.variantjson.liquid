@@ -1,0 +1,5 @@
+{% layout none %}{ {% for variant in product.variants %}
+"{{variant.id}}" :{{ variant.inventory_quantity }},
+"product_tag" :{{product.tags | json}}
+{%unless forloop.last == true%},{% endunless %}{% endfor %}
+}

@@ -1,0 +1,67 @@
+<div data-section-id="{{ section.id }}" data-section-type="marketing-block-section" class="mt-100">
+    <div class="flex flex-wrap">
+        {% for block in section.blocks %}
+            {%- if block.type == 'marketing' -%}
+                <div class="lg:w-1/2 w-full">
+                    <div class="{% if forloop.first %}lg:ml-50 lg:mr-25{% else %}lg:mr-50 lg:ml-25{% endif %}">
+                        {%- assign img_url = block.settings.img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                        {%- if block.settings.img != blank -%}
+                            <div class="img-container-{{section.id}}">
+                                <img class="lazyload lazypreload w-full h-auto"
+                                    src="{{ block.settings.img | img_url: '300x300' }}"
+                                    data-src="{{ img_url }}"
+                                    data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                                    data-aspectratio="{{ block.settings.img.aspect_ratio }}"
+                                    data-sizes="auto"
+                                    alt="{{ block.settings.img.alt | escape }}">
+                                </div>
+                                <style>
+                                    .img-container-{{section.id}} {
+                                        position: relative;
+                                        height: 0;
+                                        padding-bottom: {{ 1 | divided_by: block.settings.img.aspect_ratio | times: 100 }}%;
+                                    }
+                                    .img-container-{{section.id}} img {
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                    }
+                                </style>
+                        {%- else -%}
+                            <div class="img-container-{{section.id}}">
+                                <img class="h-auto w-full" src="{{ 'Rectangle-600x400.jpg' | asset_url }}" >
+                            </div>
+                        {%- endif -%}
+                    </div>
+                </div>
+            {%- endif -%}
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Marketing Block",
+        "max_blocks": 2,
+        "settings": [
+        ],
+        "blocks": [
+            {
+                "type": "marketing",
+                "name": "Marketing",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "img",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Marketing Block",
+                "category": "Homepage Layout"
+            }
+        ]
+    }
+{% endschema %}

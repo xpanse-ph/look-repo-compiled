@@ -1,0 +1,27 @@
+<div class="mx-auto my-12 account mxmd:mt-12">
+  <div class="grid">
+    <div class="grid__item">
+
+      <div class="mx-auto max-w-400px mxmd:w-full mxmd:px-4 form-vertical">
+
+        <h1 class="mb-4 text-center uppercase">
+          {%comment%}{{ 'customer.register.title' | t }}{%endcomment%}
+          ACCOUNT REGISTRATION
+        </h1>
+
+        {%- assign formId = 'RegisterForm' -%}
+        <div id="register-customer-form">
+          {% render "customer-fields", form_id: "qOtm6V" %}
+        </div>
+        
+        
+        <p class="my-8 text-center">Or connect with:</p>
+        <div class="w-3/4 mx-auto mb-8">
+          <hr style="color: #edf2f7;">
+        </div>
+        <div class='oxi-social-login'></div>
+        
+      </div>
+    </div>
+  </div>
+</div>

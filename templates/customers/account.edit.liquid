@@ -1,0 +1,124 @@
+<div class="mx-auto my-12 account mxmd:mt-12">
+    <div class="grid">
+      <div class="grid__item">
+  
+        <div class="mx-auto max-w-400px mxmd:w-full mxmd:px-4 form-vertical">
+  
+          <h1 class="mb-4 text-center uppercase">EDIT ACCOUNT</h1>
+  
+          {%- assign formId = 'RegisterForm' -%}
+          <div id="edit-customer-form">
+            {% render "customer-fields", form_id: "qOtm6V" %}
+          </div>
+          <p class="text-sm">*To have your other information edited</p>
+          <p class="text-sm">please email custserv@lookatme.com.ph</p>
+          {%comment%}
+          <p class="my-8 text-center">Or connect with:</p>
+          <div class="w-3/4 mx-auto mb-8">
+            <hr style="color: #edf2f7;">
+          </div>
+          <div class='oxi-social-login'></div>
+          {%endcomment%}
+          
+        </div>
+
+        {%comment%}
+        <div class="mx-auto mt-8 max-w-400px mxmd:w-full mxmd:px-4 form-vertical">
+            <h1 class="mb-4 text-center uppercase">{{ 'customer.reset_password.title' | t }}</h1>
+            {% form 'reset_customer_password' %}
+    
+            <p class="mb-4 text-center">Enter a new password</p>
+    
+            {%- if form.errors -%}
+              <div class="form-message form-message--error text-danger">
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+            
+            <div class="flex flex-wrap">
+              <label class="hidden" for="ResetPassword">{{ 'customer.reset_password.password' | t }}</label>
+              <input placeholder="Password" type="password" value="" name="customer[password]" id="ResetPassword" class="w-full mb-4{% if form.errors contains 'password' %} input--error{% endif %}">
+      
+              <label class="hidden" for="PasswordConfirmation">{{ 'customer.reset_password.password_confirm' | t }}</label>
+              <input placeholder="Confirm Password" type="password" value="" name="customer[password_confirmation]" id="PasswordConfirmation" class="w-full mb-4{% if form.errors contains 'password_confirmation' %} input--error{% endif %}">
+            </div>
+    
+            <input type="submit" class="w-full font-bold text-center text-white uppercase bg-black btn" value="{{ 'customer.reset_password.submit' | t }}">
+          {% endform %}
+        </div>
+        {%endcomment%}
+        {%comment%}
+        {% form 'customer_login', novalidate: 'novalidate' %}
+          {% if form.password_needed %}
+          <div class="flex justify-between my-4">
+            <div class="flex items-center w-1/2">
+              <input type="checkbox" class="mr-2">Remember me
+            </div>
+            <div class="w-1/2 text-right">
+              <a href="#editRecover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+            </div>
+          </div>
+          {% endif %}
+        {% endform%}
+        {%endcomment%}
+        <div id="EditRecoverPasswordForm" class="mx-auto mt-16 max-w-400px mxmd:w-full mxmd:px-4">
+
+          <div class="text-center">
+            <h1 class="mb-4 text-center uppercase" id="EditRecoverHeading">{{ 'customer.reset_password.title' | t }}</h1>
+            <p>{{ 'customer.recover_password.subtext' | t }}</p>
+          </div>
+  
+          <div class="form-vertical">
+            {% form 'recover_customer_password' , id: 'EditRecoverPasswordOriginalForm' %}
+  
+              {% comment %}
+                Add a hidden span to indicate the form was submitted succesfully.
+              {% endcomment %}
+              {% if form.posted_successfully? %}
+                <span class="hidden edit-reset-password-success"></span>
+              {% endif %}
+  
+              <label class="hidden" for="RecoverEmail">{{ 'customer.recover_password.email' | t }}</label>
+              <input
+                placeholder="Email Address"
+                type="email"
+                value="{{customer.email}}"
+                name="email"
+                id="Edit-RecoverEmail"
+                class="input-full{% if form.errors %} input--error{% endif %} w-full mt-8 mb-4 hidden"
+                autocorrect="off"
+                autocapitalize="off"
+                aria-disabled
+                tabindex="0"
+                readonly
+                {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="RecoverEmail-email-error"
+                {%- endif -%}
+                >
+                {%- if form.errors -%}
+                <div id="Edit-RecoverEmail-email-error" class="mb-4 input-error-message text-danger">
+                  <p class="hidden">*{{ 'general.accessibility.error' | t }} </p>
+                  <p class="block">*{{ form.errors.messages['form'] }}</p>
+                  {%comment%}
+                  {% include 'icon-error' %}
+                  {%endcomment%}    
+                </div>
+                {%- endif -%}
+  
+              <div class="mt-8 text-center">
+                <p>
+                  <input type="submit" id="EditPasswordBtn" class="mb-4 btn" value="{{ 'customer.recover_password.submit' | t }}">
+                </p>
+              </div>
+            {% endform %}
+          </div>
+  
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  

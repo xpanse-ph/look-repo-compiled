@@ -1,0 +1,28 @@
+{% comment %} {{ product.metafields }} {% endcomment %}
+{%- assign how_to_use = product.metafields.global.product_usage -%}
+{%- assign ingredients = product.metafields.global.product_ingredients -%}
+<div class="details-organizer mt-12">
+        <div class="organizer--headers flex justify-center">
+            <div data-organizer="description" class="mxsm:text-sm flex-grow organizer__header-btn uppercase cursor-pointer border-2 border-r-0 border-gray90 text-center py-4 active">Description</div>
+            <div data-organizer="ingredients" class="mxsm:text-sm flex-grow organizer__header-btn uppercase cursor-pointer border-2 border-gray90 text-center py-4 ">Ingredients</div>
+            <div data-organizer="how_to_use" class="mxsm:text-sm flex-grow organizer__header-btn uppercase cursor-pointer border-2 border-l-0 border-gray90 text-center py-4 ">How to use</div> 
+        </div>
+        <div class="relative organizer--contents-cont border-2 border-gray90 border-t-0">
+            <div class="organizer__contents top-0 left-0 w-full hidden p-6 active" data-organizer="description">
+                <h3 class="font-bold">What is:</h3>
+                <p class="mt-3">{{ product.description }}</p>
+
+                {% comment %} <div class=" w-1/2 border border-gray90 mx-auto my-8"></div> {% endcomment %}
+
+                {% comment %} <p class=" text-primary opacity-50">* Unless otherwise stated and to the fullest extent permissible by law, Look disclaims all warranties, representations and conditions (whether express or implied) as to the veracity, accuracy, completeness, currency or any other aspects of any product claims or descriptions on this website which have been provided by to us by third parties (e.g. the relevant brand owners or customers reviews). Sephora has not independently verified such product claims or descriptions. Customers and users who wish to rely upon such product claims, descriptions or customer reviews should consult directly with such third parties.</p> {% endcomment %}
+            </div>
+            <div class="organizer__contents top-0 left-0 w-full hidden p-6" data-organizer="ingredients">
+                <p class="mt-3">{{ ingredients }}</p>
+            
+            </div>
+            <div class="organizer__contents top-0 left-0 w-full hidden p-6" data-organizer="how_to_use">
+                <p class="mt-3">{{ how_to_use }}</p>
+            
+            </div>
+        </div>
+</div>

@@ -1,0 +1,28 @@
+<script>
+    CF.customerReady(function() {
+      // Ready to handle customer data!
+      CF.customer.parseDates('birthdate');
+      var birthday = CF.customer.get('birthdate');
+      var month = birthday.month();
+      var formattedDate = new Date(birthday);
+
+      var d = formattedDate.getDate();
+      var m =  formattedDate.getMonth("MMMM");
+      m += 1;  // JavaScript months are 0-11
+      var y = formattedDate.getFullYear();
+
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+      ];
+
+      var monthWord = monthNames[formattedDate.getMonth()];
+
+      var bday = '<span>'+monthWord+' '+d+', '+y+'</span>'
+      $('.customer-bday').append(bday)
+
+      var gender = CF.customer.get('new_dropdown_field');
+      $('.customer-gender').append(gender)
+
+    })
+
+</script>

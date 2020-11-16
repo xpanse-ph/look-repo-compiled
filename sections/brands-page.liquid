@@ -1,0 +1,614 @@
+<div class="img-container-slider mb-8">
+    <h2 class="text-lg uppercase text-center font-extrabold mb-6">featured brands</h2>
+    {% comment %} <div class="flickity-trigger-brands-page w-4/5 mx-auto">
+        {% for block in section.blocks %}
+            <div class="image-shell mx-4 sm:mr-8 mxsm:w-1/3 align-middle">
+                <div class="flex items-center h-full">
+                    <img src="{{ block.settings.brand_image | img_url: 'x100' }}" alt="">
+                </div>
+            </div>
+        {% endfor %}
+    </div> {% endcomment %}
+    <div class="flickity-trigger-brands-page w-4/5 mx-auto">
+        {% for block in section.blocks %}
+			<!-- Edited by Rengie - 11/13/2020 -->
+            <a href="{{ block.settings.brand_url }}" class="image-shell mx-4 sm:mr-8 mxsm:w-1/3">
+                <img src="{{ block.settings.brand_image | img_url: 'x100' }}" alt="">
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .flickity-trigger-brands-page .image-shell{
+        min-width: 20%;
+        height: 100px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .flickity-trigger-brands-page .image-shell img{
+        display:block;
+        max-height: 100%;
+    }
+</style>
+
+<div class="mobile-alpha-filter">
+    <select disabled class="w-full md:hidden mt-10 uppercase font-extrabold border border-black appearance-none text-mdlg px-8 py-4 bg-lighter-gray cursor-pointer">
+        <option value="select-all">all brands</option>
+        <option value="select-a">a</option>
+        <option value="select-b">b</option>
+        <option value="select-c">c</option>
+        <option value="select-d">d</option>
+        <option value="select-e">e</option>
+        <option value="select-f">f</option>
+        <option value="select-g">g</option>
+        <option value="select-h">h</option>
+        <option value="select-i">i</option>
+        <option value="select-j">j</option>
+        <option value="select-k">k</option>
+        <option value="select-l">l</option>
+        <option value="select-m">m</option>
+        <option value="select-n">n</option>
+        <option value="select-o">o</option>
+        <option value="select-p">p</option>
+        <option value="select-q">q</option>
+        <option value="select-r">r</option>
+        <option value="select-s">s</option>
+        <option value="select-t">t</option>
+        <option value="select-u">u</option>
+        <option value="select-v">v</option>
+        <option value="select-w">w</option>
+        <option value="select-x">x</option>
+        <option value="select-y">y</option>
+        <option value="select-z">z</option>
+    </select>
+</div>
+<div class="desktop-alpha-filter overflow-hidden text-xlg text-center prodmxmd:max-h-none prodmxmd:transition-all prodmxmd:duration-700 mt-16 md:mb-12">
+    <div class="mb-2 text-primary">
+        <span class="alpha-triggers cursor-pointer uppercase active" data-filter="select-all">All brands</span>
+    </div>
+
+    <ul class="text-primary">
+        <li class="inline-block font-light cursor-pointer uppercase mr-2 alpha-triggers" data-filter="select-a">a</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-b">b</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-c">c</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-d">d</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-e">e</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-f">f</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-g">g</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-h">h</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-i">i</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-j">j</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-k">k</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-l">l</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-m">m</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-n">n</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-o">o</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-p">p</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-q">q</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-r">r</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-s">s</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-t">t</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-u">u</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-v">v</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-w">w</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-x">x</li>
+        <li class="inline-block font-light cursor-pointer uppercase mx-2 alpha-triggers" data-filter="select-y">y</li>
+        <li class="inline-block font-light cursor-pointer uppercase ml-2 alpha-triggers" data-filter="select-z">z</li>
+    </ul>
+
+</div>
+
+<div class="w-full md:hidden border border-gray90 mx-auto my-10"></div>
+
+
+<div class="body-section text-base">
+
+    <div class="alpha-group min-h-110px select-a flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold">A</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/acwell">Acwell</a></li>
+                <li><a href="/collections/ahc">AHC</a></li>
+                <li><a href="/collections/american-crew">American Crew</a></li>
+                <li><a href="/collections/anessa">Anessa</a></li>
+<!--                 <li><a href="/collections/armani">Armani</a></li> -->
+                <li><a href="/collections/artego">Artego</a></li>
+                <li><a href="/collections/avedo">Avedo</a></li>
+                <li><a href="/collections/avene">Avene</a></li>
+              	<li><a href="/collections/aveeno">Aveeno</a></li>
+                <li><a href="/collections/azaro">Azaro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-b flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">B</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/banila-co">Banila Co</a></li>
+                <li><a href="/collections/barry-m">Barry M</a></li>
+                <li><a href="/collections/basic-care">Basic Care</a></li>
+                <li><a href="/collections/beauty-blender">Beauty Blender</a></li>
+                <li><a href="/collections/benefit">Benefit</a></li>
+                <li><a href="/collections/bioderma">Bioderma</a></li>
+                <li><a href="/collections/biore">Biore</a></li>
+                <li><a href="/collections/bioscience">BioScience</a></li>
+                <li><a href="/collections/bling-pop">Bling Pop</a></li>
+                <li><a href="/collections/blk">BLK</a></li>
+                <li><a href="/collections/burberry">Burberry</a></li>
+                <li><a href="/collections/bvlgari">Bvlgari</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-c flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">C</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/carolina-herrera">Carolina Herrera</a></li>
+                <li><a href="/collections/caudalie">Caudalie</a></li>
+                <li><a href="/collections/cellapy">Cellapy</a></li>
+                <li><a href="/collections/cerave">Cerave</a></li>
+                <li><a href="/collections/cetaphil">Cetaphil</a></li>
+                <li><a href="/collections/chanel">Chanel</a></li>
+                <li><a href="/collections/charriol">Charriol</a></li>
+                <li><a href="/collections/ck">CK</a></li>
+                <li><a href="/collections/clarins">Clarins</a></li>
+                <li><a href="/collections/clio">Clio</a></li>
+              	<li><a href="/collections/chloe">Chloé</a></li>
+                <li><a href="/collections/coach">Coach</a></li>
+                <li><a href="/collections/cosrx">CosRx</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-d flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">D</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/d-g">D&G</a></li>
+                <li><a href="/collections/davidoff">Davidoff</a></li>
+                <li><a href="/collections/day-mellow">Daymellow</a></li>
+                <li><a href="/collections/dear-klairs">Dear Klairs</a></li>
+                <li><a href="/collections/dermalogica-elizabeth-arden">Dermalogica/Elizabeth Arden</a></li>
+                <li><a href="/collections/dkny">DKNY</a></li>
+                <li><a href="/collections/dr-ceuracle">Dr. Ceuracle</a></li>
+<!--                 <li><a href="/collections/dr-jou">Dr. Jou</a></li> -->
+                <li><a href="/collections/dr-morita">Dr. Morita</a></li>
+                <li><a href="/collections/dr-teals">Dr. Teals</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="alpha-group min-h-110px select-e flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">E</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/eco-tools">Eco Tools</a></li>
+                <li><a href="/collections/eksperience">Eksperience</a></li>
+                <li><a href="/collections/ellana">Ellana</a></li>
+                <li><a href="/collections/embryolisse">Embryolisse</a></li>
+                <li><a href="/collections/eoss">EOSS</a></li>
+                <li><a href="/collections/escada">Escada</a></li>
+                <li><a href="/collections/estee-lauder">Estee Lauder</a></li>
+                <li><a href="/collections/euro">Euro</a></li>
+            </ul>
+        </div>
+    </div>
+ 
+
+    <div class="alpha-group min-h-110px select-f flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">F</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/face-republic">Face Republic</a></li>
+                <li><a href="/collections/farmskin">Farmskin</a></li>
+                <li><a href="/collections/fenty">Fenty</a></li>
+                <li><a href="/collections/ferragamo">Ferragamo</a></li>
+                <li><a href="/collections/filorga">Filorga</a></li>
+                <li><a href="/collections/frank-body">Frank Body</a></li>
+            </ul>
+        </div>
+    </div>
+ 
+
+    <div class="alpha-group min-h-110px select-g flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">G</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/garnier">Garnier</a></li>
+                <li><a href="/collections/givenchy">Givenchy</a></li>
+              	<li><a href="/collections/armani">Giorgio Armani</a></li>
+                <li><a href="/collections/glam-up">Glam up</a></li>
+                <li><a href="/collections/glossier">Glossier</a></li>
+                <li><a href="/collections/gucci">Gucci</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-h flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">H</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/hada-labo">Hada Labo</a></li>
+                <li><a href="/collections/happy-skin">Happy Skin</a></li>
+                <li><a href="/collections/huda-beauty">Huda Beauty</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-i flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">I</div>
+        </div>   
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/innisfree">Innisfree</a></li>
+                <li><a href="/collections/issey-miyake">Issey Miyake</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-j flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">J</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-k flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">K</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/k-palette">K-Palette</a></li>
+              	<li><a href="/collections/kenzo">Kenzo</a></li>
+                <li><a href="/collections/kat-von">Kat Von</a></li>
+                <li><a href="/collections/kiss-electricals">Kiss Electricals</a></li>
+                <li><a href="/collections/kiss-new-york">Kiss New York</a></li>
+                <li><a href="/collections/klavuu">Klavuu</a></li>
+                <li><a href="/collections/kocostar">Kocostar</a></li>
+                <li><a href="/collections/kora-organics">Kora Organics</a></li>
+                <li><a href="/collections/kylie">Kylie</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-l flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">L</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/loccitane">L'Occitane</a></li>
+                <li><a href="/collections/loreal-cosmetics">L'oreal Cosmetics</a></li>
+                <li><a href="/collections/la-coupe">La Coupe</a></li>
+                <li><a href="/collections/la-mer">La Mer</a></li>
+                <li><a href="/collections/lacoste">Lacoste</a></li>
+                <li><a href="/collections/laneige">Laneige</a></li>
+                <li><a href="/collections/lanolips">Lanolips</a></li>
+                <li><a href="/collections/lanvin">Lanvin</a></li>
+                <li><a href="/collections/laura-mercier">Laura Mercier</a></li>
+                <li><a href="/collections/leaders-in-solution">Leaders in Solution</a></li>
+                <li><a href="/collections/lime-crime">Lime Crime</a></li>
+                <li><a href="/collections/lip-smacker">Lip Smacker</a></li>
+                <li><a href="/collections/lucas-papaw">Lucas Papaw</a></li>
+                <li><a href="/collections/lululun">Lululun</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-m flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">M</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/madeca-21">Madeca 21</a></li>
+                <li><a href="/collections/make-up-for-ever">Make Up For Ever</a></li>
+                <li><a href="/collections/marc-jacobs">Marc Jacobs</a></li>
+                <li><a href="/collections/marco">Marco</a></li>
+                <li><a href="/collections/maro">Maro</a></li>
+                <li><a href="/collections/maybelline">Maybelline</a></li>
+                <li><a href="/collections/mediheal">Mediheal</a></li>
+                <li><a href="/collections/michael-kors">Michael Kors</a></li>
+                <li><a href="/collections/mis-en-scene">Mis En Scene</a></li>
+                <li><a href="/collections/mizumi">Mizumi</a></li>
+                <li><a href="/collections/moschino">Moschino</a></li>
+                <li><a href="/collections/mugler">Mugler</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-n flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">N</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/narciso-rodriguez">Narciso Rodriguez</a></li>
+                <li><a href="/collections/nars">Nars</a></li>
+                <li><a href="/collections/nautica">Nautica</a></li>
+                <li><a href="/collections/neo-gen">Neogen</a></li>
+                <li><a href="/collections/noughty">Noughty</a></li>
+                <li><a href="/collections/nude-stix">Nude Stix</a></li>
+                <li><a href="/collections/nutri-color-creme">Nutri Color Crème</a></li>
+                <li><a href="/collections/nuxe">Nuxe</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-o flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">O</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/olay">Olay</a></li>
+                <li><a href="/collections/orofluido">Orofluido</a></li>
+            </ul>
+        </div>
+    </div>
+
+     <div class="alpha-group min-h-110px select-p flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">P</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/papa-recipe">Papa Recipe</a></li>
+                <li><a href="/collections/parfum-de-marly">Parfum De Marly</a></li>
+                <li><a href="/collections/pat-mc-grath">Pat Mc Grath</a></li>
+                <li><a href="/collections/peter-thomas-roth">Peter Thomas Roth</a></li>
+                <li><a href="/collections/philips">Philips</a></li>
+                <li><a href="/collections/philips-women">Philips Women</a></li>
+                <li><a href="/collections/plant-base">Plant Base</a></li>
+                <li><a href="/collections/ponds">Ponds</a></li>
+                <li><a href="/collections/prada">Prada</a></li>
+                <li><a href="/collections/pyungkang-yul">Pyungkang Yul</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-q flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">Q</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/quickfx">QuickFX</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-r flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">R</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/ralph-lauren">Ralph Lauren</a></li>
+                <li><a href="/collections/rcma">RCMA</a></li>
+                <li><a href="/collections/real-techniques">Real Techniques</a></li>
+                <li><a href="/collections/roja">Roja</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-s flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">S</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/sally-hansen">Sally Hansen</a></li>
+                <li><a href="/collections/scalp-to-hair">Scalp to Hair</a></li>
+                <li><a href="/collections/senka">Senka</a></li>
+                <li><a href="/collections/serioxyl">Serioxyl</a></li>
+                <li><a href="/collections/shine">Shine</a></li>
+                <li><a href="/collections/shiseido">Shiseido</a></li>
+                <li><a href="/collections/shu-uemura">Shu Uemura</a></li>
+                <li><a href="/collections/simple">Simple</a></li>
+                <li><a href="/collections/snail-white">Snail White</a></li>
+                <li><a href="/collections/solinotes">Solinotes</a></li>
+                <li><a href="/collections/some-by-mi">Some By Mi</a></li>
+                <li><a href="/collections/son-park">Son & Park</a></li>
+                <li><a href="/collections/st-ives">St Ives</a></li>
+                <li><a href="/collections/sulwhasoo">Sulwhasoo</a></li>
+                <li><a href="/collections/summer-fridays">Summer Fridays</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-t flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">T</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/teviant">Teviant</a></li>
+                <li><a href="/collections/thank-you-farmer">Thank You Farmer</a></li>
+                <li><a href="/collections/the-ordinary">The Ordinary</a></li>
+                <li><a href="/collections/the-saem">The Saem</a></li>
+                <li><a href="/collections/tommy-hilfiger">Tommy Hilfiger</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-u flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">U</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/uniqone">Uniqone</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-v flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">V</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/vera-wang">Vera Wang</a></li>
+                <li><a href="/collections/versace">Versace</a></li>
+                <li><a href="/collections/viktor-and-rolf">Viktor and Rolf</a></li>
+                <li><a href="/collections/vt-cosmetics">VT Cosmetics</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-w flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">W</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/wet-brush">Wet Brush</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-x flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">X</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/xerjoff">Xerjoff</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-y flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">Y</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                <li><a href="/collections/ysl">YSL</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="alpha-group min-h-110px select-z flex items-start mb-12">
+        <div class="main-letter mr-4 w-1/5">
+            <div class="text-42px font-extrabold uppercase">Z</div>
+        </div>
+        <div class="brand-lists w-4/5">
+            <ul class="brands-ul">
+                
+            </ul>
+        </div>
+    </div>
+</div> 
+
+<!-- <style>
+  .w-4\/5 {
+  	display: flex;
+  }
+</style> -->
+
+<script>
+    const deskAlphaFilter = document.querySelector('.desktop-alpha-filter'),
+          mobAlphaFilter = document.querySelector('.mobile-alpha-filter'),
+          deskAlphaTrigger = deskAlphaFilter.querySelectorAll('.alpha-triggers'),
+          alphaGroup = document.querySelectorAll('.alpha-group')
+
+    console.log(deskAlphaTrigger)      
+
+    function filterBrands(filterVal){
+        //loop through the alphabet groups and hide all besides the filterValue
+        alphaGroup.forEach(group => {
+            group.classList.add('hidden')
+
+        if(filterVal == 'select-all') group.classList.remove('hidden');
+
+        if(group.classList.contains(filterVal)){
+                group.classList.remove('hidden')
+        }
+        });
+    }
+    
+    function desktopFilter(e){
+        let filterValue = this.dataset.filter
+        // remove all active on click
+        deskAlphaTrigger.forEach(triggers => {
+            triggers.classList.remove('active')
+        });
+        //add active to the clicked trigger
+        this.classList.add('active')
+
+        mobAlphaFilter.querySelector('select').value = filterValue
+        filterBrands(filterValue)
+
+    }
+    console.log(mobAlphaFilter)
+
+    deskAlphaTrigger.forEach(trigger => {
+        trigger.addEventListener('click', desktopFilter)
+    });
+
+    mobAlphaFilter.addEventListener('click', function(e){
+        e.preventDefault();
+        console.log('test')
+        deskAlphaFilter.classList.toggle('prodmxmd:max-h-1000px')
+    })
+
+</script>
+
+
+{% schema %}
+    {
+        "name": "Look Brands Page",
+        "class": "shopify-section outline-none",
+        "settings": [
+        
+        ],
+        "blocks":[
+            {
+                "type": "featured_brands",
+                "name": "Featured Brands",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id": "brand_image",
+                        "label": "Brand Image"
+                    },
+                    {
+                        "type": "url",
+                        "id": "brand_url",
+                        "label": "Brand Image URL"
+                    }
+                ]
+            }
+        ]
+        
+    }
+{% endschema %}

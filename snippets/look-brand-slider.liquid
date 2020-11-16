@@ -1,0 +1,17 @@
+<div class="featured-images mt-6 px-6 mxmd:px-2">
+  <div class="container mx-auto">
+    <div class="flickity-cont" data-flickity='{"contain": true, "prevNextButtons": false, "adaptiveHeight": true, "imagesLoaded": true, "cellAlign": "left","pageDots": true, "lazyLoad": true}'>
+      {% for block in blocks %}
+
+      <picture class="border-2 border-solid border-black-600 w-full">
+<!--         <source media="(max-width: 768px)" data-flickity-lazyload-srcset="{{ block.settings.featured_image_mobile | img_url: 'master' }}" data-flickity-lazyload-src="{{ block.settings.featured_image_mobile | img_url: 'master' }}"> -->
+        <img data-flickity-lazyload-srcset="{{ block.settings.featured_image_desktop | img_url: 'master' }} 1920w, {{ block.settings.featured_image_mobile | img_url: 'master' }} 720w" sizes="(min-width: 768px) 960px, 360px" alt="">
+      </picture>
+              <!--                         <div class="flickity-shell w-full">
+        <div class="border-2 border-solid border-black-600">
+        </div>
+        </div> -->
+      {% endfor %}
+    </div>
+  </div>
+</div>

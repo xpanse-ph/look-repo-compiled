@@ -1,0 +1,86 @@
+<div class="mx-auto account-page">
+    <div class="flex flex-wrap w-full py-12 xl:px-0 md:px-4 mxmd:px-4 account-wrap">
+         <!-- LEFT  -->
+         {% include 'account-left-nav'%}
+         <!-- END LEFT  -->
+         <div class="lg:w-5/6 lg:pl-8 md:pl-0 md:w-full mxmd:w-full account-details-main">
+
+            <h2 class="p-4 border-t border-l border-r border-gray mxmd:hidden">
+              <span class="font-bold">YOUR WISHLIST</span>
+            </h2>
+            <div class="hidden mxmd:border-r mxmd:border-gray ac-wl-with-wishlist">
+              <div class="mxmd:overflow-x-scroll">
+                <table class="w-full responsive-table">
+                  <thead class="border border-gray">
+                    <tr>
+                      <th class="p-4 font-bold text-center" scope="col">Select</th>
+                      <th class="p-4 font-bold text-center" scope="col">Image</th>
+                      <th class="p-4 font-bold text-center" scope="col">Brand</th>
+                      <th class="p-4 font-bold text-center mxmd:min-w-250px" scope="col">Product</th>
+                      <th class="p-4 font-bold text-center" scope="col">Variant</th>
+                      <th class="p-4 font-bold text-center" scope="col">Price</th>
+                      <th class="p-4 font-bold text-center" scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="account-wishlist-items-container" class="border border-gray"></tbody>
+                </table>
+              </div>
+              <div class="border border-gray">
+                <div>
+                  <div class="p-4"> 
+                    <div class="flex justify-between wishlist-crud-wrap">
+                      <div class="flex w-full crud-left-wrap mxmd:flex-wrap">
+                        <div class="mxmd:w-1/2 mxmd:pr-2 mxmd:mb-4">
+                          <input type="button" value="select all" class="px-4 py-2 mr-4 text-sm text-white uppercase bg-black cursor-pointer mxmd:mr-0 mxmd:w-full wl-selectall">
+                        </div>
+                        <div class="mxmd:w-1/2 mxmd:pl-2 mxmd:mb-4">
+                          <input type="button" value="deselect all" class="px-4 py-2 mr-4 text-sm text-white uppercase bg-black cursor-pointer mxmd:w-full mxmd:mr-0 wl-deselectall">
+                        </div>
+                        <div class="mxmd:w-1/2 mxmd:pr-2 mxmd:mb-4">
+                          <input type="button" value="delete" class="px-6 py-2 text-sm text-black uppercase bg-white border border-black cursor-pointer mxmd:w-full wl-delete">
+                        </div>
+                        <div class="w-full text-right mxmd:w-1/2 mxmd:pl-2 mxmd:mb-4">
+                          <input type="button" value="add to bag" class="px-4 py-2 text-sm text-white uppercase cursor-pointer bg-secondary mxmd:w-full wl-addtobag">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full border border-gray ac-wl-no-wishlist">
+              <p class="mt-4 text-sm text-center">There are no items in your wishlist.</p>
+              <p class="text-sm text-center"> Start wishing and shop our LOOK Collection now.</p>
+              <div class="w-full py-4 bg-white text-carousel">
+                {% for product in collections.featured-collection.products limit: 12 %}
+                  <div class="w-1/4 mxmd:w-1/2 product-card">
+                    <div class="mb-10 md:px-3 lg:px-6 collection-list mxmd:px-2">
+                      <div class="relative border grid-list-image border-gray">
+                        <span class="absolute right-0 validator">
+                          {% if product.available == false %}
+                            <div class="oos"><img src="{{ 'oos.png' | file_img_url: 'master' }}"></div>
+                          {% endif %}
+                        </span>
+                        <a href="{{ product.url }}" class="grid-link">
+                          <img data-flickity-lazyload="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" class="lazyload"/>
+                        </a>
+                      </div>
+                      <a href="/products/{{itemHandle}}" class="grid-link">
+                        <p class="text-lg font-bold uppercase grid-link__vendor mxmd:text-smbase">{{ product.vendor }}</p>
+                        <p class="my-2 text-sm grid-link__title">{{ product.title }}</p>
+                        <p class="text-sm font-bold grid-link__title">₱{{ product.price | money_without_currency }}</p>
+                        <div class="mt-2 overflow-hidden hulkapps-reviews" style="max-height: 20px">
+                          <div class="item-reviews" data-product-id="{{product.id}}"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                {%endfor%}
+              </div>
+            </div>
+         </div>
+         
+    </div>
+</div>
+  
+<script src="{{ 'swym-account-wishlist-page.js' | asset_url }}" ></script>

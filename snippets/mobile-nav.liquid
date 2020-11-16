@@ -1,0 +1,64 @@
+<div id="mobile-nav" class="lg:hidden block fixed top-0 w-full h-full bg-white overflow-y-scroll">
+    {%- unless customer -%}
+        <a href="{{routes.account_register_url}}" title="Register" class="text-sm font-extrabold tracking-wider uppercase bg-primary text-white w-full text-center py-5 block">
+            Register
+        </a>
+        <a href="{{routes.account_login_url}}" title="Sign in" class="text-sm font-extrabold tracking-wider uppercase bg-transparent border border-primary text-primary w-full text-center py-5 block">
+            Sign in
+        </a>
+    {%- endunless -%}
+    <ul class="mob-nav-link-list">
+    {%- for link in linklists[link_lists].links -%}
+        <li class="border-b border-gray90">
+
+        {%- capture link_title_html -%}
+            {% if link.link == blank %}
+                <!-- added by Rengie -->
+                <a href="{{ link.url }}" title="{{ link.title }}" class="block">
+                    <span class="uppercase z-neg-1">{{ link.title }}</span>
+                </a>
+            {% else %}
+                <span class="uppercase z-neg-1">{{ link.title }}</span>
+            {% endif %}
+        {%- endcapture -%}
+          
+			
+              <button class="flex {% if link.links != blank %}js-toggle-subnav justify-between{% else %}justify-start{% endif %} mob-nav-link-item w-full py-4 pl-10 pr-5 text-base font-bold">
+                {{link_title_html}}
+                  {%- if link.links != blank -%}
+                  <div class="icon close z-neg-1">
+                      <span class="icon-minus">
+                          {% render 'icon-minus' %}
+                      </span>
+                      <span class="icon-plus">
+                          {% render 'icon-plus' %}
+                      </span>
+                  </div>
+                  {%- endif -%}
+              </button>
+            {%- if link.links != blank -%}
+            <ul class="mob-nav-links-lvl2 hidden">
+                <li class="pl-10 border-t border-gray90">
+                    <a href="{{ link.url }}" title="{{ link.title }}" class="text-base py-4 ml-10 pr-5 block capitalize">
+                        View All {{ link.title }}
+                    </a>
+                </li>
+                {%- for child_link in link.links -%}
+                <li class="pl-10 border-t border-gray90">
+                    <a href="{{ child_link.url }}" title="{{ child_link.title }}" class="text-base py-4 ml-10 pr-5 block capitalize">
+                        {{ child_link.title }}
+                    </a>
+                </li>
+                {%- endfor -%}
+            </ul>
+            {%- endif -%}
+        </li>
+    {%- endfor -%}
+    </ul>
+    {%- if customer -%}
+        <a href="{{routes.account_logout_url}}" title="Logout" class="text-sm font-extrabold tracking-wider uppercase border bg-primary text-white w-full text-center py-5 block">
+            Logout
+        </a>
+    {%- endif -%}
+</div>
+<div class="overlay-bg"></div>
